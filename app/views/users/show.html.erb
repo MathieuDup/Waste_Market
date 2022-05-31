@@ -9,28 +9,38 @@
   <h2>My <%= @products.length %> products</h2>
   <% end %>
   <div class="cards">
-    <%# <%= render "/products/cards_products" %>
+    <% @products.each do |product| %>
+      <%= render 'products/card', product: product %>
+    <% end %>
   </div>
 
   <% if @buyer_orders.length > 0 %>
   <h2>My <%= @buyer_orders.length %> orders as a buyer</h2>
   <% end %>
   <div class="cards">
-    <%# <%= render "/orders/cards_buyer_orders" %>
+    <% @buyer_orders.each do |order| %>
+      <%= render 'orders/card', order: order %>
+    <% end %>
   </div>
+
 
   <% unless @seller_orders.empty? %>
     <h2>My <%= @seller_orders.length %> orders as a seller</h2>
   <% end %>
   <div class="cards">
-    <%# <%= render "/orders/cards_seller_orders" %>
+    <% @seller_orders.each do |order| %>
+      <%= render 'orders/card', order: order %>
+    <% end %>
   </div>
+
 
   <% if @reviews.length > 0 %>
   <h2>My <%= @reviews.length %> reviews</h2>
   <% end %>
   <div class="cards">
-    <%# <%= render "/reviews/cards_reviews" %>
+    <% @reviews.each do |review| %>
+      <%= render 'reviews/card', review: review %>
+    <% end %>
   </div>
 
 </div>
