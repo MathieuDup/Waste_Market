@@ -8,6 +8,6 @@ class User < ApplicationRecord
   has_many :products
   has_many :bookmarks
   has_many :messages
-  validates :username, presence: true, uniqueness: true
-  validates :address, presence: true
+  # validates :username, presence: true, uniqueness: true
+  # validates :address, presence: true
 end
