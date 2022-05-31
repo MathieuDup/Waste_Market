@@ -6,18 +6,18 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :price %>
-    <%= f.input :category %>
-    <%= f.input :sub_category %>
+    <%= f.association :category, collection: Category.all, prompt: "Choose a Category"  %>
+    <%= f.association :sub_category, collection: SubCategory.all, prompt: "Choose a Sub Category"  %>
     <%= f.input :characteristics %>
     <%= f.input :quantity_left %>
     <%= f.input :brand %>
     <%= f.input :condition %>
-      <%= f.input :buying_date, as: :date, start_year: Date.today.year, end_year: Date.today.year - 10,
+    <%= f.input :buying_date, as: :date, start_year: Date.today.year, end_year: Date.today.year - 10,
                                                         order: [:month, :year] %>
-      <%= f.input :expiration_date, as: :date, start_year: Date.today.year,
+    <%= f.input :expiration_date, as: :date, start_year: Date.today.year,
                                   end_year: Date.today.year + 10, discard_day: true,
                                   order: [:month, :year] %>
-    <%= f.input :user_id, as: :hidden, value: current_user.id %>
+    <%= f.input :photo, as: :file %>
   </div>
 
   <div class="form-actions">
