@@ -8,12 +8,12 @@
 
 p "Seeding database..."
 
-User.destroy_all
-Product.destroy_all
-Order.destroy_all
-Review.destroy_all
-Message.destroy_all
 Bookmark.destroy_all
+Message.destroy_all
+Review.destroy_all
+Order.destroy_all
+Product.destroy_all
+User.destroy_all
 
 User.create(username: "admin", first_name: "Admin", last_name: "Admin", email: "admin@wastemarket.lol", password: "secret", address: "123 Fake St")
 User.create(username: "Emy", first_name: "Emy", last_name: "Emy", email: "emy@wastemarket.lol", password: "secret", address: "123 Fake St")

@@ -1,0 +1,26 @@
+<%= simple_form_for(@product) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :category %>
+    <%= f.input :sub_category %>
+    <%= f.input :characteristics %>
+    <%= f.input :quantity_left %>
+    <%= f.input :brand %>
+    <%= f.input :condition %>
+      <%= f.input :buying_date, as: :date, start_year: Date.today.year, end_year: Date.today.year - 10,
+                                                        order: [:month, :year] %>
+      <%= f.input :expiration_date, as: :date, start_year: Date.today.year,
+                                  end_year: Date.today.year + 10, discard_day: true,
+                                  order: [:month, :year] %>
+    <%= f.input :user_id, as: :hidden, value: current_user.id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn-green" %>
+  </div>
+<% end %>
