@@ -1,0 +1,35 @@
+.tag-item {
+  display: inline-block;
+}
+
+.tag-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tag-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.7rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  background-color: #FBF8EC;
+  color: #135B50;
+  border: 1px solid #135B50;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.tag-selector:checked + label {
+  background-color: #F8B401;
+  color: #135B50;
+}
+
+.form-check-input.is-valid ~ .form-check-label {
+    color: #135B50;
+}
+
+.form-control.is-valid {
+  border-color: #135B50;
+}
