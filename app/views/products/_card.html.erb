@@ -1,1 +1,42 @@
-<p>This is a product card</p>
+<div class="card-product">
+  <%# Display Product image %>
+  <%= link_to product_path(product) do %>
+  <p>IMAGE</p>
+    <%#= image_tag (product.photo.attached? ? cl_image_path(product.photo.key) : asset_path("jim.jpg")), class: "avatar-bordered"%>
+  <% end %>
+
+  <%# Display Product information %>
+  <div class="card-product-infos">
+    <div class="card-product-infos-primary">
+      <h2><%= product.name %></h2>
+      <h3><%= product.category %></h3>
+      <p><%= product.user.address %></p>
+    </div>
+    <div class="card-product-infos-secondary">
+      <p><%= product.price %></p>
+      <p><%= product.quantity_left %> €</p>
+    </div>
+  </div>
+
+  <%# Display Bookmark button for everyone %>
+  <div class="card-buttons">
+    <%= link_to edit_product_path(product) do %>
+      <i class="fa-regular fa-heart"></i>
+      <%# AJOUTER LE IF pour mettre à jour le bon Coeur en fonction de bookmark Yes or no
+      <i class="fa-solid fa-heart"></i>
+       %>
+    <% end %>
+  </div>
+
+  <%# Display Bookmark button for everyone %>
+  <% if product.user == current_user  %>
+    <div class="card-buttons">
+      <%= link_to edit_product_path(product) do %>
+        <i class="fa-regular fa-pen-to-square"></i>
+      <% end %>
+      <%= link_to product_path(product), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="fa-regular fa-trash-can-xmark"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="cards">
       <% @products.each do |product| %>
-        <%= render 'products/card' %>
+        <%= render 'products/card', product: product %>
       <% end %>
     </div>
 </div>
