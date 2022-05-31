@@ -1,8 +1,7 @@
 <div class="card-product">
   <%# Display Product image %>
   <%= link_to product_path(product) do %>
-  <p>IMAGE</p>
-    <%= image_tag (product.photo.attached? ? cl_image_path(product.photo.key) : asset_path("jim.jpg")), class: "avatar-bordered"%>
+    <%= image_tag (product.photo.attached? ? cl_image_path(product.photo.key) : asset_path("paintpots.jpg"))%>
   <% end %>
 
   <%# Display Product information %>
