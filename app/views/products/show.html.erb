@@ -1,1 +1,4 @@
 <p>this is  product show</p>
+
+  <%= link_to 'Contact', user_path(@product.user_id), class: "btn-green-secondary" %>
+  <%= link_to 'Order', product_orders_path(@product), method: :post, class: "btn-green-primary" %>
