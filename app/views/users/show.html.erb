@@ -12,7 +12,6 @@
     <%# <%= render "/products/cards_products" %>
   </div>
 
-  <h2>My orders as a buyer</h2>
   <% if @buyer_orders.length > 0 %>
   <h2>My <%= @buyer_orders.length %> orders as a buyer</h2>
   <% end %>
@@ -20,28 +19,18 @@
     <%# <%= render "/orders/cards_buyer_orders" %>
   </div>
 
-  <h2>My orders as a seller</h2>
-  <% if @seller_orders.length > 0 %>
-  <h2>My <%= @seller_orders.length %> orders as a seller</h2>
+  <% unless @seller_orders.empty? %>
+    <h2>My <%= @seller_orders.length %> orders as a seller</h2>
   <% end %>
   <div class="cards">
     <%# <%= render "/orders/cards_seller_orders" %>
   </div>
 
-  <h2>My reviews</h2>
   <% if @reviews.length > 0 %>
   <h2>My <%= @reviews.length %> reviews</h2>
   <% end %>
   <div class="cards">
     <%# <%= render "/reviews/cards_reviews" %>
   </div>
-
-  <h2>My messages</h2>
-  <% if @messages.length > 0 %>
-  <h2>My <%= @messages.length %> messages</h2>
-  <% end %>
-  <div class="cards">
-    <%# <%= render "/messages/cards_messages" %>
-  /<div>
 
 </div>
