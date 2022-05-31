@@ -14,8 +14,15 @@
 
   <body>
     <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
 
-    <%= yield %>
+    <% if params[:controller] == "products" && params[:action] == "index" %>
+      <%= render 'shared/banner' %>
+    <% end %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <%= render 'shared/flashes' %>
   </body>
 </html>
