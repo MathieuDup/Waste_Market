@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2022_05_31_141338) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
     t.bigint "user_id", null: false
     t.bigint "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
