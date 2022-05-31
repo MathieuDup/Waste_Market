@@ -1,0 +1,22 @@
+
+  <h1 class="text-center">Add a new product</h1>
+  <%=simple_form_for(@product) do |f|%>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :category %>
+    <%= f.input :sub_category %>
+    <%= f.input :brand %>
+    <%= f.input :characteristics %>
+    <%= f.input :quantity_left %>
+    <%= f.input :condition %>
+    <%= f.input :buying_date %>
+    <%= f.input :expiration_date %>
+    <%= f.input :price %>
+    <%= f.input :photo, as: :file %>
+    <div class="form-button">
+      <%= f.button :submit, class: "call-btn" %>
+    </div>
+    <%end%>
+
+<

@@ -14,6 +14,7 @@ class User < ApplicationRecord
       orders.map(&:reviews) + orders_as_owner.map(&:reviews)
     end
   end
+  
   # validates :username, presence: true, uniqueness: true
   # validates :address, presence: true
 end
