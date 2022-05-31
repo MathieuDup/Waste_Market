@@ -1,0 +1,12 @@
+
+// app/assets/stylesheets/config/_variables.scss
+
+// Browse https://fonts.google.com to find your fonts.
+// Don't forget to go in the 'CUSTOMIZE' section before importing the font if you want to include different font-weights.
+// Add the link to the fonts you selected on Google Fonts like this:
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+// Now you can add the font-family for you body and headers like below:
+$base-font: 'Roboto', sans-serif;
+$header-font: 'Raleway', sans-serif;

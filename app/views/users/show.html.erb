@@ -1,0 +1,36 @@
+<div class="mt-4">
+  <div class="info-btn">
+    <%= link_to 'Edit my profile', edit_user_registration_path, class:"btn-white mb-3 d-inline-block" %>
+    <%= link_to 'Add a product', new_product_path, class:"btn-green mb-3 d-inline-block" %>
+  </div>
+
+  <h1 class="text-center">My profile</h1>
+  <% if @products.length > 0 %>
+  <h2>My <%= @products.length %> products</h2>
+  <% end %>
+  <div class="cards">
+    <%# <%= render "/products/cards_products" %>
+  </div>
+
+  <% if @buyer_orders.length > 0 %>
+  <h2>My <%= @buyer_orders.length %> orders as a buyer</h2>
+  <% end %>
+  <div class="cards">
+    <%# <%= render "/orders/cards_buyer_orders" %>
+  </div>
+
+  <% unless @seller_orders.empty? %>
+    <h2>My <%= @seller_orders.length %> orders as a seller</h2>
+  <% end %>
+  <div class="cards">
+    <%# <%= render "/orders/cards_seller_orders" %>
+  </div>
+
+  <% if @reviews.length > 0 %>
+  <h2>My <%= @reviews.length %> reviews</h2>
+  <% end %>
+  <div class="cards">
+    <%# <%= render "/reviews/cards_reviews" %>
+  </div>
+
+</div>
