@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   has_many :orders
   belongs_to :category
   belongs_to :sub_category
+  has_one_attached :photo
   # validates :name, presence: true
   # validates :price, presence: true
   # validates :category, presence: true
