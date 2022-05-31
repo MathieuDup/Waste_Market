@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
   before_action :set_product, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
 
@@ -10,6 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   def create
