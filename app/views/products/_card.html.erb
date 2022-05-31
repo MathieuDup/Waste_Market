@@ -13,22 +13,25 @@
       <p><%= product.user.address %></p>
     </div>
     <div class="card-product-infos-secondary">
-      <p><%= product.price %></p>
-      <p><%= product.quantity_left %> €</p>
+      <p><%= product.price %> €</p>
+      <p><%= product.quantity_left %> %</p>
     </div>
   </div>
 
-  <%# Display Bookmark button for everyone %>
+  <%# Display Bookmark button for buyers %>
   <div class="card-buttons">
-    <%= link_to edit_product_path(product) do %>
-      <i class="fa-regular fa-heart"></i>
-      <%# AJOUTER LE IF pour mettre à jour le bon Coeur en fonction de bookmark Yes or no
-      <i class="fa-solid fa-heart"></i>
-       %>
-    <% end %>
+      <%# if product.id == @bookmark.product_id  %>
+        <%#= link_to product_bookmarks_path(product) do %>
+          <i class="fa-solid fa-heart"></i>
+        <%# end %>
+      <%# else %>
+        <%#= link_to bookmarks_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <%#  %><i class="fa-regular fa-heart"></i>
+        <%# end %>
+      <%# end %>
   </div>
 
-  <%# Display Bookmark button for everyone %>
+  <%# Display edit and delete button for sellers %>
   <% if product.user == current_user  %>
     <div class="card-buttons">
       <%= link_to edit_product_path(product) do %>

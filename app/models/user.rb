@@ -10,10 +10,9 @@ class User < ApplicationRecord
   has_many :messages
 
   def my_reviews
-    unless orders.empty? && orders_as_owner.empty?
-      orders.map(&:reviews) + orders_as_owner.map(&:reviews)
-    end
+    (orders.map(&:reviews) + orders_as_owner.map(&:reviews)).flatten
   end
+
   # validates :username, presence: true, uniqueness: true
   # validates :address, presence: true
 end
