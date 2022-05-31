@@ -1,0 +1,130 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin: 8px 0px;
+}
+
+.cards-on-index {
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .cards-on-index {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .cards-on-index {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cards-on-index {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .cards-on-index {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .cards-on-index {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+.card-product {
+  display: flex;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  position: relative;
+  padding: 4px;
+}
+
+.card-product img {
+  width: 90px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color : #125B50;
+}
+
+.card-product h3 {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: #FF6363;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: #868687;
+}
+
+.card-product-infos {
+  display: flex;
+  width: 100%;
+}
+
+.card-product-infos-primary {
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+
+.card-product-infos-secondary {
+  padding: 4px;
+  width: 50%;
+}
+
+.card-buttons {
+  top: 4px;
+  right: 10px;
+  position: absolute;
+  a {
+    color: #125B50;
+  }
+}
