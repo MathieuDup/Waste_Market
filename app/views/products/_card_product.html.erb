@@ -17,28 +17,40 @@
     </div>
   </div>
 
+
   <%# Display Bookmark button for buyers %>
-  <div class="card-buttons">
-      <%# if product.id == @bookmark.product_id  %>
-        <%#= link_to product_bookmarks_path(product) do %>
+  <% if current_user && product.user != current_user %>
+    <div class="card-buttons">
+      <% if current_user.bookmarks.find_by(product: product) %>
+        <% bookmark = current_user.bookmarks.find_by(product: product) %>
+        <%= link_to bookmark_path(bookmark), method: :delete do %>
           <i class="fa-solid fa-heart"></i>
-        <%# end %>
-      <%# else %>
-        <%#= link_to bookmarks_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } do %>
-          <%#  %><i class="fa-regular fa-heart"></i>
-        <%# end %>
-      <%# end %>
-  </div>
+        <% end %>
+      <% else  %>
+        <%= link_to product_bookmarks_path(product), method: :post do %>
+          <i class="fa-regular fa-heart"></i>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 
   <%# Display edit and delete button for sellers %>
-  <% if product.user == current_user  %>
+  <% if current_user && product.user == current_user  %>
     <div class="card-buttons">
       <%= link_to edit_product_path(product) do %>
         <i class="fa-regular fa-pen-to-square"></i>
       <% end %>
       <%= link_to product_path(product), method: :delete, data: { confirm: "Are you sure?" } do %>
-        <i class="fa-regular fa-trash-can-xmark"></i>
+        <i class="fa-regular fa-trash-can"></i>
       <% end %>
     </div>
   <% end %>
+
+  <%# Display edit and delete button for non-users %>
+  <% if current_user.nil?  %>
+    <div class="card-buttons" title="please login to add as favorites">
+        <i class="fa-regular fa-heart"></i>
+    </div>
+  <% end %>
+
 </div>
