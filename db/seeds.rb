@@ -46,6 +46,7 @@ SubCategory.create(name: "Specialised tools", category_id: 4)
 Product.create(name: "Painting", price: 10.00, condition: "Good", quantity_left: "1L", user_id: 3, category_id: 1, sub_category_id: 2)
 Product.create(name: "Nail box", price: 5.00, condition: "Average", quantity_left: "50", user_id: 3, category_id: 4, sub_category_id: 10)
 
+
 Order.create(user_id: 2, product_id: 1, progress: "Pending")
 Order.create(user_id: 2, product_id: 2, progress: "Pending")
 

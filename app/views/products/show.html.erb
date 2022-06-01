@@ -1,12 +1,17 @@
-<p>This is my product</p>
 
-  <%= link_to 'Contact', user_path(@product.user_id), class: "btn-green-secondary" %>
-  <% if current_user.can_order?(@product.id) %>
+
+<% if current_user %>
+  <% if current_user.can_contact?(@product) %>
+    <%= link_to 'Contact', user_path(@product.user_id), class: "btn-green-secondary" %>
+  <% end %>
+
+  <% if current_user.can_order?(@product) %>
     <%= link_to 'Order', product_orders_path(@product), method: :post, class: "btn-green-primary" %>
   <% else %>
   <%# change link show my order to order#show %>
   <%= link_to 'Show my order', user_path(current_user), class: "btn-green-primary" %>
   <% end %>
+<% end %>
 
 <div class="container-fluid">
   <div class="card-category">
