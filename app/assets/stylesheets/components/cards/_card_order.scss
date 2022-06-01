@@ -1,5 +1,5 @@
 
-.card-product {
+.card-order {
   display: flex;
   height: 120px;
   background: white;
@@ -9,20 +9,20 @@
   padding: 4px;
 }
 
-.card-product img {
+.card-order img {
   width: 90px;
   height: 100%;
   object-fit: cover;
 }
 
-.card-product h2 {
+.card-order h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
   color : #125B50;
 }
 
-.card-product h3 {
+.card-order h3 {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -31,7 +31,7 @@
   color: #FF6363;
 }
 
-.card-product p {
+.card-order p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -40,12 +40,12 @@
   color: #868687;
 }
 
-.card-product-infos {
+.card-order-infos {
   display: flex;
   width: 100%;
 }
 
-.card-product-infos-primary {
+.card-order-infos-primary {
   padding: 4px;
   display: flex;
   flex-direction: column;
@@ -53,18 +53,7 @@
   width: 50%;
 }
 
-.card-product-infos-secondary {
+.card-order-infos-secondary {
   padding: 4px;
   width: 50%;
-}
-
-.card-buttons {
-  top: 4px;
-  right: 10px;
-  position: absolute;
-}
-
-
-.card-buttons .fa-heart {
-  color: $pink;
 }

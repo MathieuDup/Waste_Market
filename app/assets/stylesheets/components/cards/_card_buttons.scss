@@ -1,0 +1,26 @@
+.card-buttons {
+  top: 4px;
+  right: 10px;
+  position: absolute;
+}
+
+
+.card-buttons .fa-heart {
+  color: $pink;
+}
+
+.card-buttons .fa-pen-to-square {
+  color: $green-secondary;
+}
+
+.card-buttons .fa-trash-can {
+  color: $green-secondary;
+}
+
+.card-buttons .fa-eye {
+  color: $green-secondary;
+}
+
+.card-buttons .fa-message {
+  color: $green-secondary;
+}
