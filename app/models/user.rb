@@ -3,11 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   has_many :products, dependent: :destroy
   has_many :orders_as_owner, through: :products, source: :orders
   has_many :orders
   has_many :bookmarks
   has_many :messages
+
+  has_one_attached :photo
 
   def my_reviews
     (orders.map(&:reviews) + orders_as_owner.map(&:reviews)).flatten
