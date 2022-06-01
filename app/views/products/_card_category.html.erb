@@ -1,3 +1,6 @@
-<div class="card-category">
-  <h2><%= "Categories" %></h2>
-</div>
+<%= link_to products_path(category: category) do %>
+  <% picture_name = category.name + ".jpg" %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=asset_path(picture_name)%>)">
+    <%= category.name.capitalize %>
+  </div>
+<% end %>

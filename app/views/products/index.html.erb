@@ -1,29 +1,8 @@
 <h2> Categories</h2>
 
 <div class="cards-categories">
-
-  <%= link_to products_path(category: "1") do %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=asset_path("paint-bucket.jpg")%>)">
-      Paints
-    </div>
-  <% end %>
-
-  <%= link_to products_path(category: "2") do %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=asset_path("tiles.jpg")%>)">
-      Floors
-    </div>
-  <% end %>
-
-  <%= link_to products_path(category: "3") do %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=asset_path("tools.jpg")%>)">
-      Tools
-    </div>
-  <% end %>
-
-  <%= link_to products_path(category: "4") do %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=asset_path("hardware.jpg")%>)">
-      Hardware
-    </div>
+  <% @categories.each do |category| %>
+    <%= render 'products/card_category', category: category %>
   <% end %>
 </div>
 
