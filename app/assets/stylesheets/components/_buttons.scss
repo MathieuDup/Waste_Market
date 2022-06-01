@@ -1,47 +1,64 @@
-.btn-circle {
-  color: white;
-  padding: 2px;
-  border-radius: 50%;
-  align-items: center;
-}
+
+// $green-primary: #125B50;
+// $green-secondary: #00C897;
+// $pink: #FF6363;
+// $creme: #F7F5F2;
+// $gray-dark: #0E0000;
 
 .btn-white {
-  color: #125B50;
+  color: $green-primary;
   padding: 8px 24px;
   border-radius: 4px;
   background: white;
   transition: background 0.3s ease;
+  display: inline-block;
 }
 
 .btn-white:hover {
-  background: #125B50;
+  background: $green-primary;
   color: white;
 }
 
 
-.btn-green {
+.btn-green-primary {
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #125B50;
+  background: $green-primary;
   transition: background 0.3s ease;
+  display: inline-block;
 }
 
-.btn-green:hover {
+.btn-green-primary:hover {
   background:white;
-  color: #125B50;
+  color: $green-primary;
+}
+
+.btn-green-secondary {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $green-secondary;
+  transition: background 0.3s ease;
+  display: inline-block;
+}
+
+.btn-green-secondary:hover {
+  background:white;
+  color: $green-secondary;
 }
 
 .btn-pink {
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #FF6363;
+  background: $pink;
   transition: background 0.3s ease;
+  display: inline-block;
 }
 
 .btn-pink:hover {
-  background: #FF6363;
+  background: $pink;
   color: white;
 }
 
@@ -52,32 +69,39 @@
   margin-top: 20px;
 }
 
-.btn-edit {
-  background-color:#125B50;
-  border:none;
-  color:white;
-  padding: 20px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin:4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-  position: top;
-}
+// .btn-circle {
+//   color: white;
+//   padding: 2px;
+//   border-radius: 50%;
+//   align-items: center;
+// }
 
-.btn-my-teacher{
-  background-color:#F8B400;
-  border:none;
-  color:white;
-  padding: 20px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin:4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-  position: top;
-}
+// .btn-edit {
+//   background-color:#125B50;
+//   border:none;
+//   color:white;
+//   padding: 20px 20px;
+//   text-align: center;
+//   text-decoration: none;
+//   display: inline-block;
+//   font-size: 20px;
+//   margin:4px 2px;
+//   cursor: pointer;
+//   border-radius: 5px;
+//   position: top;
+// }
+
+// .btn-my-teacher{
+//   background-color:#F8B400;
+//   border:none;
+//   color:white;
+//   padding: 20px 20px;
+//   text-align: center;
+//   text-decoration: none;
+//   display: inline-block;
+//   font-size: 20px;
+//   margin:4px 2px;
+//   cursor: pointer;
+//   border-radius: 5px;
+//   position: top;
+// }

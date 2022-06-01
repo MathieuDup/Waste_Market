@@ -1,5 +1,10 @@
-<div class="container">
-  <div class="bg-image-fluid" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @product.photo.key, height: 300, crop: :fill %>')">
+<p>This is my product</p>
+
+  <%= link_to 'Contact', user_path(@product.user_id), class: "btn-green-secondary" %>
+  <%= link_to 'Order', product_orders_path(@product), method: :post, class: "btn-green-primary" %>
+
+<div class="container-fluid">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @product.photo.key, height: 300, crop: :fill %>')">
     <div class="row">
       <div class="col-sm-12">
         <div class="d-flex bd-highlight mb-3">
@@ -42,6 +47,3 @@
         Our main goal is to recycle and reuse your left-over pot of paint in a new innovative and friendly way. A concept...</p></i>
     </blockquote>
   </div>
-  <%= link_to "Contact", root_path, class:"btn-white mt-4 d-inline-block" %>
-  <%= link_to "Buy Now", class: "btn-green mt-2" %>
-</div>
