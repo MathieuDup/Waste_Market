@@ -4,7 +4,6 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    @bookmark = Bookmark.find_by(user: current_user)
   end
 
   def show
