@@ -11,8 +11,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @buyer_orders = current_user.orders.where.not(progress: "Cancelled").order(created_at: :desc)
     @buyer_orders = current_user.orders.order(created_at: :desc)
+    # @buyer_orders = current_user.orders.where.not(progress: "Cancelled").order(created_at: :desc)
     @products = current_user.products.order(created_at: :desc)
     # @seller_orders = current_user.orders_as_owner.where.not(progress: "Cancelled").order(created_at: :desc)
     @seller_orders = current_user.orders_as_owner.order(created_at: :desc)

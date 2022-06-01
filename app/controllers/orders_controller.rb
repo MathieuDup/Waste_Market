@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @order = Order.new
-    if current_user.can_order?(@product.id)
+    if current_user.can_order?(@product)
       @order.user_id = current_user.id
       @order.product_id = @product.id
       @order.progress = "Pending"
