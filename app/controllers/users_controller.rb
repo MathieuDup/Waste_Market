@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def edit
   end
 
@@ -13,9 +12,10 @@ class UsersController < ApplicationController
 
   def show
     @buyer_orders = current_user.orders.order(created_at: :desc)
+    # @buyer_orders = current_user.orders.where.not(progress: "Cancelled").order(created_at: :desc)
     @products = current_user.products.order(created_at: :desc)
-    @seller_orders = current_user.orders_as_owner unless current_user.products.empty?
-    @orders = current_user.orders
+    # @seller_orders = current_user.orders_as_owner.where.not(progress: "Cancelled").order(created_at: :desc)
+    @seller_orders = current_user.orders_as_owner.order(created_at: :desc)
     @reviews = current_user.my_reviews
     @bookmarks = current_user.bookmarks.order(created_at: :desc)
   end
@@ -23,6 +23,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :first_name, :last_name, :email, :address, :password, :password_confirmation)
+    params.require(:user).permit(:username, :first_name, :last_name, :email, :address, :password, :password_confirmation, :photo)
   end
 end

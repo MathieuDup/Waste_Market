@@ -27,11 +27,15 @@
   background: $green-primary;
   transition: background 0.3s ease;
   display: inline-block;
+  border-color: $green-primary;
+  border-style: solid;
 }
 
 .btn-green-primary:hover {
   background:white;
   color: $green-primary;
+  border-color: $green-primary;
+  border-style: solid;
 }
 
 .btn-green-secondary {
@@ -41,11 +45,15 @@
   background: $green-secondary;
   transition: background 0.3s ease;
   display: inline-block;
+  border-color: $green-secondary;
+  border-style: solid;
 }
 
 .btn-green-secondary:hover {
   background:white;
   color: $green-secondary;
+  border-color: $green-secondary;
+  border-style: solid;
 }
 
 .btn-pink {
@@ -55,11 +63,15 @@
   background: $pink;
   transition: background 0.3s ease;
   display: inline-block;
+  border-color: $pink;
+  border-style: solid;
 }
 
 .btn-pink:hover {
   background: $pink;
   color: white;
+  border-color: $pink;
+  border-style: solid;
 }
 
 
@@ -68,6 +80,61 @@
   justify-content: end;
   margin-top: 20px;
 }
+
+
+.btn-in-card-green-secondary {
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: $green-secondary;
+  border-color: $green-secondary;
+  border-style: solid;
+  transition: background 0.3s ease;
+  display: inline-block;
+}
+
+.btn-in-card-green-secondary:hover {
+  background:white;
+  color: $green-secondary;
+  border-color: $green-secondary;
+  border-style: solid;
+  }
+
+.btn-in-card-green-primary {
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: $green-primary;
+  border-color: $green-primary;
+  border-style: solid;
+  transition: background 0.3s ease;
+  display: inline-block;
+}
+
+.btn-in-card-green-primary:hover {
+  background:white;
+  color: $green-primary;
+  border-color: $green-primary;
+  border-style: solid;
+  }
+
+.btn-in-card-pink {
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: $pink;
+  border-color: $pink;
+  border-style: solid;
+  transition: background 0.3s ease;
+  display: inline-block;
+}
+
+.btn-in-card-pink:hover {
+  background:white;
+  color: $pink;
+  border-color: $pink;
+  border-style: solid;
+  }
 
 // .btn-circle {
 //   color: white;

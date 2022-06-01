@@ -1,0 +1,58 @@
+
+.card-order {
+  display: flex;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  position: relative;
+  padding: 4px;
+}
+
+.card-order img {
+  width: 90px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-order h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color : #125B50;
+}
+
+.card-order h3 {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: #FF6363;
+}
+
+.card-order p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-order-infos {
+  display: flex;
+  width: 100%;
+}
+
+.card-order-infos-primary {
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+
+.card-order-infos-secondary {
+  padding: 4px;
+  width: 50%;
+}
