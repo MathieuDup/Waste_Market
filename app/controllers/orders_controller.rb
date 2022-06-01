@@ -24,5 +24,10 @@ class OrdersController < ApplicationController
   end
 
   def update
+    @order.progress = "Pending"
+    raise
+    @order.save
+    flash[:alert] = "Order validated"
+    redirect_to user_path(current_user)
   end
 end

@@ -1,6 +1,6 @@
 <div class="card-order">
   <%# Display Product image %>
-  <%= link_to order_path(order) do %>
+  <%= link_to product_path(order.product) do %>
     <%= image_tag (order.product.photo.attached? ? cl_image_path(order.product.photo.key) : asset_path("paintpots.jpg"))%>
   <% end %>
 
@@ -16,8 +16,11 @@
     </div>
   </div>
 
-  <%# Display buttons %>
-  <div class="card-buttons">
+  <%# Display buttons for everyone%>
+  <div class="card-buttons-top">
+    <%= link_to order_path(order) do %>
+      <i class="fa-regular fa-tag"></i>
+    <% end %>
     <%= link_to product_path(order.product) do %>
       <i class="fa-regular fa-eye"></i>
     <% end %>
@@ -25,4 +28,14 @@
       <i class="fa-regular fa-message"></i>
     <% end %>
   </div>
+
+
+  <%# Display buttons for seller%>
+  <% if order.product.user == current_user %>
+    <div class="card-buttons-bottom">
+      <%= link_to 'Reject', order_path(order), method: :destroy, data: { confirm: "Confirm order ?" }, class:"btn-in-card-pink"  %>
+      <%= link_to 'Validate', order_path(order), method: :patch, data: { confirm: "Confirm order ?" }, class:"btn-in-card-green-secondary"  %>
+    </div>
+  <% end %>
+
 </div>
