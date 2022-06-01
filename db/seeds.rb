@@ -25,7 +25,6 @@ User.create(username: "Patricia", first_name: "Patricia", last_name: "Patricia",
 User.create(username: "Jérôme", first_name: "Jérôme", last_name: "Jérôme ", email: "jerome@wastemarket.lol", password: "secret", address: "123 Fake St")
 User.create(username: "Mathieu", first_name: "Mathieu", last_name: "Mathieu", email: "mathieu@wastemarket.lol", password: "secret", address: "123 Fake St")
 
-
 Category.create(name: "Paint")
 Category.create(name: "Hardware stuff")
 Category.create(name: "Floor, tiles, wooden")
