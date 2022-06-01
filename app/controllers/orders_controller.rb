@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     if current_user.can_order?(@product.id)
       @order.user_id = current_user.id
       @order.product_id = @product.id
-      @order.progress = "Draft"
+      @order.progress = "Pending"
       @order.save
       redirect_to user_path(current_user)
     else
@@ -24,10 +24,8 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @order.progress = "Pending"
-    raise
-    @order.save
-    flash[:alert] = "Order validated"
-    redirect_to user_path(current_user)
+    @order = Order.find(params[:id])
+    @order.update(progress: params[:progress])
+    redirect_to user_path(current_user), notice: params[:notice]
   end
 end

@@ -18,9 +18,7 @@
 
   <%# Display buttons for everyone%>
   <div class="card-buttons-top">
-    <%= link_to order_path(order) do %>
-      <i class="fa-regular fa-tag"></i>
-    <% end %>
+    <p class ="label green-secondary"><%= order.progress %></p>
     <%= link_to product_path(order.product) do %>
       <i class="fa-regular fa-eye"></i>
     <% end %>
@@ -33,8 +31,12 @@
   <%# Display buttons for seller%>
   <% if order.product.user == current_user %>
     <div class="card-buttons-bottom">
-      <%= link_to 'Reject', order_path(order), method: :destroy, data: { confirm: "Confirm order ?" }, class:"btn-in-card-pink"  %>
-      <%= link_to 'Validate', order_path(order), method: :patch, data: { confirm: "Confirm order ?" }, class:"btn-in-card-green-secondary"  %>
+      <% if order.progress != "Cancelled" %>
+        <%= link_to 'Reject', order_path(order, progress: "Cancelled", notice: "Order rejected"), method: :patch, data: { confirm: "Cancel order ?" }, class:"btn-in-card-pink"  %>
+      <% end %>
+      <% if order.progress != "Validated" %>
+        <%= link_to 'Validate', order_path(order, progress: "Validated", notice: "Order validated"), method: :patch, data: { confirm: "Confirm order ?" }, class:"btn-in-card-green-primary"  %>
+      <% end %>
     </div>
   <% end %>
 

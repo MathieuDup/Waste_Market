@@ -100,6 +100,24 @@
   border-style: solid;
   }
 
+.btn-in-card-green-primary {
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: $green-primary;
+  border-color: $green-primary;
+  border-style: solid;
+  transition: background 0.3s ease;
+  display: inline-block;
+}
+
+.btn-in-card-green-primary:hover {
+  background:white;
+  color: $green-primary;
+  border-color: $green-primary;
+  border-style: solid;
+  }
+
 .btn-in-card-pink {
   color: white;
   padding: 2px 8px;
