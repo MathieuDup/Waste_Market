@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     if current_user.can_order?(@product)
       @order.user_id = current_user.id
       @order.product_id = @product.id
-      @order.progress = "Pending"
+      @order.progress = "pending"
       @order.save
       redirect_to user_path(current_user)
     else

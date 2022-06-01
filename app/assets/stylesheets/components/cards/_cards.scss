@@ -27,7 +27,7 @@
   }
 
   .cards-categories {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -41,7 +41,7 @@
   }
 
   .cards-categories {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -53,6 +53,10 @@
   .cards-on-index {
     grid-template-columns: 1fr;
   }
+
+  .cards-categories {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 // Large devices (desktops, 992px and up)
@@ -63,6 +67,10 @@
   .cards-on-index {
     grid-template-columns: 1fr 1fr;
   }
+
+  .cards-categories {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -72,5 +80,9 @@
   }
   .cards-on-index {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .cards-categories {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

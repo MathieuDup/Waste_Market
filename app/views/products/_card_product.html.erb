@@ -1,14 +1,15 @@
 <div class="card-product">
   <%# Display Product image %>
   <%= link_to product_path(product) do %>
-    <%= image_tag (product.photo.attached? ? cl_image_path(product.photo.key) : asset_path("paintpots.jpg"))%>
+    <% picture_name = product.category.name + ".jpg" %>
+    <%= image_tag (product.photo.attached? ? cl_image_path(product.photo.key) : asset_path(picture_name))%>
   <% end %>
 
   <%# Display Product information %>
   <div class="card-product-infos">
     <div class="card-product-infos-primary">
-      <h2><%= product.name %></h2>
-      <h3><%= product.category.name %></h3>
+      <h2><%= product.name.capitalize %></h2>
+      <h3><%= product.category.name.capitalize %></h3>
       <p><%= product.user.address %></p>
     </div>
     <div class="card-product-infos-secondary">
