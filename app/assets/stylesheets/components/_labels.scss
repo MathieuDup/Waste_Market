@@ -1,0 +1,27 @@
+.label {
+  min-width: 60px;
+  padding: 0px 8px;
+  border-radius: 50px;
+  text-align: center;
+  display: inline-block;
+  border-style: solid;
+  transition: background 0.3s ease;
+}
+
+.green-primary {
+  color: white;
+  background: $green-primary;
+  border-color: $green-primary;
+}
+
+.white {
+  background: white;
+  color: $green-primary;
+  border-color: $green-primary;
+}
+
+.green-secondary {
+  color: white;
+  background: $green-secondary;
+  border-color: $green-secondary;
+}
