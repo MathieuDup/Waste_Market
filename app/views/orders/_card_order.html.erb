@@ -1,0 +1,41 @@
+<div class="card-order">
+  <%# Display Product image %>
+  <%= link_to product_path(order.product) do %>
+    <%= image_tag (order.product.photo.attached? ? cl_image_path(order.product.photo.key) : asset_path("paintpots.jpg"))%>
+  <% end %>
+
+  <%# Display Product information %>
+  <div class="card-order-infos">
+    <div class="card-order-infos-primary">
+      <h2><%= order.product.name %></h2>
+      <p><%= order.product.user.address %></p>
+    </div>
+    <div class="card-order-infos-secondary">
+      <h3><%= order.product.price %> €</h3>
+      <p><%= order.product.quantity_left %> %</p>
+    </div>
+  </div>
+
+  <%# Display buttons for everyone%>
+  <div class="card-buttons-top">
+    <%= link_to order_path(order) do %>
+      <i class="fa-regular fa-tag"></i>
+    <% end %>
+    <%= link_to product_path(order.product) do %>
+      <i class="fa-regular fa-eye"></i>
+    <% end %>
+    <%= link_to order_path(order) do %>
+      <i class="fa-regular fa-message"></i>
+    <% end %>
+  </div>
+
+
+  <%# Display buttons for seller%>
+  <% if order.product.user == current_user %>
+    <div class="card-buttons-bottom">
+      <%= link_to 'Reject', order_path(order), method: :destroy, data: { confirm: "Confirm order ?" }, class:"btn-in-card-pink"  %>
+      <%= link_to 'Validate', order_path(order), method: :patch, data: { confirm: "Confirm order ?" }, class:"btn-in-card-green-secondary"  %>
+    </div>
+  <% end %>
+
+</div>
