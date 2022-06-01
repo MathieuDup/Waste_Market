@@ -3,7 +3,13 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @products = Product.all
+    if params.dig(:search, :category)
+      category = Category.find(params[:search][:category])
+      @products = Product.where(category: category)
+    else
+      @products = Product.all
+    end
+    @categories = Category.all
     @bookmark = Bookmark.find_by(user: current_user)
   end
 

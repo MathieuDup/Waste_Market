@@ -1,3 +1,23 @@
+<h2> Categories</h2>
+
+<div class="cards-category">
+  <%= simple_form_for :search, url: '/', method: :get do |f| %>
+        <%= f.input :category,
+              as: :radio_buttons,
+              label: false,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'category-wrapper',
+              item_wrapper_class: 'category-item',
+              input_html: {class: 'category-selector'},
+              collection: Category.all %>
+  <%= f.submit "Search" %>
+  <% end %>
+</div>
+
+
+
+
+</div>
 
 <h2>This is the product index</h2>
 

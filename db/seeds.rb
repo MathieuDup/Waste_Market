@@ -21,10 +21,10 @@ User.create(username: "admin", first_name: "Admin", last_name: "Admin", email: "
 User.create(username: "Emy", first_name: "Emy", last_name: "Emy", email: "emy@wastemarket.lol", password: "secret", address: "123 Fake St")
 User.create(username: "Jim", first_name: "Jim", last_name: "Jim", email: "jim@wastemarket.lol", password: "secret", address: "123 Fake St")
 
-Category.create(name: "Paint")
-Category.create(name: "Drugstore")
-Category.create(name: "Floor, tiles, wooden")
-Category.create(name: "Tools")
+Category.create(name: "Paint", photo_url: "https://res.cloudinary.com/dtfxmzzss/image/upload/v1654011817/iobdk5ywmg21qfktkglp.jpg")
+Category.create(name: "Drugstore", photo_url: "https://res.cloudinary.com/dtfxmzzss/image/upload/v1654011817/iobdk5ywmg21qfktkglp.jpg")
+Category.create(name: "Floor, tiles, wooden", photo_url: "https://res.cloudinary.com/dtfxmzzss/image/upload/v1654011817/iobdk5ywmg21qfktkglp.jpg")
+Category.create(name: "Tools", photo_url: "https://res.cloudinary.com/dtfxmzzss/image/upload/v1654011817/iobdk5ywmg21qfktkglp.jpg")
 
 SubCategory.create(name: "Outside paint", category_id: 1)
 SubCategory.create(name: "Interior paint", category_id: 1)

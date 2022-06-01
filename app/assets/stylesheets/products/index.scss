@@ -1,0 +1,80 @@
+legend {
+  display: none;
+}
+
+.category-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  height: 200px;
+  color: white;
+}
+
+.category-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector + label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+
+}
+
+.category-selector:checked + label {
+  border: 1px solid grey;
+}
+
+.category-selector + label {
+  background-position: center;
+  background-size: cover;
+}
+
+#search_category_1 + label {
+  background-image: asset_path("paint-bucket.jpg");
+}
+
+#search_category_2 + label {
+  background-image: url('app/assets/images/hardwarestuff.jpg');
+}
+
+#search_category_3 + label {
+  background-image: url('app/assets/images/tiles.jpg');
+
+}
+
+#search_category_4 + label {
+  background-image: url('app/assets/images/tools.jpg');
+}
+
+
+
+// #search_category_1:checked + label {
+//   background-color: #FD1015;
+//   border-color: #FD1015;
+// }
+
+
+// #search_category_2 + label {
+// }
+
+// #search_category_2:checked + label {
+//   background-color: #FFC65A;
+//   border-color: #FFC65A;
+// }
+
+
+// #search_category_3 + label {
+// }
+
+// #search_category_3:checked + label {
+//   background-color: #62DDF5;
+//   border-color: #62DDF5;
+// }
