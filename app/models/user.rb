@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :orders
   has_many :bookmarks
   has_many :messages
+  # validates :username, presence: true, uniqueness: true
+  # validates :address, presence: true
 
   has_one_attached :photo
 
@@ -16,6 +18,13 @@ class User < ApplicationRecord
     (orders.map(&:reviews) + orders_as_owner.map(&:reviews)).flatten
   end
 
-  # validates :username, presence: true, uniqueness: true
-  # validates :address, presence: true
+  def can_order?(id)
+    products.each { |product| can_order = false if product.id == id }
+    if !orders.where(product_id: id).empty? && self.orders.where(product_id: id).select { |order| order.progress == "Cancelled" }.empty?
+      can_order = false
+    else
+      can_order = true
+    end
+    can_order
+  end
 end
