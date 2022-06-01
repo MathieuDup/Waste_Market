@@ -1,11 +1,19 @@
 
 
- <!-- mobile navbar fixed bottom -->
-    <footer role="navbar navbar-fixed-bottom" class="mobilenavbarfooter navbar-expand invisible-scrollbar fixed-bottom al-sm-dark-green">
-        <div class="container-fluid">
-            <div class="navbar-nav justify-content-sm-around align-items-center w-100 h-100">
-              <a href="#"><span class="fa-sm mr-sm-2 icon"><i class="fa-solid fa-house"></i></span></a>
-              <a href="#"><span class="fa-sm mr-sm-2 icon"><i class="fa fa-user-circle"></i></span></a>
-              <a href="#"><span class="fa-sm mr-sm-2 icon"><i class="fa-solid fa-message"></i></span></a>
-            </ul>
-        </div>
+<!-- mobile navbar fixed bottom -->
+<footer role="navbar navbar-fixed-bottom" class="mobilenavbarfooter navbar-expand invisible-scrollbar fixed-bottom al-sm-dark-green">
+    <div class="container-fluid">
+        <div class="navbar-nav justify-content-sm-around align-items-center w-100 h-100">
+          <%= link_to root_path do %>
+            <span class="fa-sm mr-sm-2 icon"><i class="fa-solid fa-house"></i></span>
+          <% end %>
+          <%= link_to user_path(current_user) do %>
+            <% image_tag (current_user.photo.attached? ? cl_image_path(current_user.photo.key) : asset_path("emy.jpg")), class: "avatar dropdown-toggle" %>
+          <% end %>
+          <%= link_to root_path do %>
+            <span class="fa-sm mr-sm-2 icon"><i class="fa-solid fa-message"></i></span>
+          <% end %>
+        </ul>
+    </div>
+  </div>
+</footer>
