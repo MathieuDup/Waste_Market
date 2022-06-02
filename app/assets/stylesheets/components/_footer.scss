@@ -2,20 +2,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
-  padding: 0px 50px;
+  height: 52px;
+  padding: 0px 10px;
   color: rgba(0,0,0,0.3);
   margin-top: auto;
 }
 .footer-links {
   display: flex;
   align-items: center;
+
 }
 .footer-links a {
   color: black;
   opacity: 0.15;
   text-decoration: none;
-  font-size: 24px;
+  font-size: medium;
   padding: 0px 10px;
 }
 .footer-links a:hover {
