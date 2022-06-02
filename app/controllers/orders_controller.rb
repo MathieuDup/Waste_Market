@@ -3,6 +3,16 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    root_to_progress_done = "http://localhost:3000/#{params[:controller]}/#{@order.id}?progress=done"
+    @qr_code = RQRCode::QRCode.new(root_to_progress_done)
+    @svg = @qr_code.as_svg(
+      offset: 0,
+      color: :mediumseagreen,
+      shape_rendering: 'crispEdges',
+      standalone: true,
+      module_size: 6
+    )
   end
 
   def create
