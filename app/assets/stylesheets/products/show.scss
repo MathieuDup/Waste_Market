@@ -11,11 +11,21 @@
     font-size: 1.3em;
   }
 
-  .product-complementary-infos {
+  .product-price {
+    font-size: 1.3rem;
+    color: #125B50;
+  }
+
+  .product-infos {
     i {
       color: #00C897;
       // color: $pink;
     }
+  }
+
+  .product-description {
+    border: 1px solid #CACACA;
+    border-radius: 3px;
   }
 }
 
