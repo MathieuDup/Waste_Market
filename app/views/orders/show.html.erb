@@ -1,6 +1,11 @@
 <h1>This is the Order Show</h1>
+<br>
 
-  <div class="qr-code">
-    <%= @svg.html_safe %>
-    <%= image_tag "Logo.png", class: "qr-code-logo" %>
-  </div>
+<% if @order.product.user == current_user && @order.progress == "validated" %>
+  <h2>QR code for transaction</h2>
+  <br>
+    <div class="qr-code">
+      <%= @svg.html_safe %>
+      <%= image_tag "Logo.png", class: "qr-code-logo" %>
+    </div>
+<% end  %>

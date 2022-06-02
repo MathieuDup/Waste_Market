@@ -57,10 +57,10 @@ product_6 = Product.create!(name: "Wood tile floor", price: 10.00, condition: "G
 product_7 = Product.create!(name: "Hammer", price: 5.00, condition: "Good", quantity_left: "100", user: jim, category: tools, sub_category: sub_cat_8)
 
 
-Order.create!(user: emy, product: product_1, progress: "done")
-Order.create!(user: emy, product: product_2, progress: "validated")
-Order.create!(user: emy, product: product_3, progress: "cancelled")
-Order.create!(user: jim, product: product_4, progress: "pending")
+Order.create!(user: emy, product: product_1, progress: "done", qr_code: RQRCode::QRCode.new(""))
+Order.create!(user: emy, product: product_2, progress: "validated", qr_code: RQRCode::QRCode.new(""))
+Order.create!(user: emy, product: product_3, progress: "cancelled", qr_code: RQRCode::QRCode.new(""))
+Order.create!(user: jim, product: product_4, progress: "pending", qr_code: RQRCode::QRCode.new(""))
 
 Review.create!(user: emy, order: Order.first, rating: 5)
 Review.create!(user: admin, order: Order.first, rating: 5)
