@@ -4,10 +4,13 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @categories = Category.all
     if params[:category]
       @products = Product.where(category_id: params[:category])
     end
-    @categories = Category.all
+    if params[:search]
+      @products = Product.global_search(params[:search][:query])
+    end
   end
 
   def show
