@@ -45,9 +45,7 @@
             <%= @product.price %>€
           </div>
           <div>
-            <%= @product.quantity_left %>%
-            <div id="gaugeArea"></div>
-
+            <div id="gaugeArea" data-controller="gauge" data-gauge-pourcentage-value="<%= @product.quantity_left%>"></div>
           </div>
           <div>
             <%= @product.condition %>
