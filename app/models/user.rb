@@ -14,6 +14,9 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   def my_reviews
     (orders.map(&:reviews) + orders_as_owner.map(&:reviews)).flatten
   end
