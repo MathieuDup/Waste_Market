@@ -28,6 +28,14 @@
     <% end %>
   </div>
 
+  <%# Display buttons for buyer%>
+  <% if order.user == current_user %>
+    <div class="card-buttons-bottom">
+      <% if order.progress != "cancelled" && order.progress != "done"  %>
+        <%= link_to 'Cancel', order_path(order, progress: "cancelled", notice: "Order cancelled"), method: :patch, data: { confirm: "Cancel order ?" }, class:"btn-in-card-pink"  %>
+      <% end %>
+    </div>
+  <% end %>
 
   <%# Display buttons for seller%>
   <% if order.product.user == current_user %>
