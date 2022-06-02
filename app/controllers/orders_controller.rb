@@ -8,9 +8,10 @@ class OrdersController < ApplicationController
     @qr_code = RQRCode::QRCode.new(root_to_progress_done)
     @svg = @qr_code.as_svg(
       offset: 0,
-      color: '000',
+      color: :mediumseagreen,
       shape_rendering: 'crispEdges',
-      standalone: true
+      standalone: true,
+      module_size: 6
     )
   end
 
