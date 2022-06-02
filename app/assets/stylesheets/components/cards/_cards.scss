@@ -10,6 +10,13 @@
   padding: 10px;
 }
 
+.cards-categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin: 8px 0px;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
@@ -17,6 +24,10 @@
   }
   .cards-on-index {
     grid-template-columns: 1fr;
+  }
+
+  .cards-categories {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -28,6 +39,10 @@
   .cards-on-index {
     grid-template-columns: 1fr;
   }
+
+  .cards-categories {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
@@ -37,6 +52,10 @@
   }
   .cards-on-index {
     grid-template-columns: 1fr;
+  }
+
+  .cards-categories {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -48,6 +67,10 @@
   .cards-on-index {
     grid-template-columns: 1fr 1fr;
   }
+
+  .cards-categories {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -57,5 +80,9 @@
   }
   .cards-on-index {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .cards-categories {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

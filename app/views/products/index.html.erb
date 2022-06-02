@@ -1,10 +1,16 @@
+<h2> Categories</h2>
+
+<div class="cards-categories">
+  <% @categories.each do |category| %>
+    <%= render 'products/card_category', category: category %>
+  <% end %>
+</div>
+
 
 <h2>This is the product index</h2>
 
-<div class="container">
-    <div class="cards">
-      <% @products.each do |product| %>
-        <%= render 'products/card_product', product: product %>
-      <% end %>
-    </div>
+<div class="cards">
+  <% @products.each do |product| %>
+    <%= render 'products/card_product', product: product %>
+  <% end %>
 </div>

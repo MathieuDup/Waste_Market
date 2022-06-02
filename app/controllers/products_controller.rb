@@ -4,6 +4,10 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    if params[:category]
+      @products = Product.where(category_id: params[:category])
+    end
+    @categories = Category.all
   end
 
   def show
