@@ -13,6 +13,8 @@
 
     "gauge-chart": "^0.5.3",
 
+    "mapbox-gl": "^2.8.2",
+
     "stimulus": "^3.0.1",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",

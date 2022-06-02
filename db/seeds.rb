@@ -5,9 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-p "Seeding database..."
-
+puts "Clean DB"
 Bookmark.destroy_all
 Message.destroy_all
 Review.destroy_all
@@ -16,6 +14,10 @@ Product.destroy_all
 Category.destroy_all
 SubCategory.destroy_all
 User.destroy_all
+puts "DB cleaned"
+
+p "Seeding database..."
+puts "Create users"
 
 admin = User.create(username: "admin", first_name: "Admin", last_name: "Admin", email: "admin@wastemarket.lol", password: "secret", address: "Place des Quinconces, Bordeaux")
 emy = User.create(username: "Emy", first_name: "Emy", last_name: "Emy", email: "emy@wastemarket.lol", password: "secret", address: "Cours Victor Hugo, Bordeaux")
@@ -24,6 +26,8 @@ User.create(username: "Florian", first_name: "Florian", last_name: "Florian", em
 User.create(username: "Patricia", first_name: "Patricia", last_name: "Patricia", email: "patricia@waste.market.lol", password: "secret", address: "Esplanade des Antilles, Pessac")
 User.create(username: "Jérôme", first_name: "Jérôme", last_name: "Jérôme ", email: "jerome@wastemarket.lol", password: "secret", address: "Rue Calixte-Camelle, Bègles")
 User.create(username: "Mathieu", first_name: "Mathieu", last_name: "Mathieu", email: "mathieu@wastemarket.lol", password: "secret", address: "Rue Sainte Catherine, Bordeaux")
+
+puts "Users created"
 
 paint = Category.create!(name: "paint")
 floors = Category.create!(name: "floors")
