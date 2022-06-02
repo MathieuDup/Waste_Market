@@ -1,3 +1,15 @@
+.product-show-container {
+  header {
+    position: relative;
+    height: 300px;
+  }
+
+  header > .product-show-links {
+    background-color: #ffffff5c;
+  }
+}
+
+
 .product-show-img {
   height: 400px;
   background-size: cover;

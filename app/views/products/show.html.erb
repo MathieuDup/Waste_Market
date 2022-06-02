@@ -1,9 +1,9 @@
 
-<div class="product-show-container">
-    <div class="product-show-img" style="background-image: url(<%#= cl_image_path(@product.photo.key) %>)">
-      <div class="d-flex justify-content-between">
+<%# <div class="product-show-container"> %>
+   <!--  <div class="product-show-img" style="background-image: url(<%#= cl_image_path(@product.photo.key) %>)"> -->
+      <%# <div class="d-flex justify-content-between"> %>
         <%#= link_to root_path do %>
-          <p><i class='fa fa-long-arrow-left' style='color: white' class="me-auto p-2 bd-highlight"></i></p>
+          <%# <p><i class='fa fa-long-arrow-left' style='color: white' class="me-auto p-2 bd-highlight"></i></p> %>
         <%# end %>
 
 
@@ -23,57 +23,75 @@
   <%# end %>
 <%# end %>
 
-<div class="container-fluid">
-  <div class="card-category">
+<%# <div class="container-fluid"> %>
+  <%# <div class="card-category"> %>
   <%#= image_tag (@product.photo.attached? ? cl_image_path(@product.photo.key) : asset_path("paintpots.jpg"))%>
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="d-flex bd-highlight mb-3">
-         <p><i class='fa fa-long-arrow-left' style='color: white' class="me-auto p-2 bd-highlight"></i></p>
-        </div>
-        <div class="d-flex bd-highlight mb-3">
-          <p><i class='fa fa-share-alt' style='color: white' class="p-2 bd-highlight"></i></p>
-        <%## Display Bookmark button for buyers %>
-        <%# if current_user && @product.user != current_user %>
-          <div class="card-buttons">
-            <%# if current_user.bookmarks.find_by(product: @product) %>
-              <%# bookmark = current_user.bookmarks.find_by(product: @product) %>
-              <%#= link_to bookmark_path(bookmark), method: :delete do %>
-                <i class="fa-solid fa-heart"></i>
-              <%# end %>
-            <%# else %>
-              <%#= link_to product_bookmarks_path(@product), method: :post do %>
-                <i class="fa-regular fa-heart"></i>
-              <%# end %>
-            <%# end %>
-          </div>
-        <%# end %>
-      </div>
-        <p><i class="fa-solid fa-user"></i></p>
-    </div>
+    <%# <div class="row"> %>
+      <%# <div class="col-sm-12"> %>
+        <%# <div class="d-flex bd-highlight mb-3"> %>
+         <%# <p><i class='fa fa-long-arrow-left' style='color: white' class="me-auto p-2 bd-highlight"></i></p> %>
+        <%# </div> %>
+        <%# <div class="d-flex bd-highlight mb-3"> %>
+          <%# <p><i class='fa fa-share-alt' style='color: white' class="p-2 bd-highlight"></i></p> %>
 
-    <div class="row pt-2">
-      <div class="col-6">
+      <%# </div> %>
+        <%# <p><i class="fa-solid fa-user"></i></p> %>
+    <%# </div> %>
+
+    <%# <div class="row pt-2"> %>
+      <%# <div class="col-6"> %>
           <h1><%#= @product.name %></h1>
           <p><%#= @product.brand %></p>
           <p><%#= @product.characteristics %></p>
           <p><%#= @product.category.name %></p>
-      </div>
-      <div class="col-6">
-          <h1><%#= @product.price %>€</h1>
+      <%# </div> %>
+      <%# <div class="col-6"> %>
+          <h1><%#= @product.price %></h1>
           <p><%#= @product.quantity_left %></p>
           <p><%#= @product.condition %></p>
           <p><%#= @product.buying_date %></p>
           <p><%#= @product.expiration_date %></p>
-      </div>
-    </div>
+      <%# </div> %>
+    <%# </div> %>
 
 
-  <blockquote class="blockquote">
-      <h3 class="mb-0">Description générale</h3>
-        <p><i class="text-align-inline">Waste-Market is taking its paint ranges to new eco-friendly heights.
-        Our main goal is to recycle and reuse your left-over pot of paint in a new innovative and friendly way. A concept...</p></i>
-    </blockquote>
+  <%# <blockquote class="blockquote"> %>
+      <%# <h3 class="mb-0">Description générale</h3> %>
+        <%# <%# <p><i class="text-align-inline">Waste-Market is taking its paint ranges to new eco-friendly heights. %>
+        <%# Our main goal is to recycle and reuse your left-over pot of paint in a new innovative and friendly way. A concept...</p></i> %>
+    <%# </blockquote> %>
   <%#= link_to 'Contact', user_path(@product.user_id), class: "btn-green-secondary" %>
   <%#= link_to 'Order', product_orders_path(@product), method: :post, class: "btn-green-primary" %>
-  <div>
+  <%# <div> %>
+
+
+<div class="product-show-container">
+  <header class="product-show-img pt-2" style="background-image: linear-gradient(#f9fafb54,#f9fafb54), url(<%= @product.photo.attached? ? cl_image_path(@product.photo.key) : asset_path("paintpots.jpg") %>)">
+    <div class="product-show-links d-flex justify-content-between mx-2 p-1">
+        <div class="bd-highlight">
+          <%= link_to root_path do %>
+            <i class='fa fa-long-arrow-left' style='color: white'></i>
+          <% end %>
+        </div>
+
+        <div>
+          <i class='fa fa-share-alt' style='color: white' class="p-2 bd-highlight"></i>
+          <%# Display Bookmark button for buyers %>
+          <% if current_user && @product.user != current_user %>
+            <% if current_user.bookmarks.find_by(product: @product) %>
+              <% bookmark = current_user.bookmarks.find_by(product: @product) %>
+              <%= link_to bookmark_path(bookmark), method: :delete do %>
+                <i class="fa-solid fa-heart"></i>
+              <% end %>
+            <% else %>
+              <%= link_to product_bookmarks_path(@product), method: :post do %>
+                <i class="fa-regular fa-heart"></i>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+
+
+    </div>
+  </header>
+</div>
