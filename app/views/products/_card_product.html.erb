@@ -21,18 +21,22 @@
 
   <%# Display Bookmark button for buyers %>
   <% if current_user && product.user != current_user %>
+  <div>
     <div class="card-buttons">
       <% if current_user.bookmarks.find_by(product: product) %>
         <% bookmark = current_user.bookmarks.find_by(product: product) %>
-        <%= link_to bookmark_path(bookmark), method: :delete do %>
-          <i class="fa-solid fa-heart"></i>
+        <%= link_to bookmark_path(bookmark), data: {display_bookmark_target: "destroy",
+                                                                     action: "click->display-bookmark#destruction" } do%>
+          <i class="fa-solid fa-heart" data-display-bookmark-target="bookmarks" id="product-<%= product.id %>"></i>
         <% end %>
       <% else  %>
-        <%= link_to product_bookmarks_path(product), method: :post do %>
-          <i class="fa-regular fa-heart"></i>
+        <%= link_to product_bookmarks_path(product), data: {display_bookmark_target: "create",
+                                                                           action: "click->display-bookmark#creation" } do %>
+          <i class="fa-regular fa-heart" data-display-bookmark-target="bookmarks" id="product-<%= product.id %>"></i>
         <% end %>
       <% end %>
     </div>
+  </div>
   <% end %>
 
   <%# Display edit and delete button for sellers %>

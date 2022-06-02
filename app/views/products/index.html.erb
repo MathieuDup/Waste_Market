@@ -9,8 +9,6 @@
 
 <h2>This is the product index</h2>
 
-<div class="cards">
-  <% @products.each do |product| %>
-    <%= render 'products/card_product', product: product %>
-  <% end %>
+<div class="cards" data-controller="display-bookmark" data-display-bookmark-target="list">
+  <%= render 'list_products', products: @products %>
 </div>

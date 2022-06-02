@@ -1,20 +1,22 @@
 class BookmarksController < ApplicationController
   def create
+    @products = Product.all
     @product = Product.find(params[:product_id])
     @bookmark = Bookmark.new
     @bookmark.user_id = current_user.id
     @bookmark.product_id = @product.id
-    if @bookmark.save
-      redirect_to products_path, notice: 'Bookmark added'
-    else
-      flash[:alert] = "ERROR: Bookmark not added"
-      # redirect_to products_path, notice: 'ERROR: Bookmark not added'
+    @bookmark.save
+    respond_to do |format|
+      format.html { render partial: 'products/list_products', locals: { products: @products }, formats: [:html] }
     end
   end
 
   def destroy
+    @products = Product.all
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-    redirect_to products_path, notice: 'Bookmark destroyed.'
+    respond_to do |format|
+      format.html { render partial: 'products/list_products', locals: { products: @products }, formats: [:html] }
+    end
   end
 end
