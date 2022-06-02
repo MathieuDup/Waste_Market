@@ -4,13 +4,22 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @categories = Category.all
     if params[:category]
       @products = Product.where(category_id: params[:category])
     end
-    @categories = Category.all
+    if params[:search]
+      @products = Product.global_search(params[:search][:query])
+    end
   end
 
   def show
+    @markers = [{
+      lat: @product.user.latitude,
+      lng: @product.user.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { product: @product }),
+      image_url: helpers.asset_url(@product.user.photo.attached? ? cl_image_path(@product.user.photo.key) : "/assets/images/emy.jpg")
+    }]
   end
 
   def new

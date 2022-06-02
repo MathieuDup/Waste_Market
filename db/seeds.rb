@@ -17,13 +17,13 @@ Category.destroy_all
 SubCategory.destroy_all
 User.destroy_all
 
-admin = User.create!(username: "admin", first_name: "Admin", last_name: "Admin", email: "admin@wastemarket.lol", password: "secret", address: "123 Fake St")
-emy = User.create!(username: "Emy", first_name: "Emy", last_name: "Emy", email: "emy@wastemarket.lol", password: "secret", address: "123 Fake St")
-jim = User.create!(username: "Jim", first_name: "Jim", last_name: "Jim", email: "jim@wastemarket.lol", password: "secret", address: "123 Fake St")
-User.create!(username: "Florian", first_name: "Florian", last_name: "Florian", email: "florian@waste.market.lol", password: "secret", address: "123 Fake St")
-User.create!(username: "Patricia", first_name: "Patricia", last_name: "Patricia", email: "patricia@waste.market.lol", password: "secret", address: "123 Fake St")
-User.create!(username: "Jérôme", first_name: "Jérôme", last_name: "Jérôme ", email: "jerome@wastemarket.lol", password: "secret", address: "123 Fake St")
-User.create!(username: "Mathieu", first_name: "Mathieu", last_name: "Mathieu", email: "mathieu@wastemarket.lol", password: "secret", address: "123 Fake St")
+admin = User.create(username: "admin", first_name: "Admin", last_name: "Admin", email: "admin@wastemarket.lol", password: "secret", address: "Place des Quinconces, Bordeaux")
+emy = User.create(username: "Emy", first_name: "Emy", last_name: "Emy", email: "emy@wastemarket.lol", password: "secret", address: "Cours Victor Hugo, Bordeaux")
+jim = User.create(username: "Jim", first_name: "Jim", last_name: "Jim", email: "jim@wastemarket.lol", password: "secret", address: "Quai Bacalan, Bordeaux")
+User.create(username: "Florian", first_name: "Florian", last_name: "Florian", email: "florian@waste.market.lol", password: "secret", address: "Rue Gabriel Dedieu, Lormont")
+User.create(username: "Patricia", first_name: "Patricia", last_name: "Patricia", email: "patricia@waste.market.lol", password: "secret", address: "Esplanade des Antilles, Pessac")
+User.create(username: "Jérôme", first_name: "Jérôme", last_name: "Jérôme ", email: "jerome@wastemarket.lol", password: "secret", address: "Rue Calixte-Camelle, Bègles")
+User.create(username: "Mathieu", first_name: "Mathieu", last_name: "Mathieu", email: "mathieu@wastemarket.lol", password: "secret", address: "Rue Sainte Catherine, Bordeaux")
 
 paint = Category.create!(name: "paint")
 floors = Category.create!(name: "floors")
