@@ -3,6 +3,15 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    raise
+    @svg = @qr_code.as_svg(
+      offset: 0,
+      color: $green-secondary,
+      shape_rendering: 'crispEdges',
+      standalone: true,
+      module_size: 14
+    )
   end
 
   def create
@@ -12,6 +21,9 @@ class OrdersController < ApplicationController
       @order.user_id = current_user.id
       @order.product_id = @product.id
       @order.progress = "pending"
+      @qr_code = RQRCode::QRCode.new
+      @order.qr_code = @qr_code
+      raise
       @order.save
       redirect_to user_path(current_user)
     else
@@ -27,5 +39,9 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.update(progress: params[:progress])
     redirect_to user_path(current_user), notice: params[:notice]
+  end
+
+  def order_params
+    params.require(:order).permit(:qr_code)
   end
 end

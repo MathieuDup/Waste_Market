@@ -28,9 +28,14 @@ gem 'cloudinary', '~> 1.16.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# Devise for user management, login etc
 gem 'devise'
 
+# for Mapbox
 gem "geocoder"
+
+# for QR generation
+gem 'rqrcode'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass', '~> 6.1.1'
