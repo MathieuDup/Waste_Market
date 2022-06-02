@@ -1,18 +1,19 @@
 
 .card-product {
   display: flex;
-  height: 120px;
+  height: auto;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   align-items: center;
   position: relative;
   padding: 4px;
-}
 
-.card-product img {
-  height: 110px;
-  width: 110px;
-  object-fit: cover;
+  img {
+    height: 110px;
+    width: 110px;
+    object-fit: cover;
+    position: left;
+  }
 }
 
 .card-product h2 {
@@ -43,6 +44,8 @@
 .card-product-infos {
   display: flex;
   width: 100%;
+  height: 50%;
+  align-content: flex-end;
 }
 
 .card-product-infos-primary {
@@ -74,4 +77,11 @@
 
 .card-buttons .fa-trash-can {
   color: $green-secondary;
+}
+
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .card-product {
+    flex-direction: column;
+  }
 }
