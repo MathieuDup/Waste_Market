@@ -1,11 +1,21 @@
-.product-show-container {
-  header {
-    position: relative;
-    height: 300px;
+.product-show-card {
+  background-color: white;
+  padding: 0.75rem 0.5rem;
+  border-radius: 3px;
+
+  .product-show-links {
+    background-color: #125b50;
   }
 
-  header > .product-show-links {
-    background-color: #ffffff5c;
+  h2 {
+    font-size: 1.3em;
+  }
+
+  .product-complementary-infos {
+    i {
+      color: #00C897;
+      // color: $pink;
+    }
   }
 }
 
