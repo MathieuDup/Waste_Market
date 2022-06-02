@@ -10,4 +10,14 @@ class Product < ApplicationRecord
   # validates :sub_category, presence: true
   # validates :condition, presence: true
   # validates :quantity_left, presence: true
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :name, :brand, :condition ],
+    associated_against: {
+      category: :name,
+      sub_category: :name
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
