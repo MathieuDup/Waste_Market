@@ -4,9 +4,8 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    root_to_prod = "http://www.wastemarket.lol/orders/4/update_done"
     root_to_progress_done = "#{root_url}#{params[:controller]}/#{@order.id}/update_done"
-    @qr_code = RQRCode::QRCode.new(root_to_prod)
+    @qr_code = RQRCode::QRCode.new(root_to_progress_done)
     @svg = @qr_code.as_svg(
       offset: 0,
       color: :mediumseagreen,
