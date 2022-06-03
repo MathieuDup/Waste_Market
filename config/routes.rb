@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resources :bookmarks, only: :destroy
   resources :users, only: %i[show edit update]
 
-  get '/orders/:id/order_done', to: "orders#update_done"
+  get '/orders/:id/update_done', to: "orders#update_done"
 end
