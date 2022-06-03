@@ -3,13 +3,13 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @products = Product.all
     @categories = Category.all
     if params[:category]
       @products = Product.where(category_id: params[:category])
-    end
-    if params[:search]
+    elsif params[:search]
       @products = Product.global_search(params[:search][:query])
+    else
+      @products = Product.all
     end
   end
 
