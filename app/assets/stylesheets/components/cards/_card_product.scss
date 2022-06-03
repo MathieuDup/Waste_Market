@@ -1,64 +1,89 @@
 
 .card-product {
   display: flex;
-  height: auto;
+  flex-direction: column;
+  height: 250px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  align-items: center;
+  //align-items: center;
   position: relative;
-  padding: 4px;
 
-  img {
-    height: 110px;
-    width: 110px;
+img {
+    height: 100px;
+    width:100%;
     object-fit: cover;
-    position: left;
   }
+}
+
+.card-product a{
+  width: 100%;
 }
 
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
+  // margin-top: 4px;
   color : #125B50;
 }
 
 .card-product h3 {
-  font-size: 12px;
+  font-size: 18px;
   line-height: 1.4;
   opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
+  font-weight: bold;
+  // margin-bottom: -15px;
+  // padding-left: 30px;
+  // margin-top: 0;
+  // padding-top: 15px;
+  // line-height: 0;
   color: #FF6363;
 }
 
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-  color: #868687;
-}
-
 .card-product-infos {
-  display: flex;
+  // display: flex;
   width: 100%;
   height: 50%;
   align-content: flex-end;
+  padding: 0 10%;
+
+  .card-product-infos-primary {
+    // padding: 0;
+    display: flex;
+    // flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    // width: 50%;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin: 0;
+    // margin-bottom: -5px;
+    // padding-top: 0;
+    // margin-left: 11px;
+    color: #868687;
+  }
+
+
+  .card-category-address {
+    margin-top: 25px;
+  }
+
 }
 
-.card-product-infos-primary {
-  padding: 4px;
+
+.card-product-title{
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  width: 50%;
+  text-align: center ;
+  margin-top: 10px;
 }
 
 .card-product-infos-secondary {
-  padding: 4px;
   width: 50%;
+  text-align: right;
 }
 
 .card-buttons {
@@ -77,11 +102,4 @@
 
 .card-buttons .fa-trash-can {
   color: $green-secondary;
-}
-
-
-@media (min-width: 100px) and (max-width: 575px) {
-  .card-product {
-    flex-direction: column;
-  }
 }

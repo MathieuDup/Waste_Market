@@ -5,16 +5,23 @@
     <%= image_tag (product.photo.attached? ? cl_image_path(product.photo.key) : asset_path(picture_name))%>
   <% end %>
 
+
+  <%# display product title  %>
+  <div class="card-product-title">
+    <h2><%= product.name.capitalize %></h2>
+  </div>
+
   <%# Display Product information %>
   <div class="card-product-infos">
     <div class="card-product-infos-primary">
-      <h2><%= product.name.capitalize %></h2>
-      <h3><%= product.category.name.capitalize %></h3>
-      <p><%= product.user.address %></p>
+      <p class="card-category-name"><%= product.category.name.capitalize %></p>
+      <div class="card-product-infos-secondary">
+        <h3><%= product.price %> €</h3>
+        <p><%= product.quantity_left %> %</p>
+      </div>
     </div>
-    <div class="card-product-infos-secondary">
-      <p><%= product.price %> €</p>
-      <p><%= product.quantity_left %> %</p>
+    <div>
+      <p class="card-category-address"><%= product.user.address %></p>
     </div>
   </div>
 
