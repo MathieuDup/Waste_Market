@@ -9,3 +9,10 @@
       <%= image_tag "Logo.png", class: "qr-code-logo" %>
     </div>
 <% end  %>
+
+
+<%= link_to "Back", user_path(current_user), class: "btn green-primary" %>
+<%= link_to "Review", new_order_review_path(@order), class: "btn green-primary" %>
+<% @order.reviews.each do |review| %>
+  <%= render 'reviews/card_review', review: review %>
+<% end %>
