@@ -46,10 +46,10 @@
   <%# Display buttons for seller%>
   <% if order.product.user == current_user %>
     <div class="card-buttons-bottom">
-      <% if order.progress != "cancelled" %>
+      <% if order.progress != "cancelled" && order.progress != "done" %>
         <%= link_to 'Reject', order_path(order, progress: "cancelled", notice: "Order rejected"), method: :patch, data: { confirm: "Cancel order ?" }, class:"btn-in-card-pink"  %>
       <% end %>
-      <% if order.progress != "validated" %>
+      <% if order.progress != "validated" && order.progress != "done" %>
         <%= link_to 'Validate', order_path(order, progress: "validated", notice: "Order validated"), method: :patch, data: { confirm: "Confirm order ?" }, class:"btn-in-card-green-primary"  %>
       <% end %>
     </div>
