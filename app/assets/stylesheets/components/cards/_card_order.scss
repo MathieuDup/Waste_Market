@@ -53,13 +53,6 @@
   width: 100%;
 }
 
-.card-order-infos-details {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-}
-
 .card-order-infos-primary {
   padding: 4px;
   width: 50%;
@@ -72,7 +65,9 @@
   text-align: center;
 }
 
-.order-gauge {
-width: 30px;
-height: 30px;
+#order-gauge svg {
+  transform: scale(0.7);
+  position: absolute;
+  top: 28px;
+  right: 24px;
 }

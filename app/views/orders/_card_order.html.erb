@@ -13,12 +13,11 @@
       <h3><%= order.product.price %> €</h3>
     </div>
     <%# Display Product information %>
-    <div class="card-order-infos-details">
       <div class="card-order-infos-primary">
         <p><%= order.product.user.address %></p>
-        <div id="gaugeArea" class="order-gauge" data-controller="gauge" data-gauge-pourcentage-value="<%= order.product.quantity_left%>"></div>
+        <div id="order-gauge" data-controller="gauge" data-gauge-pourcentage-value="<%= order.product.quantity_left%>"></div>
       </div>
-    </div>
+
   </div>
 
   <%# Display buttons for everyone%>
