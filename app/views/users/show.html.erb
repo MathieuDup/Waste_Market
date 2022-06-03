@@ -8,7 +8,7 @@
   <% if @products.length > 0 %>
   <h2>My <%= @products.length %> products</h2>
   <% end %>
-  <div class="cards">
+  <div class="cards-products">
     <% @products.each do |product| %>
       <%= render 'products/card_product', product: product %>
     <% end %>
@@ -17,7 +17,7 @@
   <% if @buyer_orders.length > 0 %>
   <h2>My <%= @buyer_orders.length %> orders as a buyer</h2>
   <% end %>
-  <div class="cards">
+  <div class="cards-orders">
     <% @buyer_orders.each do |order| %>
       <%= render 'orders/card_order', order: order %>
     <% end %>
@@ -27,7 +27,7 @@
   <% unless @seller_orders.empty? %>
     <h2>My <%= @seller_orders.length %> orders as a seller</h2>
   <% end %>
-  <div class="cards">
+  <div class="cards-orders">
     <% @seller_orders.each do |order| %>
       <%= render 'orders/card_order', order: order %>
     <% end %>
