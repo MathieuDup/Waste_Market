@@ -1,17 +1,19 @@
-
-
 <!-- mobile navbar fixed bottom -->
 <footer role="navbar navbar-fixed-bottom" class="mobilenavbarfooter navbar-expand invisible-scrollbar fixed-bottom al-sm-dark-green">
     <div class="container-fluid">
-        <div class="navbar-nav justify-content-sm-around align-items-center w-100 h-100">
+        <div class="navbar-nav align-items-center w-100 h-100">
           <%= link_to root_path do %>
-            <span class="fa-sm mr-sm-2 icon"><i class="fa-solid fa-house"></i></span>
+          <%# <div class="display-flex-element style"> %>
+            <i class="fa-solid fa-house"></i>
           <% end %>
-          <%= link_to user_path(current_user) do %>
-            <% image_tag (current_user.photo.attached? ? cl_image_path(current_user.photo.key) : asset_path("emy.jpg")), class: "avatar dropdown-toggle" %>
+          <%#= link_to root_path do %>
+            <%# image_tag (current_user.photo.attached? ? cl_image_path(current_user.photo.key) : asset_path("emy.jpg")), class: "avatar dropdown-toggle" %>
+          <%# end %>
+          <%= link_to root_path do %>
+            <i class="fa-solid fa-message"></i>
           <% end %>
           <%= link_to root_path do %>
-            <span class="fa-sm mr-sm-2 icon"><i class="fa-solid fa-message"></i></span>
+            <i class="fa-solid fa-message"></i>
           <% end %>
         </ul>
     </div>
