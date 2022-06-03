@@ -1,0 +1,5 @@
+function displayProduct(id, html) {
+  document.getElementById(`product-${id}`).outerHTML = html
+}
+
+displayProduct(<%= @product.id %>, "<%= j render 'products/card_product', product: @product %>")

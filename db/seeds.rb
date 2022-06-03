@@ -59,9 +59,9 @@ product_4 = Product.create!(name: "Red paint", price: 15.00, condition: "Average
 product_5 = Product.create!(name: "Green paint", price: 15.00, condition: "Average", quantity_left: "50", user: emy, category: paint, sub_category: sub_cat_2)
 product_6 = Product.create!(name: "Wood tile floor", price: 10.00, condition: "Good", quantity_left: "75", user: jim, category: floors, sub_category: sub_cat_4)
 product_7 = Product.create!(name: "Hammer", price: 5.00, condition: "Good", quantity_left: "100", user: jim, category: tools, sub_category: sub_cat_8)
-product_8 = Product.create!(name: "Sanitary Silicon", price: 10, brand: "Geb", characteristics: "Color: white", condition: "Good", quantity_left: "75", user: florian, category: hardware, sub_category: sub_cat_12, EAN: 3283988931505)
-product_9 = Product.create!(name: "Paint multi-supports", price: 20, brand: "Colours Collection", characteristics: "Color: Beetle, Type: Satin", condition: "Good", quantity_left: "50", user: florian, category: paint, sub_category: sub_cat_2, EAN: 3454976664372)
-product_10 = Product.create!(name: "Wall, wood and radiator paint ", price: 5, brand: "Ripolin", characteristics: "Color: Duck Green, Type: Satin",condition: "Average", quantity_left: "25", user: florian, category: paint, sub_category: sub_cat_2, EAN: 3174269073703)
+product_8 = Product.create!(name: "Sanitary Silicon", price: 10, brand: "Geb", characteristics: "Color: white", condition: "Good", quantity_left: "75", user: florian, category: hardware, sub_category: sub_cat_12, EAN: "3283988931505")
+product_9 = Product.create!(name: "Paint multi-supports", price: 20, brand: "Colours Collection", characteristics: "Color: Beetle, Type: Satin", condition: "Good", quantity_left: "50", user: florian, category: paint, sub_category: sub_cat_2, EAN: "3454976664372")
+product_10 = Product.create!(name: "Wall, wood and radiator paint ", price: 5, brand: "Ripolin", characteristics: "Color: Duck Green, Type: Satin",condition: "Average", quantity_left: "25", user: florian, category: paint, sub_category: sub_cat_2, EAN: "3174269073703")
 
 Order.create!(user: emy, product: product_1, progress: "done", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
 Order.create!(user: emy, product: product_2, progress: "validated", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
