@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     @seller_orders = current_user.orders_as_owner.order(created_at: :desc)
     @reviews = current_user.my_reviews
     @bookmarks = current_user.bookmarks.order(created_at: :desc)
+    @other_user = User.find(params[:id])
   end
 
   private
