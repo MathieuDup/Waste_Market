@@ -2,9 +2,13 @@
   <%# Display Product image %>
   <%= link_to product_path(product) do %>
     <% picture_name = product.category.name + ".jpg" %>
-    <%= image_tag (product.photo.attached? ? cl_image_path(product.photo.key) : asset_path(picture_name))%>
+    <%= image_tag (product.photo.attached? ? cl_image_path(product.photo.key) : asset_path(picture_name)), class: "product-card-image"%>
   <% end %>
 
+  <%# Display User avatar %>
+  <%= link_to user_path(product.user) do %>
+    <%= image_tag (product.user.photo.attached? ? cl_image_path(product.user.photo.key) : asset_path("emy.jpg")), class: "avatar-on-card position-avatar-cardproduct" %>
+  <% end %>
 
   <%# display product title  %>
   <div class="card-product-title">
