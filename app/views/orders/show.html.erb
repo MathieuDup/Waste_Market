@@ -9,3 +9,23 @@
       <%= image_tag "Logo.png", class: "qr-code-logo" %>
     </div>
 <% end  %>
+
+
+<%= link_to "Back", user_path(current_user), class: "btn green-primary" %>
+
+<% if current_user && current_user.can_review?(@order) %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <%= simple_form_for([@order, @review], html: { class: "review_form" }) do |f| %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", id: "review_rating" %>
+        <%= f.submit class: "d-none" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<% @order.reviews.each do |review| %>
+  <%= render 'reviews/card_review', review: review %>
+<% end %>
