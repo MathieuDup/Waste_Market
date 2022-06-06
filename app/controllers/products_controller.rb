@@ -23,6 +23,8 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @scan = params[:scan]
+    @product_scanned = Product.find_by(EAN: @scan)
     @product = Product.new
   end
 

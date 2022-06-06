@@ -1,22 +1,11 @@
 import * as ScanditSDK from "scandit-sdk";
 
-ScanditSDK.configure("AWvBzgIkICbOHM7G6AAjOZo2+u5sIIwq2gA6kt4+q/3JdHPtYxfs5sYG3jeYWbvoMVoAgOMeQQclGBOa3HallhRINCJvVVgjCGXxS9BlWlcNCv3PBBgURSA4YEf5EvkpD83fkyNYvy4aZp/TKx0sn/+WPfhfOx2VUr31vm+kg/kiofQxc/tZqQndgFbMWtNxB/irS/SjF923s5dRZRAtfbXScTpozyw6VMb7e3xPqGoQM20kF88dn3uy5ZJtliKIlQJAx6h6Gf3k1RRE5qzRyHOKTWz6QDvGhfkyisFTGrP0LWb/MfcH4x9NexPApq5tlhBRMsbwPi3GLIUcwb55+DVqxONCDyngXfHDPzq/6mCMZWch4fmfHjoJQCyRIAV5+m5mj/ALdbv43ZNIs4GGKy9wW8Jvpc8sN9zdBljZx3cqKAiuEWWFaLSwYAvJV9ZMQpG7Juz8R0BZ6vRhHjrxh+RjgC26x5eIiN6jh/S5KF4TAaWtD+GEgt6H3GBzHwFT+7yyyJ+WXgGesItz8NfzXIQtbIYPW/6OsM10reQ7pBVle8GNZ8tOqGa4T96rc/Rfunr+CBKY9n/gjdjIBKlmgOHsOfS3uMXwrw4BIu/EsILTVqFFAnHD0qBwrzaa4MdVdJL76BlCvUKHBwcxMjk5DB8jlRfaalh+F/6r15XRNfFegsMXMexM77GPElIHYD1SoPdw89xgwR0z48LDRnJPbhVrLazlgAYiTJBONru/MX2WOR/lAF0fAt+tS6qzoU/64zykI9pHZRJUAzT/Jjw2a0/gHsrtIgPmDduQaifwSA==", {
-  engineLocation: "https://cdn.jsdelivr.net/npm/scandit-sdk@5.x/build/",
-})
-  .then(() => {
-    return ScanditSDK.BarcodePicker.create(document.getElementById("scandit-barcode-picker"), {
-      // enable some common symbologies
-      scanSettings: new ScanditSDK.ScanSettings({ enabledSymbologies: ["ean8", "ean13", "upca", "upce"] }),
-    });
-  })
-  .then((barcodePicker) => {
-    // barcodePicker is ready here, show a message every time a barcode is scanned
-    barcodePicker.on("scan", (scanResult) => {
-      alert(scanResult.barcodes[0].data);
-    });
-  });
 
 
+ScanditSDK.configure("AbBR+hEkM6NjGVMLViXUEBwD7BZcGhzMMkdSMH4NS1zgblpZQzH8/2YuvtsHRyyDWlXQtnBamXsGF9mRHzowEwMLEk4rbFRzJDsfk1F1x1z1MF901lHMydZocKePLV/P9i2m9fQ51GB4Q9UP4lxt2OtxZIgTVMg9uB76NsX6wMtdrWU8zsMMpzhZpLhin7lNNKQs1YAW1+wRbW7D4s1IiBlpDwRkk8O26OyAd05Q7JDucAz5Dt4NKUP7NtrpVeugRmC2IKTyZgSKd2ZFV8kz7gFhd926U4Fn2rxGiUuzXI1/1PaChsqlEtHW7Yj0dsmRt4Eh08rn5a3qjciyG8QdHXrIBwoJUZ9PC+AhyvOm+pYQLy15XEsEf2IkSkZG4hNTD8pA4V35i7zGrbrYF8cCLeUKt0vAB6bJguLftDWztTnDPImdNkLzGzbsfGteD3XemogzzVdANbXOrnb5H47sGcmCohr67cVND03J8S3YeKS18pj6pRVFd7NzSLVWvdJIZyqwhL7aZkrGB8HeQw9NjCQoKZQPv8Mqhsbu9drE7j0gEqGQQ4k+qD/45W6tqyK+AkYK3ZJ2tiQJhQ0MHKylULjDtIOiqFTX6MxnWNAMaZoAn9XpNvgz+CmTUNZNyZFg1ydjYaj0ZxEKaGyqNXtGxGYWmMq7x7l6TrLeRxZtPH5O/YQAlgCOc2WLASeDap/ILC/k/U4GkymdLokVqYSWiqvp2scgpL7lNGtktjoQiUNu454YNLFVbHpLmEPgx4B1TdQFgWKXeyErgcRQmwc2alxSMo8QDeaOVZ7EHbIe5KHtejpn4o+RRkzKQi/S02XN89lnDuoKWWo=", {
+  engineLocation: "https://cdn.jsdelivr.net/npm/scandit-sdk/build",
+}).then(() => {
+  // ... ready to instantiate a BarcodePicker or Scanner here
   ScanditSDK.BarcodePicker.create(document.getElementById("scandit-barcode-picker"), {
     playSoundOnScan: true,
     vibrateOnScan: true,
@@ -29,10 +18,17 @@ ScanditSDK.configure("AWvBzgIkICbOHM7G6AAjOZo2+u5sIIwq2gA6kt4+q/3JdHPtYxfs5sYG3j
     barcodePicker.applyScanSettings(scanSettings);
 
     barcodePicker.on("scan", (scanResult) => {
-      alert(
-        scanResult.barcodes.reduce((string, barcode) => {
-          return string + `${ScanditSDK.Barcode.Symbology.toHumanizedName(barcode.symbology)}: ${barcode.data}\n`;
-        }, "")
-      );
+      console.log(scanResult.barcodes[0].data);
+      window.location.assign(`/products/new?scan=${scanResult.barcodes[0].data}`)
+      // Rails.ajax({
+      //   type: "GET",
+      //   url: "/products/new",
+      //   data: { scan: scanResult.barcodes[0].data }
+      // })
+      // const scanner = document.getElementById("scanner")
+      // scanner.insertAdjacentHTML("beforeend", scanResult.barcodes[0].data)
     });
+
   });
+
+});
