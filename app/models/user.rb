@@ -34,32 +34,20 @@ class User < ApplicationRecord
   end
 
   def can_order?(product)
-    # can_order = false if user is owner of product or product is already in cart
-    # je peux acheter le produit seulement si :
-      # j'en suis pas propriétaire
     not_my_product?(product) && not_already_ordered?(product) && my_order_status(product)
-      # si je n'ai pas déjà fais une order dessus
-
-      # si le status de l'order est cancel
-    # if product.user_id == id
-    #   can_order = false
-    # else
-    #   can_order = true
-    # end
-    # if !orders.where(product_id: id).empty? && self.orders.where(product_id: id).select { |order| order.progress == "Cancelled" }.empty?
-    #   can_order = false
-    # else
-    #   can_order = true
-    # end
-    # can_order
   end
 
   def can_contact?(product)
-    if product.user.id == id
-      can_contact = false
-    else
-      can_contact = true
-    end
-    can_contact
+    product.user_id != id
+    # if product.user.id == id
+    #   can_contact = false
+    # else
+    #   can_contact = true
+    # end
+    # can_contact
+  end
+
+  def can_review?(order)
+    order.reviews.find_by(user_id: id) ? false : true
   end
 end

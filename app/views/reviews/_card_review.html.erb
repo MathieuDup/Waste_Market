@@ -1,1 +1,8 @@
-<p>This is a review card</p>
+<div class="review">
+  <p><%= review.user.username %>'s note</p>
+  <ul> <% review.rating.times do%>
+    <li class="fa fa-star"></li>
+  <%# <li><i class="fa-solid fa-star"></i></li> %>
+  <% end %>
+  </ul>
+</div>
