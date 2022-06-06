@@ -16,43 +16,6 @@ import "controllers"
 import "bootstrap"
 
 
-import { initSweetalert } from '../plugins/init_sweetalert';
-
-//Button validate
-initSweetalert('#sweet-alert-demo', {
-  title: "A nice alert",
-  text: "This is a great alert, isn't it?",
-  icon: "success"
-});
-
-//Button reject
-initSweetalert('#sweet-alert-reject', {
-  title: "A nice reject",
-  text: "This is a great alert reject, isn't it?",
-  icon: "success"
-});
-
-//Button cancel
-initSweetalert('#sweet-alert-cancel', {
-  title: "A nice cancel",
-  text: "This is a alert cancel, isn't it?",
-  icon: "success"
-});
-
-//Button delete
-initSweetalert('#sweet-alert-delete', {
-  title: "Are you sure?",
-  text: "This action cannot be reversed",
-  icon: "warning"
-});
-
-//Button order
-initSweetalert('#sweet-alert-order', {
-  title: "Are you sure?",
-  text: "This is a alert order",
-  icon: "success"
-});
-
 import { initStarRating } from '../plugins/init_star_rating';
 
 document.addEventListener('turbolinks:load', () => {

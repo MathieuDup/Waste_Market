@@ -6,7 +6,7 @@
 
   <h1 class="text-center"><%= current_user.username %>'s profile</h1>
   <% if @products.length > 0 %>
-  <h2>My <%= @products.length %> products</h2>
+    <h2>My <%= @products.length %> products</h2>
   <% end %>
   <div class="cards-products">
     <% @products.each do |product| %>
@@ -15,7 +15,7 @@
   </div>
 
   <% if @buyer_orders.length > 0 %>
-  <h2>My <%= @buyer_orders.length %> orders as a buyer</h2>
+    <h2>My <%= @buyer_orders.length %> orders as a buyer</h2>
   <% end %>
   <div class="cards-orders">
     <% @buyer_orders.each do |order| %>
@@ -35,7 +35,7 @@
 
 
   <% if current_user.my_reviews.length > 0 %>
-  <h2>My <%= current_user.my_reviews.length %> reviews</h2>
+    <h2>My <%= current_user.my_reviews.length %> reviews</h2>
   <% end %>
   <div class="cards">
     <% current_user.my_reviews.each do |review| %>
