@@ -9,6 +9,7 @@
     "@rails/webpacker": "5.4.3",
     "bootstrap": "^5.1.3",
     "gauge-chart": "^0.5.3",
+    "scandit-sdk": "^5.12.0",
     "jquery": "^3.6.0",
     "jquery-bar-rating": "^1.2.2",
     "mapbox-gl": "^2.8.2",
