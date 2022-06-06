@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
-  def new
-    @review = Review.new
-    @order = Order.find(params[:order_id])
-  end
+  # def new
+  #   # @review = Review.new
+  #   # @order = Order.find(params[:order_id])
+  # end
 
   def create
     @order = Order.find(params[:order_id])
@@ -10,10 +10,9 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.order = @order
     if @review.save
-      redirect_to order_path(@order), notice: "Review successfully created."
+      flash[:alert] = "Review successfully created."
     else
       flash[:alert] = "Something went wrong."
-      render :new
     end
   end
 

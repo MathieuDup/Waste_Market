@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @review = Review.new
     root_to_progress_done = "http://localhost:3000/#{params[:controller]}/#{@order.id}?progress=done"
     @qr_code = RQRCode::QRCode.new(root_to_progress_done)
     @svg = @qr_code.as_svg(
