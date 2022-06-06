@@ -1,46 +1,5 @@
-<div class="mt-4">
-  <div class="info-btn">
-    <%= link_to 'Edit my profile', edit_user_registration_path, class:"btn-green-secondary" %>
-    <%= link_to 'Add a product', new_product_path, class:"btn-green-primary" %>
-  </div>
-
-  <h1 class="text-center"><%= current_user.username %>'s profile</h1>
-  <% if @products.length > 0 %>
-  <h2>My <%= @products.length %> products</h2>
-  <% end %>
-  <div class="cards-products">
-    <% @products.each do |product| %>
-      <%= render 'products/card_product', product: product %>
-    <% end %>
-  </div>
-
-  <% if @buyer_orders.length > 0 %>
-  <h2>My <%= @buyer_orders.length %> orders as a buyer</h2>
-  <% end %>
-  <div class="cards-orders">
-    <% @buyer_orders.each do |order| %>
-      <%= render 'orders/card_order', order: order %>
-    <% end %>
-  </div>
-
-
-  <% unless @seller_orders.empty? %>
-    <h2>My <%= @seller_orders.length %> orders as a seller</h2>
-  <% end %>
-  <div class="cards-orders">
-    <% @seller_orders.each do |order| %>
-      <%= render 'orders/card_order', order: order %>
-    <% end %>
-  </div>
-
-
-  <% if current_user.my_reviews.length > 0 %>
-  <h2>My <%= current_user.my_reviews.length %> reviews</h2>
-  <% end %>
-  <div class="cards">
-    <% current_user.my_reviews.each do |review| %>
-      <%= render 'reviews/card_review', review: review %>
-    <% end %>
-  </div>
-
-</div>
+<% if current_user == @other_user  %>
+  <%= render 'users/myprofile' %>
+<% else %>
+  <%= render 'users/otheruserprofile', user: @other_user %>
+<% end %>

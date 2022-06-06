@@ -1,0 +1,17 @@
+<h1 class="text-center"><%= user.username %>'s profile</h1>
+
+<%# Users products %>
+<h2><%= user.username %>'s products</h2>
+<div class="cards-products">
+  <% user.products.each do |product| %>
+    <%= render 'products/card_product', product: product %>
+  <% end %>
+</div>
+
+<%# User reviews %>
+<h2><%= user.username %>'s reviews</h2>
+<div class="cards">
+  <% user.my_reviews.each do |review| %>
+    <%= render 'reviews/card_review', review: review %>
+  <% end %>
+</div>

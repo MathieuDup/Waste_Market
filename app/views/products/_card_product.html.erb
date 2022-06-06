@@ -2,9 +2,13 @@
   <%# Display Product image %>
   <%= link_to product_path(product) do %>
     <% picture_name = product.category.name + ".jpg" %>
-    <%= image_tag (product.photo.attached? ? cl_image_path(product.photo.key) : asset_path(picture_name))%>
+    <%= image_tag (product.photo.attached? ? cl_image_path(product.photo.key) : asset_path(picture_name)), class: "product-card-image"%>
   <% end %>
 
+  <%# Display User avatar %>
+  <%= link_to user_path(product.user) do %>
+    <%= image_tag (product.user.photo.attached? ? cl_image_path(product.user.photo.key) : asset_path("emy.jpg")), class: "avatar-on-card position-avatar-cardproduct" %>
+  <% end %>
 
   <%# display product title  %>
   <div class="card-product-title">
@@ -47,7 +51,7 @@
       <%= link_to edit_product_path(product) do %>
         <i class="fa-regular fa-pen-to-square"></i>
       <% end %>
-      <%= link_to product_path(product), method: :delete, data: { confirm: "Are you sure?" } do %>
+      <%= link_to product_path(product), method: :delete, id:"sweet-alert-delete", data: { confirm: "Are you sure?" } do %>
         <i class="fa-regular fa-trash-can"></i>
       <% end %>
     </div>

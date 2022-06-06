@@ -35,11 +35,6 @@
 //   margin-inline-start: 12px;
 //   }
 
-.navbar-nav {
-  justify-content: space-between;
-  padding:  20%;
-}
-
 .color-creme {
 color: $creme;
 }
@@ -52,6 +47,10 @@ color: $creme;
   color: $green-secondary;
 }
 
+// .navbar-nav {
+//   justify-content: space-between;
+//   padding: 0 20%;
+// }
 
 @media(min-width: 560px) {
   .mobilenavbarfooter {
