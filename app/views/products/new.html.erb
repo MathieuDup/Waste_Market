@@ -1,4 +1,10 @@
 
   <h1 class="text-center">Add a new product</h1>
+  <div id="scandit-barcode-picker" style="max-width: 1280px; max-height: 80%;"></div>
   <%= render 'form_products', teacher: @product %>
   <%= link_to 'Back', root_path %>
+<%#
+<script src="https://cdn.jsdelivr.net/npm/scandit-sdk@5.x"></script> %>
+<script src="/node_modules/scandit-sdk/build/browser/index.min.js"></script>
+
+<%= javascript_pack_tag 'scanner' %>
