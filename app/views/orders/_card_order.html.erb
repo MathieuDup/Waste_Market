@@ -1,6 +1,6 @@
 <div class="card-order">
   <%# Display Product image %>
-  <%= link_to product_path(order.product) do %>
+  <%= link_to order_path(order) do %>
     <% picture_name = order.product.category.name + ".jpg" %>
     <%= image_tag (order.product.photo.attached? ? cl_image_path(order.product.photo.key) : asset_path(picture_name))%>
   <% end %>

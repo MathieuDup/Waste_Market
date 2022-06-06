@@ -15,6 +15,8 @@ class OrdersController < ApplicationController
       standalone: true,
       module_size: 6
     )
+    @messages = Message.all
+    @message = Message.new
   end
 
   def create
