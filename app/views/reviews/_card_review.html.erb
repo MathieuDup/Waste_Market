@@ -1,4 +1,8 @@
 <div class="review">
+  <%# Display User avatar %>
+  <%= link_to user_path(review.user) do %>
+    <%= image_tag (review.user.photo.attached? ? cl_image_path(review.user.photo.key) : asset_path("emy.jpg")), class: "avatar-on-card position-avatar-cardreview" %>
+  <% end %>
   <p><%= review.user.username %>'s note</p>
   <ul> <% review.rating.times do%>
     <li class="fa fa-star"></li>

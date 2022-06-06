@@ -2,7 +2,12 @@
   <%# Display Product image %>
   <%= link_to order_path(order) do %>
     <% picture_name = order.product.category.name + ".jpg" %>
-    <%= image_tag (order.product.photo.attached? ? cl_image_path(order.product.photo.key) : asset_path(picture_name))%>
+    <%= image_tag (order.product.photo.attached? ? cl_image_path(order.product.photo.key) : asset_path(picture_name)), class: "order-card-image"%>
+  <% end %>
+
+  <%# Display User avatar %>
+  <%= link_to user_path(order.user) do %>
+    <%= image_tag (order.user.photo.attached? ? cl_image_path(order.user.photo.key) : asset_path("emy.jpg")), class: "avatar-on-card position-avatar-cardorder" %>
   <% end %>
 
   <%# Display right infos %>

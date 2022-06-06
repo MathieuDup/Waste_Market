@@ -29,6 +29,15 @@
       </div>
       <%# end header links %>
 
+      <%# Display user infos %>
+        <%# Display User avatar %>
+        <%= link_to user_path(@product.user) do %>
+          <%= image_tag (@product.user.photo.attached? ? cl_image_path(@product.user.photo.key) : asset_path("emy.jpg")), class: "" %>
+        <% end %>
+        <%# Display User infos %>
+        <p><%= @product.user.username %> </p>
+        <p>DISPLAY USER INFO HERE </p>
+
       <%# start block infos product %>
       <section class="row mt-3 product-infos">
         <div class="col-12">
