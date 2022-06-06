@@ -11,6 +11,19 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <script src="https://unpkg.com/gauge-chart@latest/dist/bundle.js"></script>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+
+    <style>
+      <%# & permet de ne pas etre connecté sans avoir de message d'erreur pour le current_user %>
+     <%= ".message-list.user-#{current_user&.id}" %> {
+        text-align: right;
+      }
+
+      <%= ".message.user-#{current_user&.id}" %> {
+        color: green;
+      }
+    </style>
+
+
   </head>
 
   <body>
