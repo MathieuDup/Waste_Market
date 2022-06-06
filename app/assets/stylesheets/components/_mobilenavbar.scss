@@ -19,12 +19,14 @@
   align-items: center;
   justify-content: space-around;
   width: 100%;
+  padding-right: 18%;
 }
 
 .mobilenavbar {
   background-size: auto;
   text-align: center;
   padding-top: 100px;
+
 }
 
 // .mobilenavbarflex {
@@ -32,6 +34,18 @@
 //   flex: auto;
 //   margin-inline-start: 12px;
 //   }
+
+.color-creme {
+color: $creme;
+}
+
+.fa-house::before {
+  color: $green-secondary
+}
+
+.fa-message::before {
+  color: $green-secondary;
+}
 
 // .navbar-nav {
 //   justify-content: space-between;
