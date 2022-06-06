@@ -1,21 +1,19 @@
 <!-- mobile navbar fixed bottom -->
-<footer role="navbar navbar-fixed-bottom" class="mobilenavbarfooter navbar-expand invisible-scrollbar fixed-bottom al-sm-dark-green">
-    <div class="container-fluid">
-        <div class="mobilenavbar-nav align-items-center w-100 h-100">
-          <%= link_to root_path do %>
-          <%# <div class="display-flex-element style"> %>
-            <i class="fa-solid fa-house"></i>
-          <% end %>
-          <%#= link_to root_path do %>
-            <%# image_tag (current_user.photo.attached? ? cl_image_path(current_user.photo.key) : asset_path("emy.jpg")), class: "avatar dropdown-toggle" %>
-          <%# end %>
-          <%= link_to root_path do %>
-            <i class="fa-solid fa-message"></i>
-          <% end %>
-          <%= link_to root_path do %>
-            <i class="fa-solid fa-message"></i>
-          <% end %>
-        </ul>
-    </div>
-  </div>
+<footer role="mobilenavbar navbar-fixed-bottom" class="mobilenavbarfooter navbar-expand invisible-scrollbar fixed-bottom al-sm-dark-green">
+    <%= link_to root_path do %>
+    <%# <div class="display-flex-element style"> %>
+      <span class="fa-stack" style="vertical-align: top;">
+        <i class="fa-solid fa-circle fa-stack-2x"></i>
+        <i class="fa-solid fa-house fa-stack-1x fa-inverse"></i>
+      </span>
+    <% end %>
+    <%#= link_to root_path do %>
+      <%# image_tag (current_user.photo.attached? ? cl_image_path(current_user.photo.key) : asset_path("emy.jpg")), class: "avatar dropdown-toggle" %>
+    <%# end %>
+    <%= link_to root_path do %>
+      <i class="fa-solid fa-message"></i>
+    <% end %>
+    <%= link_to root_path do %>
+      <i class="fa-solid fa-message"></i>
+    <% end %>
 </footer>

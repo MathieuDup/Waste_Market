@@ -15,6 +15,7 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 
+
 import { initSweetalert } from '../plugins/init_sweetalert';
 
 //Button validate
@@ -51,3 +52,9 @@ initSweetalert('#sweet-alert-order', {
   text: "This is a alert order",
   icon: "success"
 });
+
+import { initStarRating } from '../plugins/init_star_rating';
+
+document.addEventListener('turbolinks:load', () => {
+  initStarRating();
+})
