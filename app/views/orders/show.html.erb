@@ -1,11 +1,34 @@
-<h1>This is the Order Show</h1>
+<h1><%= @order.product.name %></h1>
 <br>
 
-<% if @order.product.user == current_user && @order.progress == "validated" %>
-  <h2>QR code for transaction</h2>
-  <br>
-    <div class="qr-code">
-      <%= @svg.html_safe %>
-      <%= image_tag "Logo.png", class: "qr-code-logo" %>
+<%# Display QR code when order status = validated %>
+<div>
+  <% if @order.product.user == current_user && @order.progress == "validated" %>
+    <h2>QR code for transaction</h2>
+    <br>
+      <div class="qr-code">
+        <%= @svg.html_safe %>
+        <%= image_tag "Logo.png", class: "qr-code-logo" %>
+      </div>
+  <% end  %>
+</div>
+
+<%# Display chat %>
+<div>
+  <h2>Messages</h2>
+  <div class="container chatroom" data-controller="order-subscription" data-order-subscription-order-id-value="<%= @order.id %>">
+    <div class="messages" data-order-subscription-target="messages">
+      <% @order.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
     </div>
-<% end  %>
+    <%= simple_form_for [@order, @message], remote: true, html: {data: {action: "ajax:success->order-subscription#resetForm"}, class: "d-flex" } do |f| %>
+      <%= f.input :content,
+        label: false,
+        placeholder: "Type your message",
+        wrapper_html: {class: "flex-grow-1"}
+      %>
+      <%= f.submit "Send", class: "btn-green-primary" %>
+    <% end %>
+  </div>
+</div>
