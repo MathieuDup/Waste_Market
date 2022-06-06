@@ -51,9 +51,32 @@
       <%= link_to edit_product_path(product) do %>
         <i class="fa-regular fa-pen-to-square"></i>
       <% end %>
-      <%= link_to product_path(product), method: :delete, id:"sweet-alert-delete", data: { confirm: "Are you sure?" } do %>
+
+
+      <!-- Button modal delete -->
+      <%= link_to "#", data: { bs_toggle: "modal", bs_target: "#modal-delete-product-#{product.id}"} do %>
         <i class="fa-regular fa-trash-can"></i>
       <% end %>
+
+      <!-- Modal -->
+      <div class="modal fade" id="modal-delete-product-<%=product.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Confirmation delete</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Would you like to delete this product?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <%= link_to 'Delete', product_path(product), method: :deleted, class:"btn-pink" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   <% end %>
 
