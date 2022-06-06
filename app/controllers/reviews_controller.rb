@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.order = @order
     if @review.save
+      redirect_to order_path(@order)
       flash[:alert] = "Review successfully created."
     else
       flash[:alert] = "Something went wrong."
