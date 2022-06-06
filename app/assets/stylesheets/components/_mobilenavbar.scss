@@ -1,6 +1,6 @@
-// @media only screen and (max-width: 576px) {
-//   .footer-nav-title { font-size: 0.72rem; }
-// }
+@media only screen and (max-width: 576px) {
+  .footer-nav-title { font-size: 0.72rem; }
+}
 
 .mobilenavbar{
   background: #125B50;
@@ -16,6 +16,9 @@
   background-color: #125B50;
   height: 63px;
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .mobilenavbar {
@@ -30,7 +33,16 @@
 //   margin-inline-start: 12px;
 //   }
 
-.mobilenavbar-nav {
+.navbar-nav {
   justify-content: space-between;
   padding: 0 20%;
+}
+
+
+
+
+@media(min-width: 560px) {
+  .mobilenavbarfooter {
+    display: none;
+  }
 }
