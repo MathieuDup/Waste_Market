@@ -1,0 +1,9 @@
+<%# My reviews %>
+<% if current_user.my_reviews.length > 0 %>
+<h2>My <%= current_user.my_reviews.length %> reviews</h2>
+<% end %>
+<div class="cards">
+  <% current_user.my_reviews.each do |review| %>
+    <%= render 'reviews/card_review', review: review %>
+  <% end %>
+</div>
