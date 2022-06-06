@@ -1,6 +1,6 @@
-@media only screen and (max-width: 576px) {
-  .footer-nav-title { font-size: 0.72rem; }
-}
+// @media only screen and (max-width: 576px) {
+//   .footer-nav-title { font-size: 0.72rem; }
+// }
 
 .mobilenavbar{
   background: #125B50;
@@ -24,6 +24,13 @@
   padding-top: 100px;
 }
 
-.fa-solid {
-  // color: white;
+// .mobilenavbarflex {
+//   box-sizing: border-box;
+//   flex: auto;
+//   margin-inline-start: 12px;
+//   }
+
+.mobilenavbar-nav {
+  justify-content: space-between;
+  padding: 0 20%;
 }

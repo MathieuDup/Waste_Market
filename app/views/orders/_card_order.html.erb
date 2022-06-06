@@ -5,21 +5,26 @@
     <%= image_tag (order.product.photo.attached? ? cl_image_path(order.product.photo.key) : asset_path(picture_name))%>
   <% end %>
 
-  <%# Display Product information %>
-  <div class="card-order-infos">
-    <div class="card-order-infos-primary">
+  <%# Display right infos %>
+  <div class ="card-order-infos">
+    <%# Display Product title %>
+    <div class ="card-order-infos-title">
       <h2><%= order.product.name %></h2>
-      <p><%= order.product.user.address %></p>
-    </div>
-    <div class="card-order-infos-secondary">
       <h3><%= order.product.price %> €</h3>
-      <p><%= order.product.quantity_left %> %</p>
     </div>
+    <%# Display Product information %>
+      <div class="card-order-infos-primary">
+        <p><%= order.product.user.address %></p>
+        <div id="order-gauge" data-controller="gauge" data-gauge-pourcentage-value="<%= order.product.quantity_left%>"></div>
+      </div>
+
   </div>
 
   <%# Display buttons for everyone%>
-  <div class="card-buttons-top">
+  <div class="card-buttons-progress">
     <p class ="label green-secondary"><%= order.progress.capitalize %></p>
+  </div>
+  <div class="card-buttons-top">
     <%= link_to product_path(order.product) do %>
       <i class="fa-regular fa-eye"></i>
     <% end %>
@@ -40,10 +45,10 @@
   <%# Display buttons for seller%>
   <% if order.product.user == current_user %>
     <div class="card-buttons-bottom">
-      <% if order.progress != "cancelled" %>
+      <% if order.progress != "cancelled" && order.progress != "done" %>
         <%= link_to 'Reject', order_path(order, progress: "cancelled", notice: "Order rejected"), method: :patch, data: { confirm: "Cancel order ?" }, class:"btn-in-card-pink"  %>
       <% end %>
-      <% if order.progress != "validated" %>
+      <% if order.progress != "validated" && order.progress != "done" %>
         <%= link_to 'Validate', order_path(order, progress: "validated", notice: "Order validated"), method: :patch, data: { confirm: "Confirm order ?" }, class:"btn-in-card-green-primary"  %>
       <% end %>
     </div>

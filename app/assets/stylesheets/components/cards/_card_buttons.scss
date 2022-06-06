@@ -3,7 +3,6 @@
   position: absolute;
 }
 
-
 .card-buttons-top{
   position: absolute;
   right: 10px;
@@ -14,6 +13,12 @@
   position: absolute;
   right: 10px;
   bottom: 4px;
+}
+
+.card-buttons-progress{
+  position: absolute;
+  left: 6px;
+  top: 2px;
 }
 
 .fa-heart {

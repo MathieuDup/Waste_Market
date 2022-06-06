@@ -5,11 +5,12 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @review = Review.new
-    root_to_progress_done = "http://localhost:3000/#{params[:controller]}/#{@order.id}?progress=done"
+    root_to_progress_done = "#{root_url}#{params[:controller]}/#{@order.id}/update_done"
     @qr_code = RQRCode::QRCode.new(root_to_progress_done)
     @svg = @qr_code.as_svg(
       offset: 0,
-      color: :mediumseagreen,
+      color: :black,
+      fill: :white,
       shape_rendering: 'crispEdges',
       standalone: true,
       module_size: 6
@@ -38,5 +39,11 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.update(progress: params[:progress])
     redirect_to user_path(current_user), notice: params[:notice]
+  end
+
+  def update_done
+    @order = Order.find(params[:id])
+    @order.update(progress: 'done')
+    redirect_to root_path
   end
 end
