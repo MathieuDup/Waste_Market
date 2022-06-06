@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @review = Review.new
     root_to_progress_done = "#{root_url}#{params[:controller]}/#{@order.id}/update_done"
     @qr_code = RQRCode::QRCode.new(root_to_progress_done)
     @svg = @qr_code.as_svg(
@@ -14,6 +15,8 @@ class OrdersController < ApplicationController
       standalone: true,
       module_size: 6
     )
+    @messages = Message.all
+    @message = Message.new
   end
 
   def create

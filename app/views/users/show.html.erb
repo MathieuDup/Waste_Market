@@ -4,7 +4,7 @@
     <%= link_to 'Add a product', new_product_path, class:"btn-green-primary" %>
   </div>
 
-  <h1 class="text-center">My profile</h1>
+  <h1 class="text-center"><%= current_user.username %>'s profile</h1>
   <% if @products.length > 0 %>
   <h2>My <%= @products.length %> products</h2>
   <% end %>

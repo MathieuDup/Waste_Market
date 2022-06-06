@@ -1,6 +1,6 @@
 <div class="card-order">
   <%# Display Product image %>
-  <%= link_to product_path(order.product) do %>
+  <%= link_to order_path(order) do %>
     <% picture_name = order.product.category.name + ".jpg" %>
     <%= image_tag (order.product.photo.attached? ? cl_image_path(order.product.photo.key) : asset_path(picture_name))%>
   <% end %>
@@ -37,7 +37,7 @@
   <% if order.user == current_user %>
     <div class="card-buttons-bottom">
       <% if order.progress != "cancelled" && order.progress != "done"  %>
-        <%= link_to 'Cancel', order_path(order, progress: "cancelled", notice: "Order cancelled"), method: :patch, data: { confirm: "Cancel order ?" }, class:"btn-in-card-pink"  %>
+        <%= link_to 'Cancel', order_path(order, progress: "cancelled", notice: "Order cancelled"), method: :patch, class:"btn-in-card-pink", id: "sweet-alert-cancel"  %>
       <% end %>
     </div>
   <% end %>
@@ -46,10 +46,10 @@
   <% if order.product.user == current_user %>
     <div class="card-buttons-bottom">
       <% if order.progress != "cancelled" && order.progress != "done" %>
-        <%= link_to 'Reject', order_path(order, progress: "cancelled", notice: "Order rejected"), method: :patch, data: { confirm: "Cancel order ?" }, class:"btn-in-card-pink"  %>
+        <%= link_to 'Reject', order_path(order, progress: "cancelled", notice: "Order rejected"), method: :patch, class:"btn-in-card-pink", id:"sweet-alert-reject"  %>
       <% end %>
       <% if order.progress != "validated" && order.progress != "done" %>
-        <%= link_to 'Validate', order_path(order, progress: "validated", notice: "Order validated"), method: :patch, data: { confirm: "Confirm order ?" }, class:"btn-in-card-green-primary"  %>
+        <%= link_to 'Validate', order_path(order, progress: "validated", notice: "Order validated"), method: :patch, class:"btn-in-card-green-primary", id: "sweet-alert-demo"  %>
       <% end %>
     </div>
   <% end %>
