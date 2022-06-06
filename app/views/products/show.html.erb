@@ -110,7 +110,7 @@ Touch Dry: 2 Hours</p>
       <%# start buttons action %>
       <section class="d-flex justify-content-around">
         <%= link_to 'Contact', user_path(@product.user_id), class: "btn-green-secondary" %>
-        <%= link_to 'Order', product_orders_path(@product), method: :post, class: "btn-green-primary" %>
+        <%= link_to 'Order', product_orders_path(@product), method: :post, class: "btn-green-primary", id:"sweet-alert-order" %>
       </section>
       <%# end buttons action %>
 
