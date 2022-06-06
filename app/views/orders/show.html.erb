@@ -6,10 +6,10 @@
   <% if @order.product.user == current_user && @order.progress == "validated" %>
     <h2>QR code for transaction</h2>
     <br>
-      <div class="qr-code">
-        <%= @svg.html_safe %>
-        <%= image_tag "Logo.png", class: "qr-code-logo" %>
-      </div>
+    <div class="qr-code">
+      <%= @svg.html_safe %>
+      <%= image_tag "Logo.png", class: "qr-code-logo" %>
+    </div>
   <% end  %>
 </div>
 
@@ -23,16 +23,15 @@
       <% end %>
     </div>
     <%= simple_form_for [@order, @message], remote: true, html: {data: {action: "ajax:success->order-subscription#resetForm"}, class: "d-flex" } do |f| %>
-      <%= f.input :content,
+      <%= f.input :content, as: :string,
         label: false,
         placeholder: "Type your message",
         wrapper_html: {class: "flex-grow-1"}
       %>
-      <%= f.submit "Send", class: "btn-green-primary" %>
     <% end %>
   </div>
 </div>
-<% end  %>
+
 
 
 <% if current_user && current_user.can_review?(@order) %>
@@ -52,4 +51,4 @@
   <%= render 'reviews/card_review', review: review %>
 <% end %>
 
-<%= link_to "Back", user_path(current_user), class: "btn green-primary" %>
+<%= link_to "Back", user_path(current_user), class: "btn-green-primary" %>

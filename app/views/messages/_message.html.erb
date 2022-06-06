@@ -1,7 +1,7 @@
-<div id="message-<%= message.id %>" class="message-list">
-  <div class= "message">
-    <h3><%= message.user.username %>:</h3>
-    <p><%= message.content %></p>
+<div id="message-<%= message.id %>" class="message-list user-<%= message.user.id %>">
+  <div class= "message user-<%= message.user.id %>">
+    <span class="fw-bold me-1 text-danger"><%= message.user.username %> </span>
+    <span><%= message.content %></span>
   </div>
   <small><i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i></small>
 </div>
