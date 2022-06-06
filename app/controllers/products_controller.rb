@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
     @categories = Category.all
     if params[:category]
       @products = Product.where(category_id: params[:category])
-      redirect_to products_path(anchor: "product-anchor")
+      redirect_to products_path(anchor: "products-anchor")
     elsif params[:search]
       @products = Product.global_search(params[:search][:query])
     else
