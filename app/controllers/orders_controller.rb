@@ -46,6 +46,7 @@ class OrdersController < ApplicationController
   def update_done
     @order = Order.find(params[:id])
     @order.update(progress: 'done')
+    QrcodeChannel.broadcast_to(@order, render_to_string(partial: "order_validation", locals: { order: @order }))
     redirect_to root_path
   end
 end
