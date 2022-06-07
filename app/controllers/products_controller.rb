@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
 
   def new
     @scan = params[:scan]
-    @product_scanned = Product.find_by(EAN: @scan)
+    @product_scanned = Product.find_by(EAN: @scan) if @scan
     @product = Product.new
     # raise
   end

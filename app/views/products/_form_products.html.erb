@@ -3,28 +3,74 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name, input_html: {value: @product_scanned&.name || ''}%>
-    <%= f.input :description, input_html: {value: @product_scanned&.description || ''} %>
-    <%= f.association :category, collection: Category.all, prompt: "Choose a Category", selected: @product_scanned&.category&.name %>
-    <%= f.association :sub_category, collection: SubCategory.all, prompt: "Choose a Sub Category", selected: @product_scanned&.sub_category&.name  %>
-    <%= f.input :characteristics, input_html: {value: @product_scanned&.characteristics || ''}%>
-    <%= f.input :brand, input_html: {value: @product_scanned&.brand || ''} %>
-    <%= f.input :photo, as: :file, input_html: {value: @product_scanned&.photo || ''} %>
-    <%= f.input :quantity_left, as: :range, input_html: { min: '25', max: '100', step: '25', value: '50' }, label: 'Quantity Left : 25%, 50%, 75%, 100%' %>
-    <%= f.input :condition %>
-    <%= f.input :buying_date, as: :date, start_year: Date.today.year , end_year: Date.today.year - 30,
-                                                        order: [:month, :year] %>
-    <%= f.input :expiration_date, as: :date,
-                                  end_year: Date.today.year + 10, discard_day: true,
-                                  order: [:month, :year] %>
-    <%= f.input :price, label: "Waste Market fair price proposal", input_html: {value:
-                  if @product_scanned
-                     @product_scanned&.price * (@product_scanned&.quantity_left.to_i.fdiv(100))
-                  end || ''}%>
+  <div id="smartwizard">
+    <ul class="nav">
+       <li>
+           <a class="nav-link" href="#step-1">
+              Scan
+           </a>
+       </li>
+       <li>
+           <a class="nav-link" href="#step-2">
+              Product info
+           </a>
+       </li>
+       <li>
+           <a class="nav-link" href="#step-3">
+              Your details
+           </a>
+       </li>
+       <li>
+           <a class="nav-link" href="#step-4">
+              Waste Market fair price proposal
+           </a>
+       </li>
+    </ul>
+
+    <div class="tab-content" data-controller="quantity-left" data-price= "<%=@product_scanned&.price%>">
+       <div id="step-1" class="tab-pane" role="tabpanel">
+        <div class= "d-flex justify-content-center mt-3">
+          <div id="scandit-barcode-picker" style="max-width: 320px; max-height: 100%;"></div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>
+        <%= javascript_pack_tag 'scanner' %>
+       </div>
+       <div id="step-2" class="tab-pane" role="tabpanel">
+          <%= f.input :name, input_html: {value: @product_scanned&.name || ''}%>
+          <%= f.input :description, input_html: {value: @product_scanned&.description || ''} %>
+          <%= f.association :category, collection: Category.all, prompt: "Choose a Category", selected: @product_scanned&.category&.name %>
+          <%= f.association :sub_category, collection: SubCategory.all, prompt: "Choose a Sub Category", selected: @product_scanned&.sub_category&.name  %>
+          <%= f.input :characteristics, input_html: {value: @product_scanned&.characteristics || ''}%>
+          <%= f.input :brand, input_html: {value: @product_scanned&.brand || ''} %>
+          <%= f.input :photo, as: :file, input_html: {value: @product_scanned&.photo || ''} %>
+       </div>
+       <div id="step-3" class="tab-pane" role="tabpanel">
+          <%= f.input :quantity_left, as: :range, input_html: { min: '25', max: '100', step: '25', value: '50', data: { quantity_left_target: "quantity", action: "change->quantity-left#test"} }, label:'Quantity Left : 25%, 50%, 75%, 100%' %>
+          <%= f.input :condition %>
+          <%= f.input :buying_date, as: :date, start_year: Date.today.year , end_year: Date.today.year - 30,
+                                                              order: [:month, :year] %>
+          <%= f.input :expiration_date, as: :date,
+                                        end_year: Date.today.year + 10, discard_day: true,
+                                        order: [:month, :year] %>
+       </div>
+       <div id="step-4" class="tab-pane" role="tabpanel">
+          <%= f.input :price, label: "Proposed price", input_html: { data: { quantity_left_target: "price" }, value:
+                        if @product_scanned
+                           @product_scanned&.price * (@product_scanned&.quantity_left.to_i.fdiv(100))
+                        end || ''}%>
+          <div class="form-actions">
+            <%= f.button :submit, class: "btn-green-primary mb-2" %>
+          </div>
+       </div>
+    </div>
+  </div>
     <%# raise %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn-green-primary mb-2" %>
-  </div>
+<%= javascript_pack_tag 'smartwizard' %>
 <% end %>

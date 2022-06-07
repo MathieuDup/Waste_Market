@@ -18,8 +18,7 @@ ScanditSDK.configure("AbBR+hEkM6NjGVMLViXUEBwD7BZcGhzMMkdSMH4NS1zgblpZQzH8/2Yuvt
     barcodePicker.applyScanSettings(scanSettings);
 
     barcodePicker.on("scan", (scanResult) => {
-      console.log(scanResult.barcodes[0].data);
-      window.location.assign(`/products/new?scan=${scanResult.barcodes[0].data}`)
+      window.location.assign(`/products/new?scan=${scanResult.barcodes[0].data}#step-2`);
       // Rails.ajax({
       //   type: "GET",
       //   url: "/products/new",
@@ -27,10 +26,6 @@ ScanditSDK.configure("AbBR+hEkM6NjGVMLViXUEBwD7BZcGhzMMkdSMH4NS1zgblpZQzH8/2Yuvt
       // })
       // const scanner = document.getElementById("scanner")
       // scanner.insertAdjacentHTML("beforeend", scanResult.barcodes[0].data)
-    }).then (() => {
-      barcodePicker.stopScanning();
     });
-
   });
-
 });
