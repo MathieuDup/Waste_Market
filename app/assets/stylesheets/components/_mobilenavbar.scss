@@ -29,28 +29,17 @@
 
 }
 
-// .mobilenavbarflex {
-//   box-sizing: border-box;
-//   flex: auto;
-//   margin-inline-start: 12px;
-//   }
-
 .color-creme {
 color: $creme;
 }
 
-.fa-house::before {
+.fa-stack .fa-house {
   color: $green-primary
 }
 
-.fa-message::before {
+.fa-stack .fa-message {
   color: $green-primary;
 }
-
-// .navbar-nav {
-//   justify-content: space-between;
-//   padding: 0 20%;
-// }
 
 @media(min-width: 560px) {
   .mobilenavbarfooter {

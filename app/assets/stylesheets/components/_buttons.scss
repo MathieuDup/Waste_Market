@@ -32,7 +32,7 @@
 }
 
 .btn-green-primary:hover {
-  background:white;
+  background: transparent;
   color: $green-primary;
   border-color: $green-primary;
   border-style: solid;
@@ -50,7 +50,7 @@
 }
 
 .btn-green-secondary:hover {
-  background:white;
+  background: transparent;
   color: $green-secondary;
   border-color: $green-secondary;
   border-style: solid;
@@ -74,13 +74,11 @@
   border-style: solid;
 }
 
-
 .info-btn {
   display: flex;
   justify-content: end;
   margin-top: 20px;
 }
-
 
 .btn-in-card-green-secondary {
   color: white;
@@ -94,7 +92,7 @@
 }
 
 .btn-in-card-green-secondary:hover {
-  background:white;
+  background: transparent;
   color: $green-secondary;
   border-color: $green-secondary;
   border-style: solid;
@@ -112,7 +110,7 @@
 }
 
 .btn-in-card-green-primary:hover {
-  background:white;
+  background: transparent;
   color: $green-primary;
   border-color: $green-primary;
   border-style: solid;
@@ -135,40 +133,3 @@
   border-color: $pink;
   border-style: solid;
   }
-
-// .btn-circle {
-//   color: white;
-//   padding: 2px;
-//   border-radius: 50%;
-//   align-items: center;
-// }
-
-// .btn-edit {
-//   background-color:#125B50;
-//   border:none;
-//   color:white;
-//   padding: 20px 20px;
-//   text-align: center;
-//   text-decoration: none;
-//   display: inline-block;
-//   font-size: 20px;
-//   margin:4px 2px;
-//   cursor: pointer;
-//   border-radius: 5px;
-//   position: top;
-// }
-
-// .btn-my-teacher{
-//   background-color:#F8B400;
-//   border:none;
-//   color:white;
-//   padding: 20px 20px;
-//   text-align: center;
-//   text-decoration: none;
-//   display: inline-block;
-//   font-size: 20px;
-//   margin:4px 2px;
-//   cursor: pointer;
-//   border-radius: 5px;
-//   position: top;
-// }
