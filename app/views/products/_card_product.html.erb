@@ -71,7 +71,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <%= link_to 'Delete', product_path(product), method: :deleted, class:"btn-pink" %>
+              <%= button_to 'Delete', product_path(product), method: :delete, class:"btn-pink" %>
             </div>
           </div>
         </div>
@@ -79,5 +79,5 @@
 
     </div>
   <% end %>
-
 </div>
+ <%#= link_to 'Yes', order_path(order, progress: "cancelled", notice: "Order cancelled"), method: :patch, class:"btn-green-primary" %>
