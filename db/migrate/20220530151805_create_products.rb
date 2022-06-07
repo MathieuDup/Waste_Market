@@ -11,7 +11,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.string :condition
       t.date :buying_date
       t.date :expiration_date
-      t.integer :price
+      t.float :price
       t.string :barcode
       t.references :user, null: false, foreign_key: true
 

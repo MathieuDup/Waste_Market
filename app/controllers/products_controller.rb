@@ -5,12 +5,12 @@ class ProductsController < ApplicationController
   def index
     @categories = Category.all
     if params[:category]
-      @products = Product.where(category_id: params[:category])
+      @products = Product.where(category_id: params[:category], EAN: nil)
       redirect_to products_path(anchor: "products-anchor")
     elsif params[:search]
-      @products = Product.global_search(params[:search][:query])
+      @products = Product.global_search(params[:search][:query]).where(EAN: nil)
     else
-      @products = Product.all
+      @products = Product.where(EAN: nil)
     end
   end
 
@@ -25,8 +25,9 @@ class ProductsController < ApplicationController
 
   def new
     @scan = params[:scan]
-    @product_scanned = Product.find_by(EAN: @scan)
+    @product_scanned = Product.find_by(EAN: @scan) if @scan
     @product = Product.new
+    # raise
   end
 
   def create
