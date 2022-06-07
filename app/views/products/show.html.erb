@@ -1,5 +1,13 @@
 <h1 class="text-align-center"><%= @product.name.capitalize %></h1>
 
+<%# start buttons action %>
+<section class="d-flex justify-content-around">
+  <%= link_to 'Contact', user_path(@product.user_id), class: "btn-green-secondary" %>
+  <%= button_to 'Order', product_orders_path(@product), method: :post, class: "btn-green-primary"%>
+</section>
+<%# end buttons action %>
+
+
 <div class="container-product-show">
   <div class="first-pane">
     <%# Display picture %>
