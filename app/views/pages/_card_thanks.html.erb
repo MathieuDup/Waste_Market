@@ -1,0 +1,57 @@
+<div class="card-product" id="product-<%= product.id %>">
+  <%# Display Product image %>
+  <%= link_to product_path(product) do %>
+    <% picture_name = product.category.name + ".jpg" %>
+    <%= image_tag (product.photo.attached? ? cl_image_path(product.photo.key) : asset_path(picture_name)), class: "product-card-image"%>
+  <% end %>
+
+  <%# Display User avatar %>
+  <%= link_to user_path(product.user) do %>
+    <%= image_tag (product.user.photo.attached? ? cl_image_path(product.user.photo.key) : asset_path("emy.jpg")), class: "avatar-on-card position-avatar-cardproduct" %>
+  <% end %>
+
+  <%# display product title  %>
+  <div class="card-product-title">
+    <h2><%= product.name.capitalize %></h2>
+  </div>
+
+  <%# Display Product information %>
+  <div class="card-product-infos">
+    <div class="card-product-infos-primary">
+      <p class="card-category-name"><%= product.category.name.capitalize %></p>
+      <div class="card-product-infos-secondary">
+        <h3><%= product.price %> €</h3>
+        <p><%= product.quantity_left %> %</p>
+      </div>
+    </div>
+    <div>
+      <p class="card-category-address"><%= product.user.address %></p>
+    </div>
+  </div>
+
+  <%# Display Bookmark button for buyers %>
+  <% if current_user && current_user.not_my_product?(product) %>
+    <div class="card-buttons">
+      <% bookmark = product.user_bookmark(current_user)  %>
+        <% if bookmark %>
+          <%= link_to bookmark_path(bookmark), remote: true, method: :delete do %>
+            <i class="fa-solid fa-heart"></i>
+          <% end %>
+        <% else %>
+        <%= link_to product_bookmarks_path(product), remote: true, method: :post do %>
+          <i class="fa-regular fa-heart"></i>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%# Display edit and delete button for sellers %>
+  <% if current_user && product.user == current_user  %>
+    <div class="card-buttons">
+      <%= link_to edit_product_path(product) do %>
+        <i class="fa-regular fa-pen-to-square"></i>
+      <% end %>
+
+  <% end %>
+
+</div>
