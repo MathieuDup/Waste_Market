@@ -8,15 +8,19 @@
         <i class="fa-solid fa-house fa-stack-1x fa-inverse"></i>
       </span>
     <% end %>
-    <%#= link_to root_path do %>
-      <%# image_tag (current_user.photo.attached? ? cl_image_path(current_user.photo.key) : asset_path("emy.jpg")), class: "avatar dropdown-toggle" %>
-    <%# end %>
-    <%= link_to root_path do %>
-      <i class="fa-solid fa-message"></i>
+
+    <% if user_signed_in? %>
+      <%= link_to user_path(current_user) do %>
+        <%= image_tag (current_user.photo.attached? ? cl_image_path(current_user.photo.key) : asset_path("emy.jpg")), class: "avatar" %>
+      <% end %>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "color-creme" %>
     <% end %>
+
     <%= link_to root_path do %>
     <span class="fa-stack" style="color: white vertical-align: top;">
       <i class="fa-solid fa-circle fa-stack-2x color-creme"></i>
       <i class="fa-solid fa-message fa-stack-1x fa-inverse"></i>
+    </span>
     <% end %>
 </footer>
