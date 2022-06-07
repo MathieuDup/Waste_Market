@@ -27,7 +27,7 @@
        </li>
     </ul>
 
-    <div class="tab-content" data-controller="quantity-left" data-price= "<%=@product_scanned&.price%>">
+    <div class="tab-content" data-controller="quantity-left" data-price= "<%=@product_scanned&.price || @product&.price %>">
        <div id="step-1" class="tab-pane" role="tabpanel">
         <div class= "d-flex justify-content-center mt-3">
           <div id="scandit-barcode-picker" style="max-width: 320px; max-height: 100%;"></div>
@@ -42,13 +42,13 @@
         <%= javascript_pack_tag 'scanner' %>
        </div>
        <div id="step-2" class="tab-pane" role="tabpanel">
-          <%= f.input :name, input_html: {value: @product_scanned&.name || ''}%>
-          <%= f.input :description, input_html: {value: @product_scanned&.description || ''} %>
-          <%= f.association :category, collection: Category.all, prompt: "Choose a Category", selected: @product_scanned&.category&.name %>
-          <%= f.association :sub_category, collection: SubCategory.all, prompt: "Choose a Sub Category", selected: @product_scanned&.sub_category&.name  %>
-          <%= f.input :characteristics, input_html: {value: @product_scanned&.characteristics || ''}%>
-          <%= f.input :brand, input_html: {value: @product_scanned&.brand || ''} %>
-          <%= f.input :photo, as: :file, input_html: {value: @product_scanned&.photo || ''} %>
+          <%= f.input :name, input_html: {value: @product_scanned&.name || @product&.name }%>
+          <%= f.input :description, input_html: {value: @product_scanned&.description || @product&.description} %>
+          <%= f.association :category, collection: Category.all, prompt: "Choose a Category", input_html: { selected: @product_scanned&.category&.name || @product&.category&.name } %>
+          <%= f.association :sub_category, collection: SubCategory.all, prompt: "Choose a Sub Category", input_html: { selected: @product_scanned&.sub_category&.name || @product&.sub_category&.name } %>
+          <%= f.input :characteristics, input_html: {value: @product_scanned&.characteristics || @product&.characteristics }%>
+          <%= f.input :brand, input_html: {value: @product_scanned&.brand || @product&.brand } %>
+          <%= f.input :photo, as: :file, input_html: {value: @product_scanned&.photo || @product&.photo} %>
        </div>
        <div id="step-3" class="tab-pane" role="tabpanel">
           <%= f.input :quantity_left, as: :range, input_html: { min: '25', max: '100', step: '25', value: '50', data: { quantity_left_target: "quantity", action: "change->quantity-left#test"} }, label:'Quantity Left : 25%, 50%, 75%, 100%' %>
