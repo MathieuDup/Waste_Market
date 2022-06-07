@@ -27,6 +27,8 @@ ScanditSDK.configure("AbBR+hEkM6NjGVMLViXUEBwD7BZcGhzMMkdSMH4NS1zgblpZQzH8/2Yuvt
       // })
       // const scanner = document.getElementById("scanner")
       // scanner.insertAdjacentHTML("beforeend", scanResult.barcodes[0].data)
+    }).then (() => {
+      barcodePicker.stopScanning();
     });
 
   });

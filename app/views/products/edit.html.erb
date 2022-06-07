@@ -2,4 +2,4 @@
 
   <%= render 'form_products', teacher: @product %>
   <%= link_to 'Show', @product %> |
-  <%= link_to 'Back', user_path(@product.user_id) %>
+  <%= link_to 'Back', user_path(@product.user_id), class: "btn-green-secondary" %>

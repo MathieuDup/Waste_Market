@@ -1,6 +1,8 @@
 
-  <h1 class="text-center">Add a new product</h1>
-  <div id="scandit-barcode-picker" style="max-width: 1280px; max-height: 80%;"></div>
+   <%= link_to 'Back', root_path, class: "btn-green-secondary" %> <h1 class="text-center">New product</h1>
+
+  <div class= "d-flex justify-content-center mt-3">
+  <div id="scandit-barcode-picker" style="max-width: 320px; max-height: 40%;"></div>
+  </div>
   <%= render 'form_products', teacher: @product %>
-  <%= link_to 'Back', root_path %>
 <%= javascript_pack_tag 'scanner' %>
