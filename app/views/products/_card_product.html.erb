@@ -51,8 +51,6 @@
       <%= link_to edit_product_path(product) do %>
         <i class="fa-regular fa-pen-to-square"></i>
       <% end %>
-
-
       <!-- Button modal delete -->
       <%= link_to "#", data: { bs_toggle: "modal", bs_target: "#modal-delete-product-#{product.id}"} do %>
         <i class="fa-regular fa-trash-can"></i>

@@ -1,0 +1,86 @@
+
+.nav-tabs{
+  margin-bottom: 10px;
+
+  .nav-link.active{
+    color: white;
+    background-color: $green-secondary;
+    border-color: #dee2e6 #dee2e6 #F7F5F2;
+  }
+
+  .nav-link {
+    color: $green-primary;
+    margin-bottom: -1px;
+    background: none;
+    border: 1px solid transparent;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+  }
+}
+
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .avatar {
+    position: relative;
+  }
+  .user-order-btn {
+    position: absolute;
+    bottom: 4em;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767px) {
+  .avatar {
+    position: relative;
+  }
+  .user-order-btn {
+    position: absolute;
+    bottom: 4em;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+  .avatar {
+    position: relative;
+  }
+  .user-order-btn {
+    position: absolute;
+    bottom: 4em;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199px) {
+  .position {
+    position: relative;
+  }
+  .user-order-btn {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .position {
+    position: relative;
+  }
+  .user-order-btn {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+  }
+}
