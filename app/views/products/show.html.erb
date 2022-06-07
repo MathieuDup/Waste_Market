@@ -1,131 +1,74 @@
-<div class="row justify-content-center mt-3">
-  <div class="col-12 col-md-8 col-lg-6">
-    <div class="product-show-card shadow-sm">
-      <%# start header links %>
-      <div class="product-show-links d-flex justify-content-between p-1">
-        <div class="bd-highlight">
-          <%= link_to root_path do %>
-            <i class='fa fa-long-arrow-left' style='color: white'></i>
-          <% end %>
-        </div>
-        <div>
-          <i class='fa fa-share-alt' style='color: white' class="p-2 bd-highlight"></i>
-          <%# Display Bookmark button for buyers %>
-          <% if current_user && @product.user != current_user %>
-            <span class="ms-2">
-              <% if current_user.bookmarks.find_by(product: @product) %>
-                <% bookmark = current_user.bookmarks.find_by(product: @product) %>
-                <%= link_to bookmark_path(bookmark), method: :delete do %>
-                  <i class="fa-solid fa-heart"></i>
-                <% end %>
-              <% else %>
-                <%= link_to product_bookmarks_path(@product), method: :post do %>
-                  <i class="fa-regular fa-heart"></i>
-                <% end %>
-              <% end %>
-            </span>
-          <% end %>
-        </div>
-      </div>
-      <%# end header links %>
+<h1 class="text-align-center"><%= @product.name.capitalize %></h1>
 
-      <%# Display user infos %>
-        <%# Display User avatar %>
-        <%= link_to user_path(@product.user) do %>
-          <%= image_tag (@product.user.photo.attached? ? cl_image_path(@product.user.photo.key) : asset_path("emy.jpg")), class: "" %>
-        <% end %>
-        <%# Display User infos %>
-        <p><%= @product.user.username %> </p>
-        <p>DISPLAY USER INFO HERE </p>
-
-      <%# start block infos product %>
-      <section class="row mt-3 product-infos">
-        <div class="col-12">
-          <div class="d-flex justify-content-between">
-            <h2 class="text-uppercase"><%= @product.name %></h2>
-            <div class="product-price">
-              <i class="fa-solid fa-tag text-"></i>
-              <span class="fw-bold"><%= @product.price %>€</span>
-             </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="text-muted my-1"><%= @product.brand %></div>
-          <div class="text-dark my-1"><%= @product.category.name.capitalize %> - <%= @product.sub_category.name.capitalize %></div>
-          <div class="text-dark small my-1"><%= @product.characteristics %></div>
-        </div>
-        <div class="col-6">
-          <div>
-            <div id="gaugeArea" class="text-end" data-controller="gauge" data-gauge-pourcentage-value="<%= @product.quantity_left%>"></div>
-          </div>
-        </div>
-        <div class="col-12 mt-3">
-
-          <div>
-            <span>Condition : </span>
-            <span>
-              <%= @product.condition %>
-            </span>
-          </div>
-          <div class="d-flex justify-content-between mt-1">
-            <span>
-              <i class='fa fa-calendar'></i>
-              <span class="ms-1">Use before : </span>
-              <% if @product.expiration_date %>
-                <%= @product.expiration_date %>
-              <% else %>
-                <span class="fst-italic">Unknown</span>
-              <% end %>
-            </span>
-            <span>
-              <span class="ms-1">
-                Purchased :
-              </span>
-              <% if @product.buying_date %>
-                <%= @product.buying_date %>
-              <% else %>
-                <span class="fst-italic">Unknown</span>
-              <% end %>
-            </span>
-          </div>
-        </div>
-      </section>
-      <%# end block infos product %>
-
-      <%# start block description product %>
-      <section class="row mx-0 my-3 py-2 small product-description">
-        <div class="col-6">
-          <h3>Description Product</h3>
-
-          <%= @product.description %>
-        </div>
-        <div class="col-6">
-          <% if @product.photo.attached? %>
-            <%= cl_image_tag(@product.photo.key, alt: @product.name) %>
-          <% else %>
-            <% picture_name = @product.category.name + ".jpg" %>
-            <%= image_tag(picture_name, class: "img-fluid")%>
-          <% end %>
-        </div>
-      </section>
-      <%# end block description product %>
-
-
-      <%# start buttons action %>
-      <section class="d-flex justify-content-around">
-        <%= link_to 'Contact', user_path(@product.user_id), class: "btn-green-secondary" %>
-        <%= link_to 'Order', product_orders_path(@product), method: :post, class: "btn-green-primary"%>
-      </section>
-      <%# end buttons action %>
-
-
-    <%# start map %>
-    <div style="width: 100%; height: 600px;"
-      class="mt-3"
+<div class="container-product-show">
+  <div class="first-pane">
+    <%# Display picture %>
+    <div class = "product-show-picture">
+      <% if @product.photo.attached? %>
+        <%= cl_image_tag(@product.photo.key, alt: @product.name) %>
+      <% else %>
+        <% picture_name = @product.category.name + ".jpg" %>
+        <%= image_tag(picture_name)%>
+      <% end %>
+    </div>
+    <%# Display map %>
+    <div class = "product-show-map"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    <%# end map %>
-
     </div>
   </div>
+
+  <%# display infos product %>
+  <div class="second-pane">
+    <div class="product-price">
+      <i class="fa-solid fa-tag text-"></i>
+      <span class="fw-bold"><%= @product.price %>€</span>
+    </div>
+    <div>
+      <div class="text-muted my-1">Brand: <%= @product.brand %></div>
+      <div class="text-dark my-1">Category: <%= @product.category.name.capitalize %></div>
+      <div class="text-dark my-1">Sub-category: <%= @product.category.name.capitalize %></div>
+      <div class="text-dark small my-1"><%= @product.characteristics %></div>
+    </div>
+    <div>
+      <div id="gaugeArea" class="text-end" data-controller="gauge" data-gauge-pourcentage-value="<%= @product.quantity_left%>"></div>
+    </div>
+    <div>
+      <span>Condition : </span>
+      <span>
+        <%= @product.condition %>
+      </span>
+    </div>
+
+    <div>
+      <div>
+        <i class='fa fa-calendar'></i>
+        <span class="ms-1">Use before : </span>
+        <% if @product.expiration_date %>
+          <%= @product.expiration_date %>
+        <% else %>
+          <span class="fst-italic">Unknown</span>
+        <% end %>
+      </div>
+      <div>
+        <i class='fa fa-calendar'></i>
+        <span class="ms-1">
+          Purchased :
+        </span>
+        <% if @product.buying_date %>
+          <%= @product.buying_date %>
+        <% else %>
+          <span class="fst-italic">Unknown</span>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <%# display description product %>
+  <div class = "third-pane" >
+    <h2>Description Product</h2>
+    <p><%= @product.description %></p>
+  </div>
+</div>
