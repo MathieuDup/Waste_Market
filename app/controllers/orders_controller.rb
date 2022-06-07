@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
       redirect_to user_path(current_user)
     else
       flash[:alert] = "You cannot order this product."
-      redirect_to product_path(@product)
+      render 'products/show'
     end
   end
 

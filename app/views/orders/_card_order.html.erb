@@ -28,6 +28,7 @@
   <div class="card-buttons-progress">
     <p class ="label green-secondary"><%= order.progress.capitalize %></p>
   </div>
+
   <div class="card-buttons-top">
     <%= link_to product_path(order.product) do %>
       <i class="fa-regular fa-eye"></i>
@@ -41,7 +42,7 @@
   <% if order.user == current_user %>
     <div class="card-buttons-bottom">
       <% if order.progress != "cancelled" && order.progress != "done"  %>
-        <%#= link_to 'Cancel', order_path(order, progress: "cancelled", notice: "Order cancelled"), method: :patch, class:"btn-in-card-pink"  %>
+        <%= button_to 'Cancel', order_path(order, progress: "cancelled", notice: "Order cancelled"), method: :patch, class:"btn-in-card-pink"  %>
       <% end %>
     </div>
   <% end %>
@@ -49,38 +50,56 @@
   <%# Display buttons for seller%>
   <% if order.product.user == current_user %>
     <div class="card-buttons-bottom">
-      <% if order.progress != "cancelled" && order.progress != "done" %>
-        <%= link_to 'Reject', order_path(order, progress: "cancelled", notice: "Order rejected"), method: :patch, class:"btn-in-card-pink" %>
-      <% end %>
-
-      <% if order.progress != "validated" && order.progress != "done" %>
-
-        <!-- Button modal cancel -->
-
-        <button type="button" class="btn-in-card-pink" data-bs-toggle="modal" data-bs-target="#modal-cancel-order-<%=order.id%>">
-        Cancel
+      <% if order.progress == "pending" || order.progress == "validated" %>
+        <!-- Button modal reject -->
+        <button type="button" class="btn-in-card-pink" data-bs-toggle="modal" data-bs-target="#modal-reject-order-<%=order.id%>">
+          Reject
         </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="modal-cancel-order-<%=order.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Would you like to cancel this order?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn-pink" data-bs-dismiss="modal">No</button>
-                <%= link_to 'Yes', order_path(order, progress: "cancelled", notice: "Order cancelled"), method: :patch, class:"btn-green-primary" %>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end%>
+        <% end %>
+        <% if order.progress == "pending" %>
+        <!-- Button modal validate -->
+        <button type="button" class="btn-in-card-green-primary" data-bs-toggle="modal" data-bs-target="#modal-validate-order-<%=order.id%>">
+          Validate
+        </button>
+      <% end %>
     </div>
-
   <% end %>
+
+  <!-- Modal validated -->
+  <div class="modal fade" id="modal-validate-order-<%=order.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Would you like to validate this order?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-pink" data-bs-dismiss="modal">No</button>
+          <%= button_to 'Yes', order_path(order, progress: "validated", notice: "Order validated"), method: :patch, class:"btn-green-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal rejected -->
+  <div class="modal fade" id="modal-reject-order-<%=order.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Would you like to reject this order?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-pink" data-bs-dismiss="modal">No</button>
+          <%= button_to 'Yes', order_path(order, progress: "cancelled", notice: "Order cancelled"), method: :patch, class:"btn-green-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
