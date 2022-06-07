@@ -1,11 +1,13 @@
+.footer-header {
+  text-align: center;
+}
+
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 52px;
+  display: block;
   padding: 0px 10px;
   color: rgba(0,0,0,0.3);
   margin-top: auto;
+
 }
 .footer-links {
   display: flex;
@@ -13,7 +15,7 @@
 
 }
 .footer-links a {
-  color: black;
+  color: $green-primary;
   opacity: 0.15;
   text-decoration: none;
   font-size: medium;
@@ -22,6 +24,6 @@
 .footer-links a:hover {
   opacity: 1;
 }
-.footer .fa-heart {
-  color: #D23333;
+.fa-solid fa-phone me-1 {
+  color: $green-primary;
 }
