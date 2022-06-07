@@ -2,6 +2,8 @@
 <br>
 
 <%# Display QR code when order status = validated %>
+<div data-controller="qrcode-validation" data-qrcode-validation-order-id-value="<%= @order.id %>" data-qrcode-validation-target="popup">
+</div>
 <div>
   <% if @order.product.user == current_user && @order.progress == "validated" %>
     <h2>QR code for transaction</h2>
