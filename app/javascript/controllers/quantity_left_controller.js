@@ -6,12 +6,10 @@ export default class extends Controller {
   test() {
   //  récupérer price du product data-value stimulus
     this.price = Number(this.element.dataset.price)
-    console.log(this.price)
   //  calculer la décote du prix
     this.discountPrice = this.price * (this.quantityTarget.value / 100)
   //  insérer dans l'html de l'input price
     if (this.price > 0) {
-      this.priceTarget.value = this.discountPrice
+      this.priceTarget.value = Math.ceil(this.discountPrice)
     }
-  }
-}
+}}

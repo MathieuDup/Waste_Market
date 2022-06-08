@@ -30,6 +30,12 @@ class ProductsController < ApplicationController
     # raise
   end
 
+  def scan
+    @scan = params[:scan]
+    @product_scanned = Product.find_by(EAN: @scan) if @scan
+    @product = Product.new
+  end
+
   def create
     @user = current_user
     @product = Product.new(product_params)

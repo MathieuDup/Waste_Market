@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :users, only: %i[show edit update]
 
   get '/orders/:id/update_done', to: "orders#update_done"
+  get '/products/new/scan', to: "products#scan"
+
 end
