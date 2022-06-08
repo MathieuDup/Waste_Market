@@ -1,0 +1,112 @@
+.container-product-show{
+  position: relative;
+  display: flex;
+}
+
+.first-pane{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  padding: 0px 10px;
+
+}
+
+.product-show-picture{
+  img{
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.product-show-map{
+  height: 200px;
+  width: 200px;
+}
+
+.second-pane{
+  align-items: center;
+  width: 30%;
+  padding: 0px 10px;
+}
+
+.third-pane{
+  align-items: center;
+  width: 30%;
+  padding: 0px 10px;
+  p{
+    text-align: justify;
+  }
+
+
+}
+
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .avatar {
+    position: relative;
+  }
+  .product-show-btn {
+    position: absolute;
+    bottom: 4em;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767px) {
+  .avatar {
+    position: relative;
+  }
+  .product-show-btn {
+    position: absolute;
+    bottom: 4em;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+  .avatar {
+    position: relative;
+  }
+  .product-show-btn {
+    position: absolute;
+    bottom: 4em;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199px) {
+  .product-show {
+    position: relative;
+  }
+  .product-show-btn {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .product-show {
+    position: relative;
+  }
+  .product-show-btn {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+  }
+}
