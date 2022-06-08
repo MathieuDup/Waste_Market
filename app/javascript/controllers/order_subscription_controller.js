@@ -3,7 +3,7 @@ import consumer from "../channels/consumer"
 
 export default class extends Controller {
   static values = { orderId: Number }
-  static targets = ["messages"]
+  static targets = ["messages", "input"]
 
   connect() {
     this.channel = consumer.subscriptions.create(
@@ -13,8 +13,9 @@ export default class extends Controller {
     console.log(`Subscribed to the chatroom with the id ${this.orderIdValue}.`)
   }
 
-  resetForm(event) {
-    event.target.reset()
+  reset(event) {
+    console.log("hello")
+    this.inputTarget.value = ""
   }
 
   disconnect() {
@@ -23,6 +24,7 @@ export default class extends Controller {
   }
 
   #insertMessageAndScrollDown(data) {
+    console.log("message recu")
     this.messagesTarget.insertAdjacentHTML("beforeend", data)
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }

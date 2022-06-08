@@ -1,21 +1,47 @@
+.container-product-show{
+  position: relative;
+  display: flex;
+}
 
-.nav-tabs{
-  margin-bottom: 10px;
+.first-pane{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  padding: 0px 10px;
 
-  .nav-link.active{
-    color: white;
-    background-color: $green-secondary;
-    border-color: #dee2e6 #dee2e6 #F7F5F2;
+}
+
+.product-show-picture{
+  img{
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.product-show-map{
+  height: 200px;
+  width: 200px;
+}
+
+.second-pane{
+  align-items: center;
+  width: 30%;
+  padding: 0px 10px;
+}
+
+.third-pane{
+  align-items: center;
+  width: 30%;
+  padding: 0px 10px;
+  p{
+    text-align: justify;
   }
 
-  .nav-link {
-    color: $green-primary;
-    margin-bottom: -1px;
-    background: none;
-    border: 1px solid transparent;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-  }
+
 }
 
 
@@ -24,7 +50,7 @@
   .avatar {
     position: relative;
   }
-  .user-order-btn {
+  .product-show-btn {
     position: absolute;
     bottom: 4em;
     width: 100%;
@@ -38,7 +64,7 @@
   .avatar {
     position: relative;
   }
-  .user-order-btn {
+  .product-show-btn {
     position: absolute;
     bottom: 4em;
     width: 100%;
@@ -52,7 +78,7 @@
   .avatar {
     position: relative;
   }
-  .user-order-btn {
+  .product-show-btn {
     position: absolute;
     bottom: 4em;
     width: 100%;
@@ -63,10 +89,10 @@
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) and (max-width: 1199px) {
-  .myprofile {
+  .product-show {
     position: relative;
   }
-  .user-order-btn {
+  .product-show-btn {
     position: absolute;
     top: 1px;
     right: 1px;
@@ -75,10 +101,10 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  .myprofile {
+  .product-show {
     position: relative;
   }
-  .user-order-btn {
+  .product-show-btn {
     position: absolute;
     top: 1px;
     right: 1px;
