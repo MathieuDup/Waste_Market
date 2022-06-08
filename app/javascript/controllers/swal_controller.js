@@ -10,7 +10,7 @@ export default class extends Controller {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'Your product has been created',
+      title: window.location.href.includes("new") ? 'Your product has been created' : 'Your product has been edited',
       showConfirmButton: true
 
       //title: 'Are you sure?',
@@ -21,8 +21,10 @@ export default class extends Controller {
       // cancelButtonColor: '#d33',
       //confirmButtonText: 'Yes, create it!'
     }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire('Congratulation', "You've just create your product !", 'success').then(() => { this.swalformTarget.submit() });
+      if (result.isConfirmed && window.location.href.includes("new")) {
+        Swal.fire('Congratulations', "You've just create your product !", 'success').then(() => { this.swalformTarget.submit() });
+      } else if (result.isConfirmed && window.location.href.includes("edit")) {
+        Swal.fire('Congratulations', "You've just edited your product !", 'success').then(() => { this.swalformTarget.submit() });
       }
     })
   }
