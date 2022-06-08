@@ -13,7 +13,7 @@ class Product < ApplicationRecord
   # validates :quantity_left, presence: true
   include PgSearch::Model
   pg_search_scope :global_search,
-    against: [ :name, :brand, :condition ],
+    against: [ :name, :brand, :condition, :characteristics, :description ],
     associated_against: {
       category: :name,
       sub_category: :name
