@@ -173,7 +173,7 @@ product_5.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/
 product_6 = Product.create!(name: "Pack of Square Twist Nails", price: 7, brand: "TIMco", characteristics: "Type: Stainless steel, Original Quantity: 2.5kg", condition: "Good", quantity_left: "75", user: florian, category: hardware, sub_category: sub_cat_13, description: product_description_6)
 product_6.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/nail_box_t3mavz.webp"), filename: "nail_box_t3mavz.webp", content_type: "image/webp")
 product_7 = Product.create!(name: "Blade Crimper", price: 15, brand: "DeWalt", condition: "Average", user: florian, category: tools, sub_category: sub_cat_7, description: product_description_7)
-product_7.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/drill_driver_zvsacq.webp"), filename: "drill_driver_zvsacq.webp", content_type: "image/webp")
+product_7.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673573/production/blade_crimper_uhhc2l.webp"), filename: "blade_crimper.webp", content_type: "image/webp")
 product_8 = Product.create!(name: "Chisel Set", price: 30, brand: "VonHaus", condition: "Good", user: florian, category: tools, sub_category: sub_cat_9, description: product_description_8)
 product_8.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673573/production/chisel_x6cwyu.jpg"), filename: "chisel_x6cwyu.jpg", content_type: "image/jpg")
 product_9 = Product.create!(name: "Cordless Drill", price: 20, brand: "Terratek", condition: "Good", user: florian, category: tools, sub_category: sub_cat_8, description: product_description_9)
@@ -199,14 +199,14 @@ product_18.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image
 product_19 = Product.create!(name: "Wall, wood and radiator paint ", price: 5, brand: "Ripolin", characteristics: "Color: Duck Green, Type: Satin", condition: "Average", quantity_left: "25", user: florian, category: paint, sub_category: sub_cat_2, EAN: "3174269073703", description: product_description_19)
 product_19.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654596577/production/5622880_C_r9x7wg.jpg"), filename: "5622880_C_r9x7wg.jpg", content_type: "image/jpg")
 
-Order.create!(user: emy, product: product_1, progress: "done", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
-Order.create!(user: emy, product: product_2, progress: "validated", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
-Order.create!(user: emy, product: product_3, progress: "cancelled", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol"))
+Order.create!(user: patricia, product: product_1, progress: "done", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
+Order.create!(user: patricia, product: product_2, progress: "validated", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
+Order.create!(user: patricia, product: product_3, progress: "cancelled", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol"))
 Order.create!(user: jim, product: product_4, progress: "pending", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
 
-Review.create!(user: emy, order: Order.first, rating: 5)
+Review.create!(user: patricia, order: Order.first, rating: 5)
 Review.create!(user: florian, order: Order.first, rating: 5)
 
-Bookmark.create!(user: emy, product: product_1)
+Bookmark.create!(user: patricia, product: product_1)
 
 p "Finished seeding database!"
