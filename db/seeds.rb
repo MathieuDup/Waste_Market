@@ -1,6 +1,8 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
+require "open-uri"
+
 puts "Clean DB"
 Bookmark.destroy_all
 Message.destroy_all
@@ -151,24 +153,43 @@ Application: Brush or Roller
 Touch Dry: 3 Hours"
 
 product_1 = Product.create!(name: "PVC Flooring Planks", price: 50, brand: "Living Home", characteristics: "Color: Grey, Type: PVC, Length: 122cm", condition: "Good", quantity_left: "50", user: jim, category: tiles, sub_category: sub_cat_4, description: product_description_1)
+product_1.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673573/production/vinyl_xjbgsu.webp"))
 product_2 = Product.create!(name: "Malmo Ivar Floor Plank", price: 60, brand: "Malmo", characteristics: "Color: Light brown, Type: Wood, Length: 122cm", condition: "Good", quantity_left: "75", user: jim, category: tiles, sub_category: sub_cat_4, description: product_description_2)
+product_2.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/plank_flooring_rmjg2p.jpg"))
 product_3 = Product.create!(name: "Plumber's Putty", price: 2, brand: "Ever Build", characteristics: "Color: White, Type: Sealing, Original Quantity: 750g", condition: "Average", quantity_left: "25", user: jim, category: hardware, sub_category: sub_cat_12, description: product_description_3)
+product_3.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673573/production/putty_kxujtz.webp"))
 product_4 = Product.create!(name: "White Spirit", price: 8, brand: "Bird Brand", characteristics: "Type: Solvent, Original Quantity: 2L", condition: "Perfect", quantity_left: "75", user: jim, category: hardware, sub_category: sub_cat_10, description: product_description_4)
+product_4.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673573/production/white_spirit_gi4eyk.webp"))
 product_5 = Product.create!(name: "Gorilla Glue", price: 5, brand: "Gorilla", characteristics: "Use: Wood, Plastic, Glass, Metal, Original Quantity: 290ML", condition: "Good", quantity_left: "50", user: jim, category: hardware, sub_category: sub_cat_11, description: product_description_5)
+product_5.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/gorilla_glue_cgltke.webp"))
 product_6 = Product.create!(name: "Pack of Square Twist Nails", price: 7, brand: "TIMco", characteristics: "Type: Stainless steel, Original Quantity: 2.5kg", condition: "Good", quantity_left: "75", user: jim, category: hardware, sub_category: sub_cat_13, description: product_description_6)
+product_6.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/nail_box_t3mavz.webp"))
 product_7 = Product.create!(name: "Blade Crimper", price: 15, brand: "DeWalt", condition: "Average", user: jim, category: tools, sub_category: sub_cat_7, description: product_description_7)
+product_7.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/drill_driver_zvsacq.webp"))
 product_8 = Product.create!(name: "Chisel Set", price: 30, brand: "VonHaus", condition: "Good", user: jim, category: tools, sub_category: sub_cat_9, description: product_description_8)
+product_8.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673573/production/chisel_x6cwyu.jpg"))
 product_9 = Product.create!(name: "Cordless Drill", price: 20, brand: "Terratek", condition: "Good", user: jim, category: tools, sub_category: sub_cat_8, description: product_description_9)
+product_9.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673573/production/cordless_drill_xjbgsu.webp"))
 product_10 = Product.create!(name: "Paint authentic Origins", price: 5, brand: "Dulux", condition: "Good", characteristics: "Color: Brown, Original Quantity: 125ML", quantity_left: "50", user: jim, category: paint, sub_category: sub_cat_1, description: product_description_10)
+product_10.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673573/production/paint_origins_xjbgsu.webp"))
 product_11 = Product.create!(name: "Paint Water Based Soft Sheen", price: 5, brand: "Johnstone's", condition: "Good", characteristics: "Color: Deep Amethyst, Original Quantity: 2.5L", quantity_left: "25", user: jim, category: paint, sub_category: sub_cat_2, description: product_description_11)
+product_11.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/johnstone_s_wall_ceiling_hirof2.webp"))
 product_12 = Product.create!(name: "Paint Silk", price: 25, brand: "Dulux", condition: "Good", characteristics: "Color: Camel, Original Quantity: 5L", quantity_left: "50", user: jim, category: paint, sub_category: sub_cat_2, description: product_description_12)
+product_12.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/dulux_naturalhints_fmb2ls.webp"))
 product_13 = Product.create!(name: "Paint Weathershield", price: 15, brand: "Dulux", condition: "Good", characteristics: "Color: Grey, Original Quantity: 2.5L", quantity_left: "50", user: jim, category: paint, sub_category: sub_cat_3, description: product_description_13)
+product_13.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/dulux_weathershield_qxrdss.webp"))
 product_14 = Product.create!(name: "Hammer", price: 20, brand: "Gorilla", condition: "Good", characteristics: "Type: V-Series", user: florian, category: tools, sub_category: sub_cat_7, description: product_description_14)
+product_14.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/hammer_l8volk.webp"))
 product_15 = Product.create!(name: "White cement effect wall tile", price: 20, brand: "Leroy Merlin", condition: "Good", characteristics: "Color: White, Size: 20 x 20 cm", quantity_left: "25", user: florian, category: tiles, sub_category: sub_cat_5, description: product_description_15)
+product_15.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/kitchen_tile_vgerzo.jpg"))
 product_16 = Product.create!(name: "Deck tiles", price: 20, brand: "Rakyto", condition: "Good", characteristics: "Color: Brown, Type: Acacia, Size: 40 x 40 cm", quantity_left: "25", user: florian, category: tiles, sub_category: sub_cat_6, description: product_description_16)
+product_16.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/Outside_floor_tile_ewlcci.jpg"))
 product_17 = Product.create!(name: "Sanitary Silicon", price: 10, brand: "Geb", characteristics: "Color: white", user: florian, category: hardware, sub_category: sub_cat_12, EAN: "3283988931505", description: product_description_17)
+product_17.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654596577/production/mastic-silicone-gebsicone_ymnhfd.jpg"))
 product_18 = Product.create!(name: "All-around paint", price: 20, brand: "Colours Collection", characteristics: "Color: Beetle, Type: Satin", condition: "Good", quantity_left: "50", user: florian, category: paint, sub_category: sub_cat_2, EAN: "3454976664372", description: product_description_18)
+product_18.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654596577/production/peinture-multi-supports-scarab-e-satin-0-75l_3454976664372_02c_tqo4fk.webp"))
 product_19 = Product.create!(name: "Wall, wood and radiator paint ", price: 5, brand: "Ripolin", characteristics: "Color: Duck Green, Type: Satin", condition: "Average", quantity_left: "25", user: florian, category: paint, sub_category: sub_cat_2, EAN: "3174269073703", description: product_description_19)
+product_19.photo.attach(URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654596577/production/5622880_C_r9x7wg.jpg"))
 
 Order.create!(user: emy, product: product_1, progress: "done", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
 Order.create!(user: emy, product: product_2, progress: "validated", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
