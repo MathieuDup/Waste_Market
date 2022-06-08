@@ -18,7 +18,7 @@
   color: $green-primary;
   opacity: 0.15;
   text-decoration: none;
-  font-size: medium;
+  font-size: large;
   padding: 0px 10px;
 }
 .footer-links a:hover {
@@ -26,4 +26,13 @@
 }
 .fa-solid fa-phone me-1 {
   color: $green-primary;
+}
+/*.fa-solid fa-phone me-1*/ a:hover {
+  color: $green-primary;
+}
+
+@media(max-width: 560px) {
+  .footer {
+    display: none;
+  }
 }
