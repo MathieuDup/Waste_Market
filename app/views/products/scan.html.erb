@@ -1,0 +1,11 @@
+<div class= "d-flex justify-content-center mt-3">
+  <div id="scandit-barcode-picker" style="max-width: 640px; max-height: 100%;"></div>
+  <%= javascript_pack_tag 'scanner' %>
+  <br>
+</div>
+<div class= "d-flex justify-content-center mt-3">
+  <div>
+  <p class= "text-center">Don't have anything to scan ?</p>
+  <%= link_to 'Add a new product', new_product_path, class: "btn-green-primary" %>
+  </div>
+  </div>

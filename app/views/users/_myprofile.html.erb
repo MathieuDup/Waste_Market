@@ -3,7 +3,7 @@
   <h1 class="text-center"><%= current_user.username %>'s profile</h1>
   <div class="user-order-btn">
     <%= link_to 'Edit my profile', edit_user_registration_path, class:"btn-green-secondary" %>
-    <%= link_to 'Add a product', new_product_path, class:"btn-green-primary" %>
+    <%= link_to 'Add a product', '/products/new/scan', class:"btn-green-primary" %>
   </div>
 
   <%# Tabs %>

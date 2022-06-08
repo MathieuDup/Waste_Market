@@ -18,7 +18,7 @@ ScanditSDK.configure("AbBR+hEkM6NjGVMLViXUEBwD7BZcGhzMMkdSMH4NS1zgblpZQzH8/2Yuvt
     barcodePicker.applyScanSettings(scanSettings);
 
     barcodePicker.on("scan", (scanResult) => {
-      window.location.assign(`/products/new?scan=${scanResult.barcodes[0].data}#step-2`);
+      window.location.assign(`/products/new?scan=${scanResult.barcodes[0].data}#step-1`);
       // Rails.ajax({
       //   type: "GET",
       //   url: "/products/new",
