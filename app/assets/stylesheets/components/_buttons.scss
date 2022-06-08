@@ -133,3 +133,14 @@
   border-color: $pink;
   border-style: solid;
   }
+
+  .sw-theme-dots .toolbar>.btn {
+  color: white !important;
+  padding: 8px 24px !important;
+  border-radius: 4px !important;
+  background: $green-primary !important;
+  transition: background-color 0.3s ease !important;
+  display: inline-block !important;
+  border-color: $green-primary !important;
+  border-style: solid !important;
+}

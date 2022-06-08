@@ -34,7 +34,7 @@
               <%= f.input :photo, as: :file, input_html: {value: @product_scanned&.photo || @product&.photo} %>
           </div>
           <div id="step-2" class="tab-pane" role="tabpanel">
-              <%= f.input :quantity_left, as: :range, input_html: { min: '25', max: '100', step: '25', value: '50', data: { quantity_left_target: "quantity", action: "change->quantity-left#test"} }, label:'Quantity Left : 25%, 50%, 75%, 100%' %>
+              <%= f.input :quantity_left, as: :radio_buttons, collection: [['25', '25'], ['50', '50'], ['75', '75'], ['100', '100']], input_html: { data: { quantity_left_target: "quantity", action: "change->quantity-left#test"} }, label:'Quantity Left : 25%, 50%, 75%, 100%' %>
               <%= f.input :condition %>
               <%= f.input :buying_date, as: :date, start_year: Date.today.year , end_year: Date.today.year - 30,
                                                                   order: [:month, :year] %>
