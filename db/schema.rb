@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2022_06_03_093734) do
     t.string "condition"
     t.date "buying_date"
     t.date "expiration_date"
-    t.float "price"
+    t.integer "price"
     t.string "barcode"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
