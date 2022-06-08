@@ -199,7 +199,7 @@ product_18.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image
 product_19 = Product.create!(name: "Wall, wood and radiator paint ", price: 5, brand: "Ripolin", characteristics: "Color: Duck Green, Type: Satin", condition: "Average", quantity_left: "25", user: florian, category: paint, sub_category: sub_cat_2, EAN: "3174269073703", description: product_description_19)
 product_19.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654596577/production/5622880_C_r9x7wg.jpg"), filename: "5622880_C_r9x7wg.jpg", content_type: "image/jpg")
 
-Order.create!(user: patricia, product: product_1, progress: "done", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
+Order.create!(user: patricia, product: product_5, progress: "done", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
 Order.create!(user: patricia, product: product_2, progress: "validated", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
 Order.create!(user: patricia, product: product_3, progress: "cancelled", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol"))
 Order.create!(user: jim, product: product_4, progress: "pending", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
