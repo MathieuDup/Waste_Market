@@ -31,7 +31,8 @@
               <%= f.association :sub_category, collection: SubCategory.all, prompt: "Choose a Sub Category", selected: @product_scanned&.sub_category&.name %>
               <%= f.input :characteristics, input_html: {value: @product_scanned&.characteristics || @product&.characteristics }%>
               <%= f.input :brand, input_html: {value: @product_scanned&.brand || @product&.brand } %>
-              <%= f.input :photo, as: :file, input_html: {value: @product_scanned&.photo || @product&.photo} %>
+              <%= f.input :photo, as: :file %>
+              <%= f.hidden_field :scan, value: params[:scan] %>
           </div>
           <div id="step-2" class="tab-pane" role="tabpanel">
               <%= f.input :quantity_left, as: :radio_buttons, collection: [['25', '25'], ['50', '50'], ['75', '75'], ['100', '100']], input_html: { data: { quantity_left_target: "quantity", action: "change->quantity-left#test"} }, label:'Quantity Left : 25%, 50%, 75%, 100%' %>
