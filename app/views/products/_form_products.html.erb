@@ -31,7 +31,7 @@
               <%= f.association :sub_category, collection: SubCategory.all, prompt: "Choose a Sub Category", selected: @product_scanned&.sub_category&.name %>
               <%= f.input :characteristics, input_html: {value: @product_scanned&.characteristics || @product&.characteristics }%>
               <%= f.input :brand, input_html: {value: @product_scanned&.brand || @product&.brand } %>
-              <%= f.input :photo, as: :file %>
+              <%= f.input :photo, as: :file unless @product_scanned %>
               <%= f.hidden_field :scan, value: params[:scan] %>
           </div>
           <div id="step-2" class="tab-pane" role="tabpanel">
