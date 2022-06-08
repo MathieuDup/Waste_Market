@@ -1,13 +1,13 @@
 <!-- mobile navbar fixed bottom -->
 <footer role="mobilenavbar navbar-fixed-bottom" class="mobilenavbarfooter navbar-expand invisible-scrollbar fixed-bottom al-sm-dark-green">
-    <%= link_to root_path do %>
+  <%= link_to root_path do %>
     <%# <div class="display-flex-element style"> %>
     <a href="/" class="text-reset">
       <span class="fa-stack" style="vertical-align: top;">
         <i class="fa-solid fa-circle fa-stack-2x color-creme"></i>
         <i class="fa-solid fa-house fa-stack-1x fa-inverse"></i>
       </span>
-    <% end %>
+  <% end %>
 
     <% if user_signed_in? %>
       <%= link_to user_path(current_user) do %>
@@ -17,10 +17,10 @@
       <%= link_to "Login", new_user_session_path, class: "color-creme" %>
     <% end %>
 
-    <%= link_to root_path do %>
+  <%= link_to root_path do %>
     <span class="fa-stack" style="color: white vertical-align: top;">
       <i class="fa-solid fa-circle fa-stack-2x color-creme"></i>
       <i class="fa-solid fa-message fa-stack-1x fa-inverse"></i>
     </span>
-    <% end %>
+  <% end %>
 </footer>
