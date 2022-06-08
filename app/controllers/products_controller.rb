@@ -1,4 +1,5 @@
 include CloudinaryHelper
+require 'open-uri'
 
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
@@ -31,16 +32,13 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
-  def scan
-    @scan = params[:scan]
-    @product_scanned = Product.find_by(EAN: @scan) if @scan
-    @product = Product.new
-  end
-
   def create
     @user = current_user
     @product = Product.new(product_params)
     @product.user = @user
+    @scan = params[:product][:scan]
+    @product_scanned = Product.find_by(EAN: @scan) if @scan
+    @product.photo.attach(io: URI.open(cl_image_path(@product_scanned.photo.key)), filename: "#{@product.name}.jpg") if @product_scanned
     if @product.save
       redirect_to user_path(@user)
     else
