@@ -1,82 +1,82 @@
-<h1 class="text-align-center"><%= @product.name.capitalize %></h1>
-
-<%# start buttons action %>
-<section class="d-flex justify-content-around">
-  <%= link_to 'Contact', user_path(@product.user_id), class: "btn-green-secondary" %>
-  <%= button_to 'Order', product_orders_path(@product), method: :post, class: "btn-green-primary"%>
-</section>
-<%# end buttons action %>
-
-
-<div class="container-product-show">
-  <div class="first-pane">
-    <%# Display picture %>
-    <div class = "product-show-picture">
-      <% if @product.photo.attached? %>
-        <%= cl_image_tag(@product.photo.key, alt: @product.name) %>
-      <% else %>
-        <% picture_name = @product.category.name + ".jpg" %>
-        <%= image_tag(picture_name)%>
-      <% end %>
-    </div>
-    <%# Display map %>
-    <div class = "product-show-map"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-  </div>
-
-  <%# display infos product %>
-  <div class="second-pane">
-    <div class="product-price">
-      <i class="fa-solid fa-tag text-"></i>
-      <span class="fw-bold"><%= @product.price %>€</span>
-    </div>
-    <div>
-      <div class="text-muted my-1">Brand: <%= @product.brand %></div>
-      <div class="text-dark my-1">Category: <%= @product.category.name.capitalize %></div>
-      <div class="text-dark my-1">Sub-category: <%= @product.category.name.capitalize %></div>
-      <div class="text-dark small my-1"><%= @product.characteristics %></div>
-    </div>
-    <div>
-      <div id="gaugeArea" class="text-end" data-controller="gauge" data-gauge-pourcentage-value="<%= @product.quantity_left%>"></div>
-    </div>
-    <div>
-      <span>Condition : </span>
-      <span>
-        <%= @product.condition %>
-      </span>
+<div class="product-show">
+  <h1 class="text-align-center"><%= @product.name.capitalize %></h1>
+    <%# start buttons action %>
+    <div class="product-show-btn">
+      <%= link_to 'Contact', user_path(@product.user_id), class: "btn-green-secondary" %>
+      <%= button_to 'Order', product_orders_path(@product), method: :post, class: "btn-green-primary"%>
     </div>
 
-    <div>
-      <div>
-        <i class='fa fa-calendar'></i>
-        <span class="ms-1">Use before : </span>
-        <% if @product.expiration_date %>
-          <%= @product.expiration_date %>
-        <% else %>
-          <span class="fst-italic">Unknown</span>
-        <% end %>
+    <%# container for infos %>
+    <div class="container-product-show">
+      <div class="first-pane">
+        <%# Display picture %>
+        <div class = "product-show-picture">
+          <% if @product.photo.attached? %>
+            <%= cl_image_tag(@product.photo.key, alt: @product.name) %>
+          <% else %>
+            <% picture_name = @product.category.name + ".jpg" %>
+            <%= image_tag(picture_name)%>
+          <% end %>
+        </div>
+        <%# Display map %>
+        <div class = "product-show-map"
+          data-controller="mapbox"
+          data-mapbox-markers-value="<%= @markers.to_json %>"
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
-      <div>
-        <i class='fa fa-calendar'></i>
-        <span class="ms-1">
-          Purchased :
-        </span>
-        <% if @product.buying_date %>
-          <%= @product.buying_date %>
-        <% else %>
-          <span class="fst-italic">Unknown</span>
-        <% end %>
+
+      <%# display infos product %>
+      <div class="second-pane">
+        <div class="product-price">
+          <i class="fa-solid fa-tag text-"></i>
+          <span class="fw-bold"><%= @product.price %>€</span>
+        </div>
+        <div>
+          <div class="text-muted my-1">Brand: <%= @product.brand %></div>
+          <div class="text-dark my-1">Category: <%= @product.category.name.capitalize %></div>
+          <div class="text-dark my-1">Sub-category: <%= @product.category.name.capitalize %></div>
+          <div class="text-dark small my-1"><%= @product.characteristics %></div>
+        </div>
+        <div>
+          <div id="gaugeArea" class="text-end" data-controller="gauge" data-gauge-pourcentage-value="<%= @product.quantity_left%>"></div>
+        </div>
+        <div>
+          <span>Condition : </span>
+          <span>
+            <%= @product.condition %>
+          </span>
+        </div>
+
+        <div>
+          <div>
+            <i class='fa fa-calendar'></i>
+            <span class="ms-1">Use before : </span>
+            <% if @product.expiration_date %>
+              <%= @product.expiration_date %>
+            <% else %>
+              <span class="fst-italic">Unknown</span>
+            <% end %>
+          </div>
+          <div>
+            <i class='fa fa-calendar'></i>
+            <span class="ms-1">
+              Purchased :
+            </span>
+            <% if @product.buying_date %>
+              <%= @product.buying_date %>
+            <% else %>
+              <span class="fst-italic">Unknown</span>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+
+      <%# display description product %>
+      <div class = "third-pane" >
+        <h2>Description Product</h2>
+        <p><%= @product.description %></p>
       </div>
     </div>
-
-  </div>
-
-  <%# display description product %>
-  <div class = "third-pane" >
-    <h2>Description Product</h2>
-    <p><%= @product.description %></p>
-  </div>
 </div>
