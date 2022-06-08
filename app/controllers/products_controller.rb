@@ -1,3 +1,5 @@
+include CloudinaryHelper
+
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
@@ -19,7 +21,7 @@ class ProductsController < ApplicationController
       lat: @product.user.latitude,
       lng: @product.user.longitude,
       info_window: render_to_string(partial: "info_window", locals: { product: @product }),
-      image_url: helpers.asset_url(@product.user.photo.attached? ? cl_image_path(@product.user.photo.key) : "/assets/images/emy.jpg")
+      image_url: helpers.asset_url(@product.user.photo.attached? ? CloudinaryHelper.cl_image_path(@product.user.photo.key) : "/assets/images/emy.jpg")
     }]
   end
 
