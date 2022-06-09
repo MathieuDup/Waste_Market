@@ -26,6 +26,16 @@
   margin: 8px 0px;
 }
 
+.cards-thanks {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin: 8px 0px;
+}
+
+.cards-thanks {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
@@ -41,6 +51,11 @@
   .cards-orders {
     grid-template-columns: 1fr;
   }
+
+  .cards-thanks {
+    grid-template-columns: 1fr;
+  }
+
 
 }
 
@@ -58,6 +73,11 @@
   .cards-orders {
     grid-template-columns: 1fr;
   }
+
+  .cards-thanks {
+    grid-template-columns: 1fr;
+  }
+
 }
 
 // Medium devices (tablets, 768px and up)
@@ -72,6 +92,10 @@
     grid-template-columns: 1fr 1fr;
   }
   .cards-orders {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cards-thanks {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -90,6 +114,9 @@
   .cards-orders {
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .cards-thanks {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -105,5 +132,8 @@
   }
   .cards-orders {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .cards-thanks {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

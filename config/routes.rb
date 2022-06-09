@@ -17,5 +17,5 @@ Rails.application.routes.draw do
 
   get '/orders/:id/update_done', to: "orders#update_done"
   get '/products/new/scan', to: "products#scan"
-
+  get '/thanks', to: "pages#thanks"
 end
