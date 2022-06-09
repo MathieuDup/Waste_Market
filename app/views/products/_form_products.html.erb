@@ -27,8 +27,8 @@
           <div id="step-1" class="tab-pane" role="tabpanel">
               <%= f.input :name, input_html: {value: @product_scanned&.name || @product&.name }%>
               <%= f.input :description, input_html: {value: @product_scanned&.description || @product&.description} %>
-              <%= f.association :category, collection: Category.all, prompt: "Choose a Category", selected: @product_scanned&.category&.name %>
-              <%= f.association :sub_category, collection: SubCategory.all, prompt: "Choose a Sub Category", selected: @product_scanned&.sub_category&.name %>
+              <%= f.association :category, collection: Category.all, prompt: "Choose a Category", selected: @product_scanned&.category&.name || @product&.category&.name %>
+              <%= f.association :sub_category, collection: SubCategory.all, prompt: "Choose a Sub Category", selected: @product_scanned&.sub_category&.name || @product&.sub_category&.name %>
               <%= f.input :characteristics, input_html: {value: @product_scanned&.characteristics || @product&.characteristics }%>
               <%= f.input :brand, input_html: {value: @product_scanned&.brand || @product&.brand } %>
               <%= f.input :photo, as: :file unless @product_scanned %>
@@ -48,9 +48,8 @@
                             if @product_scanned
                                @product_scanned&.price * (@product_scanned&.quantity_left.to_i.fdiv(100))
                             end || @product&.price}%>
-              <div class="form-actions">
-                <%= f.button :submit, data: { action: "click->swal#alert" }, class: "btn-green-primary mb-2", id:'sweet-alert' %>
-              </div>
+
+
           </div>
         </div>
       </div>
@@ -58,5 +57,3 @@
     <%= javascript_pack_tag 'smartwizard' %>
   <% end %>
 </div>
-
-<%#= raise %>
