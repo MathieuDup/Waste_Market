@@ -9,7 +9,10 @@
   <%# Tabs %>
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="myproducts-tab" data-bs-toggle="tab" data-bs-target="#myproducts-tab-pane" type="button" role="tab" aria-controls="myproducts-tab-pane" aria-selected="false">My products</button>
+      <button class="nav-link active" id="myproducts-tab" data-bs-toggle="tab" data-bs-target="#myproducts-tab-pane" type="button" role="tab" aria-controls="myproducts-tab-pane" aria-selected="false">
+        My products <% if current_user.products.any? %>
+        (<%=current_user.products.count %>)
+        <% end %></button>
     </li>
     <li class="nav-item" role="presentation">
       <button class="nav-link" id="myfavorites-tab" data-bs-toggle="tab" data-bs-target="#myfavorites-tab-pane" type="button" role="tab" aria-controls="myfavorites-tab-pane" aria-selected="true">My favorites</button>

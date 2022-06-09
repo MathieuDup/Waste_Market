@@ -5,22 +5,23 @@
 // $creme: #F7F5F2;
 // $gray-dark: #0E0000;
 
-.btn-white {
+.btn-white, .sw-theme-dots .toolbar>.btn.sw-btn-prev {
   color: $green-primary;
   padding: 8px 24px;
   border-radius: 4px;
   background: white;
+  border : 1px solid white;
   transition: background-color 0.3s ease;
   display: inline-block;
 }
 
-.btn-white:hover {
+.btn-white:hover, .sw-theme-dots .toolbar>.btn.sw-btn-prev:hover {
   background: $green-primary;
   color: white;
 }
 
 
-.btn-green-primary {
+.btn-green-primary, #smartwizard > div.toolbar.toolbar-bottom > button.btn.sw-btn-next {
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
@@ -31,7 +32,7 @@
   border-style: solid;
 }
 
-.btn-green-primary:hover {
+.btn-green-primary:hover, #smartwizard > div.toolbar.toolbar-bottom > button.btn.sw-btn-next:hover {
   background: transparent;
   color: $green-primary;
   border-color: $green-primary;
@@ -68,8 +69,8 @@
 }
 
 .btn-pink:hover {
-  background: $pink;
-  color: white;
+  background: white;
+  color: $pink;
   border-color: $pink;
   border-style: solid;
 }
@@ -143,23 +144,23 @@
   //   position: absolute;
   // }
 
-  .sw-theme-dots .toolbar>.btn {
-      // .sw-btn-prev {
-      //   background-color: $white !important;
-      //   color: yellow !important;
-      // }
-    color: white !important;
-    padding: 8px 24px !important;
-    border-radius: 4px !important;
-    background: $green-primary !important;
-    transition: background-color 0.3s ease !important;
-    display: inline-block !important;
-    border-color: $green-primary !important;
-    border-style: solid !important;
-    :hover {
-      background: transparent !important;
-      color: $green-primary !important;
-      border-color: $green-primary !important;
-      border-style: solid !important;
-    }
-  }
+  // .sw-theme-dots .toolbar>.btn {
+  //     // .sw-btn-prev {
+  //     //   background-color: $white !important;
+  //     //   color: yellow !important;
+  //     // }
+  //   color: white !important;
+  //   padding: 8px 24px !important;
+  //   border-radius: 4px !important;
+  //   background: $green-primary !important;
+  //   transition: background-color 0.3s ease !important;
+  //   display: inline-block !important;
+  //   border-color: $green-primary !important;
+  //   border-style: solid !important;
+  //   :hover {
+  //     background: transparent !important;
+  //     color: $green-primary !important;
+  //     border-color: $green-primary !important;
+  //     border-style: solid !important;
+  //   }
+  // }
