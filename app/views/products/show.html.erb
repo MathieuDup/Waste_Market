@@ -99,7 +99,7 @@
 
           <%= @product.description %>
         </div>
-        <div class="col-6">
+        <div class="col-6 d-flex align-items-center">
           <% if @product.photo.attached? %>
             <%= cl_image_tag(@product.photo.key, alt: @product.name) %>
           <% else %>
