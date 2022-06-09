@@ -10,10 +10,10 @@
 }
 
 .product-card-image {
-    height: 100px;
-    width:100%;
-    object-fit: cover;
-  }
+  height: 100px;
+  width:100%;
+  object-fit: cover;
+}
 
 .card-product a{
   width: 100%;
@@ -35,10 +35,11 @@
   // margin-top: 0;
   // padding-top: 15px;
   // line-height: 0;
+  margin-right: 12px;
   color: #FF6363;
 }
 .card-product-infos {
-  // display: flex;
+  display: flex;
   width: 100%;
   height: 50%;
   align-content: flex-end;
@@ -47,10 +48,10 @@
   .card-product-infos-primary {
     // padding: 0;
     display: flex;
-    // flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    // width: 50%;
+    flex-direction: column;
+    // align-items: center;
+    // justify-content: space-between;
+    width: 50%;
   }
 
   p {
@@ -100,4 +101,11 @@
 
 .card-buttons .fa-trash-can {
   color: $green-secondary;
+}
+
+#order-gauge-product svg {
+  transform: scale(0.7);
+  position: absolute;
+  top: 160px;
+  right: -20px;
 }

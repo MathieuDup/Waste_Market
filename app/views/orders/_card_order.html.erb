@@ -5,22 +5,32 @@
     <%= image_tag (order.product.photo.attached? ? cl_image_path(order.product.photo.key) : asset_path(picture_name)), class: "order-card-image"%>
   <% end %>
 
-  <%# Display User avatar %>
-  <%= link_to user_path(order.user) do %>
-    <%= image_tag (order.user.photo.attached? ? cl_image_path(order.user.photo.key) : asset_path("emy.jpg")), class: "avatar-on-card position-avatar-cardorder" %>
-  <% end %>
-
   <%# Display right infos %>
   <div class ="card-order-infos">
     <%# Display Product title %>
-    <div class ="card-order-infos-title">
-      <h2><%= order.product.name %></h2>
-      <h3><%= order.product.price %> €</h3>
+    <div class="card-order-infos-primary">
+      <%# Display seller info %>
+      <% if order.product.user == current_user  %>
+        <h2><span>
+          <%= link_to user_path(order.user) do %>
+            <%= image_tag (order.user.photo.attached? ? cl_image_path(order.user.photo.key) : asset_path("emy.jpg")), class: "avatar-on-card" %>
+          <% end %>
+          Ordered by <%= order.user.username %>
+        </span></h2>
+      <% elsif order.user == current_user %>
+      <%# Display buyer info %>
+      <h2><span>
+        <%= link_to user_path(order.product.user) do %>
+          <%= image_tag (order.product.user.photo.attached? ? cl_image_path(order.product.user.photo.key) : asset_path("emy.jpg")), class: "avatar-on-card" %>
+        <% end %>
+        Sold by <%= order.product.user.username %>
+      </span></h2>
+      <% end %>
     </div>
     <%# Display Product information %>
-    <div class="card-order-infos-primary">
-      <p><%= order.product.user.address %></p>
-      <div id="order-gauge" data-controller="gauge" data-gauge-pourcentage-value="<%= order.product.quantity_left%>"></div>
+    <div class="card-order-infos-secondary">
+      <h3><%= order.product.name %></h3>
+      <h3><%= order.product.price %> €</h3>
     </div>
   </div>
 
