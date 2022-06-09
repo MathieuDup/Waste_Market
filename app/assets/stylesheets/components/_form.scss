@@ -1,0 +1,26 @@
+.custom-radio-buttons {
+  display: inline;
+  margin-bottom: 20px;
+  .radio-form {
+    border-radius: 25px;
+    background-color: white;
+    border: 1px solid $green-primary;
+    padding: 10px;
+    color: $green-primary;
+    margin: 0px 20px 0px 30px;
+    text-align: center;
+    width: 200px;
+    margin-left: 50px;
+    font-size: auto;
+  }
+  .selected ~ label{
+    background-color: $green-primary;
+    color: white;
+    border: 1px solid white;
+  }
+}
+
+.sw-theme-dots>.nav .nav-link.done {
+  color: $green-primary !important;
+  cursor: pointer;
+}

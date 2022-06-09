@@ -57,8 +57,13 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @product.destroy
-    redirect_to products_path, notice: 'Product was successfully destroyed.'
+    if request.referer.include?('users')
+      redirect_to user_path(current_user, notice: 'Product was successfully destroyed.')
+    else
+      redirect_to products_path, notice: 'Product was successfully destroyed.'
+    end
   end
 
   private

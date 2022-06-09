@@ -1,59 +1,74 @@
-<h1><%= @order.product.name %></h1>
-<br>
+<div class="order-show">
+  <h1>My order on <%= @order.product.name %></h1>
+  <br>
 
-<%# Display QR code when order status = validated %>
-<div data-controller="qrcode-validation" data-qrcode-validation-order-id-value="<%= @order.id %>" data-qrcode-validation-target="popup">
-</div>
-<div>
-  <% if @order.product.user == current_user && @order.progress == "validated" %>
-    <h2>QR code for transaction</h2>
-    <br>
-    <div class="qr-code">
-      <%= @svg.html_safe %>
-      <%= image_tag "Logo.png", class: "qr-code-logo" %>
-    </div>
-  <% end  %>
-</div>
-
-
-
-<%# Display chat %>
-<div>
-  <h2>Messages</h2>
-  <div class="container chatroom" data-controller="order-subscription" data-order-subscription-order-id-value="<%= @order.id %>">
-    <div class="messages" data-order-subscription-target="messages">
-      <% @order.messages.each do |message| %>
-        <%= render "messages/message", message: message %>
-      <% end %>
-    </div>
-    <%= simple_form_for [@order, @message], remote: true, authenticity_token: true, html: {data: {action: "ajax:informational->order-subscription#reset"}, class: "d-flex" } do |f| %>
-      <%= f.input :content, input_html: { data: { order_subscription_target: 'input'} }, as: :string,
-        label: false,
-        placeholder: "Type your message",
-        wrapper_html: {class: "flex-grow-1"}
-      %>
-      <%= f.submit "Send", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
-
-
-
-<% if current_user && current_user.can_review?(@order) %>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4">
-        <%= simple_form_for([@order, @review], html: { class: "review_form" }) do |f| %>
-          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", id: "review_rating" %>
-          <%= f.submit class: "d-none" %>
+  <%# Display chat %>
+  <% if @order.progress == "validated" && @order.progress != "done" %>
+    <div class="order-chat">
+      <h2>Messages</h2>
+      <div class="container chatroom" data-controller="order-subscription" data-order-subscription-order-id-value="<%= @order.id %>">
+        <div class="messages" data-order-subscription-target="messages">
+          <% @order.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+          <% end %>
+        </div>
+        <%= simple_form_for [@order, @message], remote: true, html: {data: {action: "ajax:success->order-subscription#reset"}, class: "d-flex" } do |f| %>
+          <%= f.input :content, as: :string,
+            label: false,
+            placeholder: "Type your message",
+            wrapper_html: {class: "flex-grow-1"}
+          %>
+          <%#= f.submit "Send", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
+  <% end %>
+
+<% if @order.progress == "validated" && @order.progress != "done" %>
+    <br>
+    <br>
+<% end %>
+
+
+  <%# Display QR code when order status = validated %>
+  <div class="order-qr">
+    <div data-controller="qrcode-validation" data-qrcode-validation-order-id-value="<%= @order.id %>" data-qrcode-validation-target="popup"></div>
+    <div>
+      <% if @order.product.user == current_user && @order.progress == "validated" %>
+        <h2>QR code for transaction</h2>
+        <br>
+        <div class="qr-code">
+          <%= @svg.html_safe %>
+          <%= image_tag "Logo.png", class: "qr-code-logo" %>
+        </div>
+      <% end  %>
+    </div>
   </div>
+
+<% if @order.progress == "validated" && @order.progress != "done" %>
+    <br>
+    <br>
+    <br>
 <% end %>
 
-<% @order.reviews.each do |review| %>
-  <%= render 'reviews/card_review', review: review %>
-<% end %>
+  <%# Display review %>
+  <% if current_user && current_user.can_review?(@order) %>
 
-<%= link_to "Back", user_path(current_user), class: "btn-green-primary" %>
+    <%= simple_form_for([@order, @review], html: { class: "review_form" }) do |f| %>
+      <h2>Rate your experience</h2>
+      <%= f.input :rating, collection: (1..5).to_a, label: false %>
+      <%= f.submit class: "d-none" %>
+    <% end %>
+
+  <% end %>
+
+  <% @order.reviews.each do |review| %>
+    <%= render 'reviews/card_review', review: review %>
+  <% end %>
+
+    <br>
+    <br>
+
+  <%= link_to "Back", user_path(current_user), class: "btn-green-primary" %>
+
+</div>

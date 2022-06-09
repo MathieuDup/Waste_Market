@@ -18,14 +18,14 @@
   <%# Display Product information %>
   <div class="card-product-infos">
     <div class="card-product-infos-primary">
-      <p class="card-category-name"><%= product.category.name.capitalize %></p>
-      <div class="card-product-infos-secondary">
-        <h3><%= product.price %> €</h3>
-        <p><%= product.quantity_left %> %</p>
-      </div>
-    </div>
-    <div>
+      <h3 class="card-category-name"><%= product.category.name.capitalize %></h3>
       <p class="card-category-address"><%= product.user.address %></p>
+    </div>
+    <div class="card-product-infos-secondary">
+      <h3><%= product.price %> €</h3>
+      <% if product.quantity_left %>
+        <div id="order-gauge-product" data-controller="gauge" data-gauge-pourcentage-value="<%= product.quantity_left%>"></div>
+      <% end %>
     </div>
   </div>
 

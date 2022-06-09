@@ -1,9 +1,9 @@
-import { Controller } from "stimulus"
+// import { Controller } from "stimulus"
 
-export default class extends Controller {
-   static targets = [ "output" ]
+// export default class extends Controller {
+//    static targets = [ "output" ]
 
-   connect() {
-    this.outputTarget.textContent = 'Hello, Stimulus!'
-   }
- }
+//    connect() {
+//     this.outputTarget.textContent = 'Hello, Stimulus!'
+//    }
+//  }
