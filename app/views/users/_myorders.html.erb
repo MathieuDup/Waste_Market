@@ -1,4 +1,7 @@
 <%# My orders as buyer %>
+<% if @buyer_orders.length <= 0 && @seller_orders.length <= 0 %>
+  <h2 class= "mt-4"> Oops, you do not have any order yet.</h2>
+<% end %>
 <% if @buyer_orders.length > 0 %>
 <h2>My <%= @buyer_orders.length %> orders as buyer</h2>
 <% end %>

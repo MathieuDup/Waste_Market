@@ -18,7 +18,8 @@ class User < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   def my_reviews
-    (orders.map(&:reviews) + orders_as_owner.map(&:reviews)).flatten
+    (orders.map { |order| order.reviews_from_others(self) } + orders_as_owner.map { |order| order.reviews_from_others(self) }).flatten
+    # (orders.map(&:reviews) + orders_as_owner.map(&:reviews)).flatten
   end
 
   def not_my_product?(product)

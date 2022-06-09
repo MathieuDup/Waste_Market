@@ -1,6 +1,6 @@
 <%# My favorites %>
-<% if current_user.bookmarks.length > 0 %>
-  <h2>My <%= current_user.bookmarks.length %> favorites</h2>
+<% if @current_user.bookmarks.length <= 0 %>
+  <h2 class= "mt-4"> Oops, you do not have any favorite yet.</h2>
 <% end %>
 <div class="cards-products">
   <% current_user.bookmarks.each do |bookmark| %>
