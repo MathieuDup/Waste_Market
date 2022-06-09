@@ -5,10 +5,12 @@
 
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
+import Rails from "@rails/ujs"
 import "channels"
 
 Turbolinks.start()
 ActiveStorage.start()
+Rails.start();
 
 import "controllers"
 import "bootstrap"
