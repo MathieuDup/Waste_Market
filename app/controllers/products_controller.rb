@@ -57,8 +57,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @product.destroy
-    redirect_to products_path, notice: 'Product was successfully destroyed.'
+    redirect_to user_path(@user), notice: 'Product was successfully destroyed.'
   end
 
   private
