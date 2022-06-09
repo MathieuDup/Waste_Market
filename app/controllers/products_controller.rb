@@ -8,11 +8,11 @@ class ProductsController < ApplicationController
   def index
     @categories = Category.all
     if params[:category]
-      @products = Product.where(category_id: params[:category], EAN: nil)
+      @products = Product.where(category_id: params[:category], EAN: nil).order(created_at: :desc)
     elsif params[:search]
-      @products = Product.global_search(params[:search][:query]).where(EAN: nil)
+      @products = Product.global_search(params[:search][:query]).where(EAN: nil).order(created_at: :desc)
     else
-      @products = Product.where(EAN: nil)
+      @products = Product.where(EAN: nil).order(created_at: :desc)
     end
   end
 
