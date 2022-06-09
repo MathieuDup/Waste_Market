@@ -1,6 +1,25 @@
 <div class="order-show">
+
   <h1>My order on <%= @order.product.name %></h1>
   <br>
+  <%# Display buttons for seller%>
+  <div class="order-show-button">
+    <% if @order.product.user == current_user %>
+        <% if @order.progress == "pending" || @order.progress == "validated" %>
+          <!-- Button modal reject -->
+          <button type="button" class="btn-pink" data-bs-toggle="modal" data-bs-target="#modal-reject-order-<%=@order.id%>">
+            Reject
+          </button>
+          <% end %>
+          <% if @order.progress == "pending" %>
+          <!-- Button modal validate -->
+          <button type="button" class="btn-green-primary" data-bs-toggle="modal" data-bs-target="#modal-validate-order-<%=@order.id%>">
+            Validate
+          </button>
+        <% end %>
+    <% end %>
+    <br>
+  </div>
 
   <%# Display chat %>
   <% if @order.progress != "cancelled" && @order.progress != "done" %>
@@ -22,12 +41,9 @@
         <% end %>
       </div>
     </div>
+    <br>
+    <br>
   <% end %>
-
-<% if @order.progress == "validated" && @order.progress != "done" %>
-    <br>
-    <br>
-<% end %>
 
 
   <%# Display QR code when order status = validated %>
@@ -66,9 +82,49 @@
     <%= render 'reviews/card_review', review: review %>
   <% end %>
 
-    <br>
-    <br>
-
   <%= link_to "Back", user_path(current_user), class: "btn-green-primary" %>
 
+    <br>
+    <br>
+
+</div>
+
+
+  <!-- Modal validated -->
+  <div class="modal fade" id="modal-validate-order-<%=@order.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Would you like to validate this order?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-pink" data-bs-dismiss="modal">No</button>
+          <%= button_to 'Yes', order_path(@order, progress: "validated", notice: "Order validated"), method: :patch, class:"btn-green-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal rejected -->
+  <div class="modal fade" id="modal-reject-order-<%=@order.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Would you like to reject this order?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-pink" data-bs-dismiss="modal">No</button>
+          <%= button_to 'Yes', order_path(@order, progress: "cancelled", notice: "Order cancelled"), method: :patch, class:"btn-green-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

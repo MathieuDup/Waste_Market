@@ -19,7 +19,7 @@
   <div class="card-product-infos">
     <div class="card-product-infos-primary">
       <h3 class="card-category-name"><%= product.category.name.capitalize %></h3>
-      <p class="card-category-address"><%= product.user.address %></p>
+      <p class="card-category-address"><%= product.user.address.split(" ").last %></p>
     </div>
     <div class="card-product-infos-secondary">
       <h3><%= product.price %> €</h3>
