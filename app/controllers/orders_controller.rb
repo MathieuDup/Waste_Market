@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
       @order.product_id = @product.id
       @order.progress = "pending"
       @order.save
-      redirect_to user_path(current_user)
+      redirect_to order_path(@order)
     else
       flash[:alert] = "You cannot order this product."
       render 'products/show'
