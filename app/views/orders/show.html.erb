@@ -80,7 +80,9 @@
 
   <% @order.reviews.each do |review| %>
     <%= render 'reviews/card_review', review: review %>
+    <br>
   <% end %>
+
 
   <%= link_to "Back", user_path(current_user), class: "btn-green-primary" %>
 
