@@ -1,11 +1,11 @@
 .product-show-card {
-  background-color: white;
-  padding: 0.75rem 0.5rem;
+  // background-color: white;
+  // padding: 0.75rem 0.5rem;
   border-radius: 3px;
 
-  .product-show-links {
-    background-color: #125b50;
-  }
+  // .product-show-links {
+  //   background-color: #125b50;
+  // }
 
   h2 {
     font-size: 1.3em;
@@ -37,4 +37,129 @@
 }
 .product-show-img {
   box-shadow:  2px 2px, #00C897
+}
+
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+
+  .product-show-buttons-right {
+    display: none;
+  }
+
+  .product-show-buttons-left {
+    display: none;
+  }
+
+  .order-sm {
+    // font-size: 24px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: $green-secondary;
+    border-radius: 50px;
+    color: white;
+    position: fixed;
+    bottom: 5em;
+    right: 0.5em;
+    z-index: 999;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767px) {
+  .product-show {
+    position: relative;
+  }
+
+  .product-show-buttons-right {
+    display: none;
+  }
+
+  .product-show-buttons-left {
+    display: none;
+  }
+
+  .order-sm {
+    // font-size: 24px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: $green-secondary;
+    border-radius: 50px;
+    color: white;
+    position: fixed;
+    bottom: 5em;
+    right: 0.5em;
+    z-index: 999;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+  .product-show {
+    position: relative;
+  }
+
+  .product-show-buttons-right {
+   position: absolute;
+   right: 10px;
+  }
+
+  .product-show-buttons-left {
+    position: absolute;
+    left: 10px;
+  }
+
+  .order-sm {
+    display: none;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199px) {
+  .product-show {
+    position: relative;
+  }
+
+  .product-show-buttons-right {
+   position: absolute;
+   right: 10px;
+  }
+
+  .product-show-buttons-left {
+    position: absolute;
+    left: 10px;
+  }
+
+  .order-sm {
+    display: none;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .product-show {
+    position: relative;
+  }
+
+  .product-show-buttons-right {
+   position: absolute;
+   right: 10px;
+  }
+
+  .product-show-buttons-left {
+    position: absolute;
+    left: 10px;
+  }
+
+  .order-sm {
+    display: none;
+  }
 }
