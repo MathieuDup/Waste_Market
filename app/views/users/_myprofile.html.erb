@@ -15,13 +15,20 @@
         <% end %></button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="myfavorites-tab" data-bs-toggle="tab" data-bs-target="#myfavorites-tab-pane" type="button" role="tab" aria-controls="myfavorites-tab-pane" aria-selected="true">My favorites</button>
+      <button class="nav-link" id="myfavorites-tab" data-bs-toggle="tab" data-bs-target="#myfavorites-tab-pane" type="button" role="tab" aria-controls="myfavorites-tab-pane" aria-selected="true">
+      My favorites<% if current_user.bookmarks.any? %>
+        (<%=current_user.bookmarks.count %>)
+        <% end %></button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="myorders-tab" data-bs-toggle="tab" data-bs-target="#myorders-tab-pane" type="button" role="tab" aria-controls="myorders-tab-pane" aria-selected="false">My orders</button>
+      <button class="nav-link" id="myorders-tab" data-bs-toggle="tab" data-bs-target="#myorders-tab-pane" type="button" role="tab" aria-controls="myorders-tab-pane" aria-selected="false">
+      My orders <% if @seller_orders.any? %>
+        (<%= @seller_orders.count %>)
+        <% end %></button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false">Reviews</button>
+      <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false">
+      Reviews</button>
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">

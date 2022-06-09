@@ -69,7 +69,7 @@
 
 
   .card-category-address {
-    margin-top: 25px;
+    margin-top: 30px;
   }
 
 }
@@ -79,7 +79,12 @@
   display: flex;
   justify-content: center;
   text-align: center ;
-  margin-top: 10px;
+  margin-top: 20px;
+}
+
+.card-product-infos-primary {
+  text-align: start;
+  margin-left: 8px;
 }
 
 .card-product-infos-secondary {
@@ -88,7 +93,7 @@
 }
 
 .card-buttons {
-  top: 4px;
+  top: 10px;
   right: 10px;
   position: absolute;
 }

@@ -38,34 +38,33 @@
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 767px) {
-  .myprofile {
-    position: relative;
-  }
   .user-order-btn {
-    position: absolute;
-    top: 1px;
-    right: 1px;
+    display: none;
   }
 
   .add-product-sm {
-    display: none;
+    font-size: 36px;
+    color: #1EDD88;
+    position: fixed;
+    bottom: 2em;
+    right: 0.5em;
+    z-index: 999;
   }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991px) {
-  .myprofile {
-    position: relative;
-  }
-
-  .add-product-sm {
+  .user-order-btn {
     display: none;
   }
 
-  .user-order-btn {
-    position: absolute;
-    top: 1px;
-    right: 1px;
+  .add-product-sm {
+    font-size: 36px;
+    color: #1EDD88;
+    position: fixed;
+    bottom: 2em;
+    right: 0.5em;
+    z-index: 999;
   }
 }
 
