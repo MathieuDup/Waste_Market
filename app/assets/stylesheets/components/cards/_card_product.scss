@@ -7,13 +7,15 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   //align-items: center;
   position: relative;
+  border-radius: 4px;
 }
 
 .product-card-image {
   background:linear-gradient(#e66465, #9198e5);
   height: 100px;
   width:100%;
-  object-fit: cover;
+  object-fit: contain;
+  border-radius: 4px 4px 0 0;
 }
 
 .card-product a{

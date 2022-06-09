@@ -1,6 +1,6 @@
 <%# My reviews %>
-<% if current_user.my_reviews.length > 0 %>
-      <h2>My <%= current_user.my_reviews.length %> reviews</h2>
+<% if current_user.my_reviews.length.size.zero? %>
+      <h2>You have any reviews </h2>
 <% end %>
 <div class="cards">
   <% current_user.my_reviews.each do |review| %>

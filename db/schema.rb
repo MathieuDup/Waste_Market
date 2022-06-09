@@ -87,8 +87,8 @@ ActiveRecord::Schema.define(version: 2022_06_03_093734) do
     t.string "characteristics"
     t.string "quantity_left"
     t.string "condition"
-    t.date "buying_date"
-    t.date "expiration_date"
+    t.string "buying_date"
+    t.string "expiration_date"
     t.integer "price"
     t.string "barcode"
     t.bigint "user_id", null: false

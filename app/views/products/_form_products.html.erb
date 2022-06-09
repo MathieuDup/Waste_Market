@@ -23,21 +23,22 @@
           </li>
         </ul>
 
-        <div class="tab-content" data-controller="quantity-left" data-price= "<%=@product_scanned&.price || @product&.price %>">
+        <div class="tab-content tab-content-categories" data-controller="quantity-left" data-price= "<%=@product_scanned&.price || @product&.price %>">
           <div id="step-1" class="tab-pane" role="tabpanel">
               <%= f.input :name, input_html: {value: @product_scanned&.name || @product&.name }%>
               <%= f.input :description, input_html: {value: @product_scanned&.description || @product&.description} %>
-              <%= f.association :category, collection: Category.all, prompt: "Choose a Category", selected: @product_scanned&.category&.name || @product&.category&.name %>
-              <%= f.association :sub_category, collection: SubCategory.all, prompt: "Choose a Sub Category", selected: @product_scanned&.sub_category&.name || @product&.sub_category&.name %>
+              <%= f.association :category, collection: Category.all.map{|cat| [cat.name.capitalize, cat.id]}, prompt: "Choose a Category", selected: @product_scanned&.category&.id %>
+              <%= f.association :sub_category, collection: SubCategory.all, prompt: "Choose a Sub Category", selected: @product_scanned&.sub_category&.id %>
               <%= f.input :characteristics, input_html: {value: @product_scanned&.characteristics || @product&.characteristics }%>
               <%= f.input :brand, input_html: {value: @product_scanned&.brand || @product&.brand } %>
               <%= f.input :photo, as: :file unless @product_scanned %>
               <%= f.hidden_field :scan, value: params[:scan] %>
           </div>
           <div id="step-2" class="tab-pane container" role="tabpanel">
+            <div class="d-flex justify-content-between">
               <%= f.input :quantity_left,
                           as: :radio_buttons,
-                          collection: [25, 50, 75, 100].map { |element| [element, element] },
+                          collection: [["25 %", 25], ["50 %", 50], ["75 %", 75], ["100 %", 100]],
                           input_html: {
                             class: "sr-only",
                             data: {
@@ -46,9 +47,14 @@
                               action: "change->quantity-left#test radio-buttons#select"
                               }
                           },
-                          wrapper_html: { data: {controller: "radio-buttons"} },
+                          wrapper_html: { class: "mb-4", data: {controller: "radio-buttons"} },
                           item_label_class: "radio-form",
                           item_wrapper_class: "custom-radio-buttons" %>
+               <%= f.input :price, label: "Proposed price in €", input_html: { data: { quantity_left_target: "price" }, value:
+                  if @product_scanned
+                    @product_scanned&.price * (@product_scanned&.quantity_left.to_i.fdiv(100))
+                  end || @product&.price}%>
+            </div>
               <%= f.input :condition,
                           as: :radio_buttons,
                           collection: ["Perfect", "Good", "Average", "Poor"].map { |element| [element, element] },
@@ -59,7 +65,7 @@
                               action: "change->quantity-left#test radio-buttons#select"
                               }
                           },
-                          wrapper_html: { data: {controller: "radio-buttons"} },
+                          wrapper_html: { class: "mb-4", data: {controller: "radio-buttons"} },
                           item_label_class: "radio-form",
                           item_wrapper_class: "custom-radio-buttons" %>
               <%= f.input :buying_date,
@@ -72,7 +78,7 @@
                       action: "change->quantity-left#test radio-buttons#select"
                       }
                   },
-                  wrapper_html: { data: {controller: "radio-buttons"} },
+                  wrapper_html: { class: "mb-4", data: {controller: "radio-buttons"} },
                   item_label_class: "radio-form",
                   item_wrapper_class: "custom-radio-buttons" %>
               <%= f.input :expiration_date, as: :radio_buttons,
@@ -84,15 +90,15 @@
                       action: "change->quantity-left#test radio-buttons#select"
                       }
                   },
-                  wrapper_html: { data: {controller: "radio-buttons"} },
+                  wrapper_html: { class: "mb-4", data: {controller: "radio-buttons"} },
                   item_label_class: "radio-form",
                   item_wrapper_class: "custom-radio-buttons" %>
           </div>
           <div id="step-3" class="tab-pane" role="tabpanel">
-              <%= f.input :price, label: "Proposed price", input_html: { data: { quantity_left_target: "price" }, value:
+              <%= f.input :price, label: "Happy with this price ? If not, feel free to change it!", input_html: {class: "price-final", data: { quantity_left_target: "price" }, value:
                             if @product_scanned
                                @product_scanned&.price * (@product_scanned&.quantity_left.to_i.fdiv(100))
-                            end || @product&.price}%>
+                            end || @product&.price} %>
 
 
           </div>

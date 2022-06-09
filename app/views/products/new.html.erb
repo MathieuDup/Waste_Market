@@ -1,11 +1,6 @@
-<!-- CSS -->
-<link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+<div class="position-relative back-button my-5">
+  <%= link_to 'Back', products_new_scan_path, class: "btn-pink position-absolute left-0" %>
+  <h1 class="text-center">New product</h1>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-<!-- JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
-
-<h1 class="text-center">New product</h1>
-<%= link_to 'Back', root_path, class: "btn-green-secondary" %>
+</div>
 <%= render 'form_products', product: @product %>
