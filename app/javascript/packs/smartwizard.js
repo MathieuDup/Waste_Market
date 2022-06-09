@@ -3,7 +3,7 @@ import { end } from "@popperjs/core";
 $(document).ready(function(){
 
   // Toolbar extra buttons
-    const btnFinish = $('<button></button>').text('Confirm')
+    const btnFinish = $("<button id='sweet-alert' data-action='click->swal#alert'></button>").text('Confirm')
             .addClass('btn-green-primary d-none confirm-btn')
             .on('click', function () {
                 if (!$(this).hasClass('d-none')) {
