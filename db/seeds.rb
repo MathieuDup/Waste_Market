@@ -160,7 +160,7 @@ Order.create!(user: patricia, product: product_5, progress: "done", qr_code: RQR
 Order.create!(user: patricia, product: product_2, progress: "done", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
 Order.create!(user: patricia, product: product_7, progress: "cancelled", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol"))
 Order.create!(user: mathieu, product: product_3, progress: "done", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
-Order.create!(user: jerome, product: product_1à, progress: "done", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
+Order.create!(user: jerome, product: product_12, progress: "done", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
 
 Review.create(user: jim, order_id: 1, rating: 5)
 Review.create(user: mathieu, order_id: 2, rating: 5)
