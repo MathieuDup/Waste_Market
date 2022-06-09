@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(progress: params[:progress])
-    redirect_to user_path(current_user), notice: params[:notice]
+    redirect_to order_path(@order), notice: params[:notice]
   end
 
   def update_done
