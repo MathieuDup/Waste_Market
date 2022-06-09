@@ -2,7 +2,7 @@
 .card-product {
   display: flex;
   flex-direction: column;
-  height: 250px;
+  /*height: 250px;*/
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   //align-items: center;
@@ -10,6 +10,7 @@
 }
 
 .product-card-image {
+  background:linear-gradient(#e66465, #9198e5);
   height: 100px;
   width:100%;
   object-fit: cover;
@@ -44,6 +45,7 @@
   height: 50%;
   align-content: flex-end;
   padding: 0 5%;
+  padding-bottom: 10px;
 
   .card-product-infos-primary {
     // padding: 0;
@@ -68,6 +70,7 @@
 
   .card-category-address {
     margin-top: 25px;
+
   }
 
 }
