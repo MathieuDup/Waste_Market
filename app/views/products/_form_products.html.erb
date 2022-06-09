@@ -51,9 +51,7 @@
                           item_label_class: "radio-form",
                           item_wrapper_class: "custom-radio-buttons" %>
                <%= f.input :price, label: "Proposed price in €", input_html: { data: { quantity_left_target: "price" }, value:
-                  if @product_scanned
-                    @product_scanned&.price * (@product_scanned&.quantity_left.to_i.fdiv(100))
-                  end || @product&.price}%>
+                  @product&.price}%>
             </div>
               <%= f.input :condition,
                           as: :radio_buttons,

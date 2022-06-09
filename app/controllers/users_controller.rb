@@ -27,3 +27,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :first_name, :last_name, :email, :address, :password, :password_confirmation, :photo)
   end
 end
+
+# reviews = current_user.orders.map do |order|
+#   order.reviews.select do |review|
+#     review.user_id != current_user.id
+#   end
+# end

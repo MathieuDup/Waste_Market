@@ -15,7 +15,9 @@ export default class extends Controller {
   //  insérer dans l'html de l'input price
     if (this.price > 0) {
 
-      this.priceTarget.value = Math.ceil(this.discountPrice)
+      this.priceTargets.forEach(element => {
+        element.value = Math.ceil(this.discountPrice)
+      });
       // this.priceTarget.innerText = this.priceTarget.value
     }
 }}
