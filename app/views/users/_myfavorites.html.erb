@@ -7,13 +7,3 @@
     <%= render 'products/card_product', product: bookmark.product %>
   <% end %>
 </div>
-
-<%# My orders as buyer %>
-<% if @buyer_orders.length > 0 %>
-<h2>My <%= @buyer_orders.length %> orders as buyer</h2>
-<% end %>
-<div class="cards-orders">
-  <% @buyer_orders.each do |order| %>
-    <%= render 'orders/card_order', order: order %>
-  <% end %>
-</div>
