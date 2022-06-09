@@ -1,0 +1,55 @@
+.card-thanks {
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  text-align: center;
+  vertical-align: top;
+  height: 150px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 10px 10px;
+  h1{
+    font-size: 26px;
+  }
+  h2{
+    font-size: 20px;
+  }
+  h3{
+    font-size: 16px;
+  }
+  p{
+    font-size: 14px;
+  }
+}
+
+.card-champions {
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 150px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 0 60px;
+
+  h1{
+    font-size: 28px;
+  }
+  h2{
+    font-size: 20px;
+  }
+  h3{
+    font-size: 16px;
+  }
+  p{
+    font-size: 14px;
+  }
+}

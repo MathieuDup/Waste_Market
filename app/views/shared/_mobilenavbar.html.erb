@@ -14,7 +14,7 @@
         <%= image_tag (current_user.photo.attached? ? cl_image_path(current_user.photo.key) : asset_path("emy.jpg")), class: "avatar" %>
       <% end %>
     <% else %>
-      <%= link_to "Login", new_user_session_path, class: "color-creme" %>
+      <%= link_to "/thanks", new_user_session_path, class: "color-creme" %>
     <% end %>
 
   <%= link_to root_path do %>
