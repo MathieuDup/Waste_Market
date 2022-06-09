@@ -3,7 +3,7 @@
   <br>
 
   <%# Display chat %>
-  <% if @order.progress == "validated" && @order.progress != "done" %>
+  <% if @order.progress != "cancelled" && @order.progress != "done" %>
     <div class="order-chat">
       <h2>Messages</h2>
       <div class="container chatroom" data-controller="order-subscription" data-order-subscription-order-id-value="<%= @order.id %>">
