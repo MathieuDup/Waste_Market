@@ -1,5 +1,9 @@
-<% if current_user == @other_user  %>
+<% if current_user == @other_user %>
   <%= render 'users/myprofile' %>
 <% else %>
   <%= render 'users/otheruserprofile', user: @other_user %>
+<% end %>
+
+<%= link_to '/products/new/scan' do %>
+  <div class="add-product-sm"><i class="fa-solid fa-circle-plus"></i></div>
 <% end %>
