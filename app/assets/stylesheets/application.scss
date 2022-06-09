@@ -14,6 +14,7 @@
 @import "pages/home";
 @import "products/show";
 @import "users/show";
+@import "orders/show";
 @import "jquery-bar-rating/dist/themes/css-stars";
 
 // MapBox
@@ -24,7 +25,7 @@ a {
   color: inherit;
 }
 
-body{
+body {
   background-color: #FBF8EC;
   height: 100vh;
   display: flex;

@@ -13,6 +13,7 @@ class MessagesController < ApplicationController
         @order,
         render_to_string(partial: "message", locals: { message: @message })
       )
+      head :ok
     else
       render "orders/show"
     end

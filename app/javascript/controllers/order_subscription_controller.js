@@ -14,8 +14,7 @@ export default class extends Controller {
   }
 
   reset(event) {
-    console.log("hello")
-    this.inputTarget.value = ""
+    event.target.reset()
   }
 
   disconnect() {
