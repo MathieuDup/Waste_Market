@@ -1,10 +1,10 @@
 <div class="product-show">
 
 <%# buttons action %>
+<% if current_user&.can_order?(@product) %>
 <%= link_to product_orders_path(@product), method: :post do %>
   <div class="order-sm"><i class="fa-solid fa-cart-arrow-down"></i></div>
 <% end %>
-<% if current_user&.can_order?(@product) %>
   <div class="product-show-buttons-right">
     <%= button_to 'Order', product_orders_path(@product), method: :post, class: "btn-green-primary"%>
   </div>
