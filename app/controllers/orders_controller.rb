@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def index
-    @buyer_orders = Order.where(user_id: current_user.id)
-    @seller_orders = current_user.orders_as_owner
+    @buyer_orders = Order.where(user_id: current_user.id).order(created_at: :desc)
+    @seller_orders = current_user.orders_as_owner.order(created_at: :desc)
   end
 
   def show

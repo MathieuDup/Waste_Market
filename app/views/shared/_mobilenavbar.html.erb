@@ -17,10 +17,12 @@
       <%= link_to "Login", new_user_session_path, class: "color-creme" %>
     <% end %>
 
-  <%= link_to root_path do %>
     <span class="fa-stack" style="color: white vertical-align: top;">
+  <%= link_to root_path do %>
       <i class="fa-solid fa-circle fa-stack-2x color-creme"></i>
+      <% end %>
+      <%= link_to orders_path do %>
       <i class="fa-solid fa-message fa-stack-1x fa-inverse"></i>
-    </span>
   <% end %>
+    </span>
 </footer>
