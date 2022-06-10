@@ -10,8 +10,8 @@
           <button type="button" class="btn-pink" data-bs-toggle="modal" data-bs-target="#modal-reject-order-<%=@order.id%>">
             Reject
           </button>
-          <% end %>
-          <% if @order.progress == "pending" %>
+        <% end %>
+        <% if @order.progress == "pending" %>
           <!-- Button modal validate -->
           <button type="button" class="btn-green-primary" data-bs-toggle="modal" data-bs-target="#modal-validate-order-<%=@order.id%>">
             Validate
@@ -20,6 +20,19 @@
     <% end %>
     <br>
   </div>
+<% if @order.product.user == current_user %>
+  <% if @order.progress == "pending" %>
+    <%= link_to order_path(@order, progress: "validated", notice: "Order validated"), method: :patch do %>
+      <div class="order-validate-sm"><i class="fa-solid fa-check"></i></div>
+    <% end %>
+  <% end %>
+
+  <% if @order.progress == "pending" || @order.progress == "validated" %>
+    <%= link_to order_path(@order, progress: "cancelled", notice: "Order cancelled"), method: :patch do %>
+      <div class="order-reject-sm"><i class="fa-solid fa-xmark"></i></div>
+    <% end %>
+  <% end %>
+<% end %>
 
   <%# Display chat %>
   <% if @order.progress != "cancelled" && @order.progress != "done" %>

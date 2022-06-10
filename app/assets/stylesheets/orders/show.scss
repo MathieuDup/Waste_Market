@@ -13,8 +13,160 @@
 }
 
 
-.order-show-button{
-  position: absolute;
-  top: 10px;
-  right: 10px;
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+
+  .order-show-button {
+    display: none;
+  }
+
+  .order-validate-sm {
+    // font-size: 24px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: $green-secondary;
+    border-radius: 50px;
+    color: white;
+    position: fixed;
+    bottom: 5em;
+    right: 0.5em;
+    z-index: 999;
+  }
+
+  .order-reject-sm {
+    // font-size: 24px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: $pink;
+    border-radius: 50px;
+    color: white;
+    position: fixed;
+    bottom: 5em;
+    right: 3em;
+    z-index: 999;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767px) {
+  .order-show-button {
+    display: none;
+  }
+
+  .order-validate-sm {
+    // font-size: 24px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: $green-secondary;
+    border-radius: 50px;
+    color: white;
+    position: fixed;
+    bottom: 5em;
+    right: 0.5em;
+    z-index: 999;
+  }
+
+
+  .order-reject-sm {
+    // font-size: 24px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: $pink;
+    border-radius: 50px;
+    color: white;
+    position: fixed;
+    bottom: 5em;
+    right: 3em;
+    z-index: 999;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+  .order-show-button {
+    display: none;
+  }
+
+  .order-validate-sm {
+    // font-size: 24px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: $green-secondary;
+    border-radius: 50px;
+    color: white;
+    position: fixed;
+    bottom: 5em;
+    right: 0.5em;
+    z-index: 999;
+  }
+
+  .order-reject-sm {
+    // font-size: 24px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: $pink;
+    border-radius: 50px;
+    color: white;
+    position: fixed;
+    bottom: 5em;
+    right: 3em;
+    z-index: 999;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199px) {
+  .order-show-button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .order-validate-sm {
+    display: none;
+  }
+  .order-reject-sm {
+    display: none;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+  .order-show-button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .order-validate-sm {
+    display: none;
+  }
+  .order-reject-sm {
+    display: none;
+  }
 }
