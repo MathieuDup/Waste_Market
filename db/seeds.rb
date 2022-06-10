@@ -67,7 +67,7 @@ resistance and functionality to any space."
 product_description_3 = "Plumber's Putty is a ready-mixed, waterproof, non-setting putty designed for sealing and
 bedding w/c soil pipes, joints in sanitaryware, sinks and waste water fittings. "
 
-product_description_4 = "Bird Brand 0120 White Spirit 2 LitreA high quality and general purpose solvent with 100�s of
+product_description_4 = "Bird Brand 0120 White Spirit 2 LitreA high quality and general purpose solvent with 100s of
 uses. Most generally used to thin solvent based paint and clean brushes and equipment."
 
 product_description_5 = "The all-purpose way to bond building materials. It's so versatile, it grabs virtually anything
@@ -121,7 +121,7 @@ product_1 = Product.create!(name: "PVC Flooring Planks", price: 50, brand: "Livi
 product_1.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673573/production/vinyl_xjbgsu.webp"), filename: "vinyl_xjbgsu.webp", content_type: "image/webp")
 product_2 = Product.create!(name: "Ivar Floor Plank", price: 60, brand: "Malmo", characteristics: "Color: Light brown, Type: Wood, Length: 122cm", condition: "Good", quantity_left: "75", user: mathieu, category: tiles, sub_category: sub_cat_4, description: product_description_2)
 product_2.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/plank_flooring_rmjg2p.jpg"),filename: "plank_flooring_rmjg2p.jpg", content_type: "image/jpg")
-product_3 = Product.create!(name: "Plumber's Putty", price: 2, brand: "Ever Build", characteristics: "Color: White, Type: Sealing, Original Quantity: 750g", condition: "Average", quantity_left: "25", user: florian, category: hardware, sub_category: sub_cat_12, description: product_description_3)
+product_3 = Product.create!(name: "Plumber's Putty", price: 5, brand: "Ever Build", characteristics: "Color: White, Type: Sealing, Original Quantity: 750g", condition: "Average", quantity_left: "25", user: florian, category: hardware, sub_category: sub_cat_12, description: product_description_3)
 product_3.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673573/production/putty_kxujtz.webp"), filename: "putty_kxujtz.webp", content_type: "image/webp")
 product_4 = Product.create!(name: "White Spirit", price: 8, brand: "Bird Brand", characteristics: "Type: Solvent, Original Quantity: 2L", condition: "Perfect", quantity_left: "75", user: jerome, category: hardware, sub_category: sub_cat_10, description: product_description_4)
 product_4.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673573/production/white_spirit_gi4eyk.webp"), filename: "white_spirit_gi4eyk.webp", content_type: "image/webp")
@@ -135,9 +135,9 @@ product_8 = Product.create!(name: "Chisel Set", price: 30, brand: "VonHaus", con
 product_8.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673573/production/chisel_x6cwyu.jpg"), filename: "chisel_x6cwyu.jpg", content_type: "image/jpg")
 product_9 = Product.create!(name: "Cordless Drill", price: 20, brand: "Terratek", condition: "Good", user: mathieu, category: tools, sub_category: sub_cat_8, description: product_description_9)
 product_9.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/drill_driver_zvsacq.webp"), filename: "cordless_drill_xjbgsu.webp", content_type: "image/webp")
-product_10 = Product.create!(name: "Paint Origins", price: 5, brand: "Dulux", condition: "Good", characteristics: "Color: Brown, Original Quantity: 125ML", quantity_left: "50", user: florian, category: paint, sub_category: sub_cat_1, description: product_description_10)
+product_10 = Product.create!(name: "Paint Origins", price: 25, brand: "Dulux", condition: "Good", characteristics: "Color: Brown, Original Quantity: 125ML", quantity_left: "50", user: florian, category: paint, sub_category: sub_cat_1, description: product_description_10)
 product_10.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673573/production/authentic_origins_dee2q7.webp"), filename: "paint_origins_xjbgsu.webp", content_type: "image/webp")
-product_11 = Product.create!(name: "Paint Water Based", price: 5, brand: "Johnstone's", condition: "Good", characteristics: "Color: Deep Amethyst, Original Quantity: 2.5L", quantity_left: "25", user: mathieu, category: paint, sub_category: sub_cat_2, description: product_description_11)
+product_11 = Product.create!(name: "Paint Water Based", price: 20, brand: "Johnstone's", condition: "Good", characteristics: "Color: Deep Amethyst, Original Quantity: 2.5L", quantity_left: "25", user: mathieu, category: paint, sub_category: sub_cat_2, description: product_description_11)
 product_11.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/johnstone_s_wall_ceiling_hirof2.webp"), filename: "johnstone_s_wall_ceiling_hirof2.webp", content_type: "image/webp")
 product_12 = Product.create!(name: "Paint Silk", price: 25, brand: "Dulux", condition: "Good", characteristics: "Color: Camel, Original Quantity: 5L", quantity_left: "50", user: florian, category: paint, sub_category: sub_cat_2, description: product_description_12)
 product_12.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654673574/production/dulux_naturalhints_fmb2ls.webp"), filename: "dulux_naturalhints_fmb2ls.webp", content_type: "image/webp")
@@ -153,7 +153,7 @@ product_17 = Product.create!(name: "Sanitary Silicon", price: 20, brand: "Geb", 
 product_17.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654596577/production/mastic-silicone-gebsicone_ymnhfd.jpg"), filename: "mastic-silicone-gebsicone_ymnhfd.jpg", content_type: "image/jpg")
 product_18 = Product.create!(name: "All-around paint", price: 40, brand: "Colours Collection", characteristics: "Color: Beetle, Type: Satin", condition: "Good", quantity_left: "50", user: mathieu, category: paint, sub_category: sub_cat_2, EAN: "3454976664372", description: product_description_18)
 product_18.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654596577/production/peinture-multi-supports-scarab-e-satin-0-75l_3454976664372_02c_tqo4fk.webp"), filename: "peinture-multi-supports-scarab-e-satin-0-75l_3454976664372_02c_tqo4fk.webp", content_type: "image/webp")
-product_19 = Product.create!(name: "Wall, wood and radiator paint ", price: 20, brand: "Ripolin", characteristics: "Color: Duck Green, Type: Satin", condition: "Average", quantity_left: "25", user: mathieu, category: paint, sub_category: sub_cat_2, EAN: "3174269073703", description: product_description_19)
+product_19 = Product.create!(name: "Green paint ", price: 20, brand: "Ripolin", characteristics: "Color: Duck Green, Type: Satin", condition: "Average", quantity_left: "25", user: mathieu, category: paint, sub_category: sub_cat_2, EAN: "3174269073703", description: product_description_19)
 product_19.photo.attach(io: URI.open("https://res.cloudinary.com/dtfxmzzss/image/upload/v1654596577/production/5622880_C_r9x7wg.jpg"), filename: "5622880_C_r9x7wg.jpg", content_type: "image/jpg")
 
 Order.create!(user: patricia, product: product_5, progress: "done", qr_code: RQRCode::QRCode.new("http://www.wastemarket.lol/"))
